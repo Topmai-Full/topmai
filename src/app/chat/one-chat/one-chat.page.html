@@ -1,0 +1,515 @@
+<ion-header [translucent]="true" class="color-header" style="position: relative">
+    
+    <ion-icon (click)="goBack()" style="position: absolute; top:4px; font-size: 30px; color: white;" name="chevron-back-outline"></ion-icon>
+    
+    <div style="display: flex;justify-content: center;align-items: center;color:#FFF;height: 100%">
+        <div>
+            Kasun Chandika
+        </div>
+        
+        <ion-icon style="color: white;font-size: 25px;margin-left: 390px" name="ellipsis-vertical"></ion-icon>
+    </div>
+    
+    </ion-header>
+
+<ion-content>
+    <ion-grid style="margin-left: 5px;">
+        <ion-row style="flex-wrap: nowrap;margin-top: 10px; display: flex; justify-content: flex-start">
+            <div style="width: 55px">
+                <img style="width: 45px; height: 45px; object-fit: cover; border-radius: 100%" src="assets/chat/contacts/1.png" />
+            </div>
+            <div style="display: flex; margin-left: 3px;">
+                <div class="chat-left">
+                    fdsfsdsfds fds fds fds fds fds fds fds afd safds
+                </div>
+            </div>
+        </ion-row>
+
+        <ion-row style="flex-wrap: nowrap;margin-top: 10px; display: flex; justify-content: flex-end">
+            <div style="display: flex; margin-right: 3px">
+                <div class="chat-right">
+                    fdsfsds dsfdsfdsf ds fds fds f dsafdsaf dsa fdsaf ds afdsa fdsa fds a
+                </div>
+            </div>
+            <div style="text-align: right; margin-right: 5px">
+                <img style="width: 45px;  height: 45px; object-fit: cover;border-radius: 100%" src="assets/chat/contacts/2.png" />
+            </div>
+        </ion-row>
+
+        <ion-row style="text-align: center; margin: 25px; color: grey; font-size: 13px">
+            <ion-col>
+                4/7/21 10:24
+            </ion-col>
+        </ion-row>
+
+        <ion-row style="flex-wrap: nowrap;margin-top: 10px; display: flex; justify-content: flex-start">
+            <div style="width: 55px">
+                <img style="width: 45px; height: 45px; object-fit: cover; border-radius: 100%" src="assets/chat/contacts/1.png" />
+            </div>
+            <div style="display: flex; margin-left: 3px;">
+                <div class="chat-left">
+                    fdsfsdsfds fds fds fds fds fds fds fds afd safds
+                </div>
+            </div>
+        </ion-row>
+        <ion-row style="flex-wrap: nowrap;margin-top: 10px; display: flex; justify-content: flex-end">
+            <div style="display: flex; margin-right: 3px">
+                <div class="chat-right">
+                    fdsfsds
+                </div>
+            </div>
+            <div style="text-align: right; margin-right: 5px">
+                <img style="width: 45px;  height: 45px; object-fit: cover;border-radius: 100%" src="assets/chat/contacts/2.png" />
+            </div>
+        </ion-row>
+        <ion-row style="flex-wrap: nowrap;margin-top: 10px; display: flex; justify-content: flex-start">
+            <div style="width: 55px">
+                <img style="width: 45px; height: 45px; object-fit: cover; border-radius: 100%" src="assets/chat/contacts/1.png" />
+            </div>
+            <div style="display: flex; margin-left: 3px;">
+                <div class="chat-left">
+                    fdsfsd
+                </div>
+            </div>
+        </ion-row>
+    </ion-grid>
+</ion-content>
+
+<ion-footer>
+    <ion-grid>
+        <ion-row>
+            <ion-col size="2" style="display: flex;align-items: center; font-size: 30px; justify-content: center;">
+
+                <ion-icon (click)="mostrar = !mostrar" style="display: block" name="happy-outline"></ion-icon>
+            </ion-col>
+            <ion-col>
+                <input class="chat-input" />
+            </ion-col>
+            <ion-col size="2" style="display: flex;align-items: center;font-size: 25px;justify-content: center;">
+                <!-- <ion-icon style="display: block" name="ellipsis-vertical-circle-outline"></ion-icon> -->
+                <ion-icon style="display: block" name="send-outline"></ion-icon>
+            </ion-col>
+            <ion-col size="2" style="display: flex;align-items: center;font-size: 30px;justify-content: center;">
+                <ion-icon (click)="mostrarr = !mostrarr" style="display: block" name="add-circle-outline"></ion-icon>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+
+
+    <!----text-decoration: none; display:inline-block; height: 1.5em;=======< !----text-decoration: none; display:inline-block; height: 1.5em;>>>>>>> b2d4355db5d6c5032abe96badc286698e50701be width: 1.5em; ---->
+    <ion-content pager="false" *ngIf="mostrar">
+
+        <ion-grid style="margin-top: 3px">
+            <ion-row style="text-align:center; font-size:12px">
+                <ion-col size="4" style="padding: 5px 5px 0px;">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/1.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/2.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/3.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/4.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/5.png" />
+                </ion-col>
+
+            </ion-row>
+            <ion-row style="text-align:center; font-size:12px">
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/6.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/7.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/8.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/9.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/10.png" />
+                </ion-col>
+            </ion-row>
+            <ion-row style="text-align:center; font-size:12px">
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/11.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/12.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/13.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/14.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/15.png" />
+                </ion-col>
+            </ion-row>
+            <ion-row style="text-align:center; font-size:12px">
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/16.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/17.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/18.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/19.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/20.png" />
+                </ion-col>
+            </ion-row>
+            <ion-row style="text-align:center; font-size:12px">
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/21.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/22.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/23.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/24.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/25.png" />
+                </ion-col>
+            </ion-row>
+            <ion-row style="text-align:center; font-size:12px">
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/26.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/27.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/28.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/29.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/30.png" />
+                </ion-col>
+            </ion-row>
+            <ion-row style="text-align:center; font-size:12px">
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/31.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/32.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/33.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/34.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/35.png" />
+                </ion-col>
+            </ion-row>
+            <ion-row style="text-align:center; font-size:12px">
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/36.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/37.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/38.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/39.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/40.png" />
+                </ion-col>
+            </ion-row>
+            <ion-row style="text-align:center; font-size:12px">
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/41.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/42.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/43.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/44.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/45.png" />
+                </ion-col>
+            </ion-row>
+            <ion-row style="text-align:center; font-size:12px">
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/46.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/47.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/48.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/49.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/50.png" />
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        =======
+        <ion-grid style="margin-top: 3px">
+            <ion-row style="text-align:center; font-size:12px">
+                <ion-col size="4" style="padding: 5px 5px 0px;">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/1.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/2.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/3.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/4.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/5.png" />
+                </ion-col>
+
+            </ion-row>
+            <ion-row style="text-align:center; font-size:12px">
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/6.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/7.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/8.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/9.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/10.png" />
+                </ion-col>
+            </ion-row>
+            <ion-row style="text-align:center; font-size:12px">
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/11.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/12.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/13.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/14.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/15.png" />
+                </ion-col>
+            </ion-row>
+            <ion-row style="text-align:center; font-size:12px">
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/16.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/17.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/18.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/19.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/20.png" />
+                </ion-col>
+            </ion-row>
+            <ion-row style="text-align:center; font-size:12px">
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/21.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/22.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/23.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/24.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/25.png" />
+                </ion-col>
+            </ion-row>
+            <ion-row style="text-align:center; font-size:12px">
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/26.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/27.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/28.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/29.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/30.png" />
+                </ion-col>
+            </ion-row>
+            <ion-row style="text-align:center; font-size:12px">
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/31.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/32.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/33.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/34.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/35.png" />
+                </ion-col>
+            </ion-row>
+            <ion-row style="text-align:center; font-size:12px">
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/36.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/37.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/38.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/39.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/40.png" />
+                </ion-col>
+            </ion-row>
+            <ion-row style="text-align:center; font-size:12px">
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/41.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/42.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/43.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/44.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/45.png" />
+                </ion-col>
+            </ion-row>
+            <ion-row style="text-align:center; font-size:12px">
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/46.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/47.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/48.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/49.png" />
+                </ion-col>
+                <ion-col size="4" style="padding: 5px 5px 0px">
+                    <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/emojis/50.png" />
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+
+
+
+    </ion-content>
+
+
+
+    <ion-slides pager="false" *ngIf="mostrarr">
+        <ion-slide>
+            <ion-grid style="margin-top: 3px">
+                <ion-row style="text-align:center; font-size:12px">
+                    <ion-col size="5" style="padding: 20px 20px 0px;">
+                        <img style="margin-bottom: 3px; width: 50px;" src="assets/chat/one-chat/1.png" /> Camara
+                    </ion-col>
+                    <ion-col size="5" style="padding: 20px 20px 0px">
+                        <img style="margin-bottom: 3px; width: 50px;" src="assets/chat/one-chat/2.png" /> Contacto
+                    </ion-col>
+                  
+                    <!-- <ion-col size="5" style="padding: 20px 20px 0px">
+                        <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/3.png" />
+                    </ion-col> -->
+                    <ion-col size="5" style="padding: 20px 20px 0px" (click)="AutoPrecio()">
+                        <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/8.png" /> Transferir
+                    </ion-col>
+                    <!-- <ion-col size="5" style="padding: 20px 20px 0px" (click)="presentModal()">
+                        <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/8.png" /> Transferir
+                    </ion-col> -->
+                    <ion-col size="5" style="padding: 20px 20px 0px" (click)="goToPage('chat/resolve-center')">
+                        <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/4.png" /> Archivos
+                    </ion-col>
+                </ion-row>
+                <ion-row style="text-align:center; font-size:12px">
+                    <ion-col size="5" style="padding: 20px 20px 0px">
+                        <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/5.png" /> Locación
+                    </ion-col>
+                    <ion-col size="5" style="padding: 20px 20px 0px">
+                        <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/6.png" /> Fotos
+                    </ion-col>
+                    <ion-col size="5" style="padding: 20px 20px 0px">
+                        <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/7.png" /> Audio
+                    </ion-col>
+                    <ion-col size="5" style="padding: 20px 20px 0px">
+                        <img style="margin-bottom: 3px;width: 50px;" src="assets/chat/one-chat/9.png" /> Regalo
+                    </ion-col>
+                   
+                </ion-row>
+                 
+
+            </ion-grid>
+        </ion-slide>
+        <ion-slide>
+           
+                <ion-grid style="margin-top: 3px">
+                 <ion-row>
+            <ion-col size="5" style="padding: 10px 10px 0px">
+                <img style="margin-bottom: 3px;width: 40px;" src="assets/chat/one-chat/1x/ofertar.png" />ofertar
+            </ion-col>
+            </ion-row>
+                </ion-grid>
+       
+            
+        </ion-slide>
+    </ion-slides>
+
+</ion-footer>

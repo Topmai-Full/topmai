@@ -1,0 +1,70 @@
+    ion-menu-button {
+        color: var(--ion-color-primary);
+    }
+    
+    ion-header {
+        background-image: linear-gradient(to right, #4cd080 0%, #4cd080 100%);
+    }
+    
+    input {
+        padding-left: 50px;
+    }
+    
+    input:focus,
+    textarea:focus,
+    select:focus {
+        outline: none;
+    }
+    
+    ion-menu-button {
+        color: #FFF;
+    }
+    
+     ::-webkit-input-placeholder {
+        text-align: left;
+    }
+    
+    ion-header::after {
+        background-image: none;
+    }
+    
+    ion-buttons::after {
+        background-image: none;
+    }
+    
+    input {
+        box-sizing: border-box;
+    }
+    
+    hr {
+        width: calc(100% - 65px);
+        background: #d4d3d3;
+        height: 1px;
+    }
+    
+    .profilePic {
+        display: block;
+        height: 45px;
+        width: 45px;
+        object-fit: cover;
+        border-radius: 100%
+    }
+    
+    .topchat-title {
+        color: #fff;
+        font-size: 1.2rem;
+    }
+    
+    .sc-ion-searchbar-md-h {
+        --border-radius: 20px !important;
+    }
+    
+    .color-header {
+        // background-color: #2e77f1!important;
+        // background-image: #2e77f1 !important;
+        background-image: linear-gradient(to right, #4cd080 0%, #4cd080 100%);
+    }
+    
+    .font-mai {
+        font-family: 'Arista';
+    }

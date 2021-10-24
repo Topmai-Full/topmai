@@ -1,0 +1,28 @@
+<div class="container">
+  <div *ngFor="let item of items;">
+    <div class="oneItem">
+      <div>
+        <div style="text-align: center; display: flex; align-items: center; justify-content: center">
+          <div class="img-container">
+            <div style="width: 80px;">
+              <img style="width: 700px" [src]='item.img' />
+            </div>
+          </div>
+        </div>
+        <div style="text-align: center;">
+          <div class="item-title-div" style="font-size: 15px;">
+            {{item.title}}
+          </div>
+          <!-- <div style="display: flex; justify-content: space-between">
+                        <div style="font-size: 16px;color: #c91818; font-weight: bold;">
+                            {{item.discountPrice}}
+                        </div>
+                        <div style="font-size: 15px;color: #969696; font-weight: 500;text-decoration: line-through;">
+                            {{item.price}}
+                        </div>
+                    </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

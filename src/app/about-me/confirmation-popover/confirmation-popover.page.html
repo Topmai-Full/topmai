@@ -1,0 +1,50 @@
+<ion-content style="position: relative">
+  <div (click)="dismiss()" style="position: fixed; top: 10px; right: 5px; z-index: 4">
+    <ion-icon style="font-size:30px; color: #c6c5c5" name="close-circle"></ion-icon>
+  </div>
+
+  <div style="padding: 20px 10px;">
+    <div style="text-align: center;" *ngIf="!action">
+      Add shipping
+    </div>
+    <div style="text-align: center;" *ngIf="action">
+      Update shipping
+    </div>
+
+    <ion-row style="margin-top: 20px">
+      <ion-col size="3" style="display: flex;align-items: center">
+        <div>NAME</div>
+      </ion-col>
+      <ion-col>
+        <input type="text" name="name" [(ngModel)]="formObj.name" placeholder="NAME" style="width: 100%" />
+      </ion-col>
+    </ion-row>
+
+    <ion-row style="margin-top: 10px">
+      <ion-col size="3" style="display: flex;align-items: center">
+        <div>ADDRE</div>
+      </ion-col>
+      <ion-col>
+        <input type="text" name="address" [(ngModel)]="formObj.address" placeholder="ADDRESS" style="width: 100%" />
+      </ion-col>
+    </ion-row>
+
+    <ion-row style="margin-top: 10px">
+      <ion-col size="3" style="display: flex;align-items: center">
+        <div>ZIP</div>
+      </ion-col>
+      <ion-col>
+        <input type="number" name="zip" [(ngModel)]="formObj.zip" placeholder="ZIP CODE" style="width: 100%" />
+      </ion-col>
+    </ion-row>
+
+    <div id="checkButton" *ngIf="!action" (click)="create()">
+      CREATE
+    </div>
+
+    <div id="checkButton" *ngIf="action" (click)="update()">
+      UPDATE
+    </div>
+
+  </div>
+</ion-content>

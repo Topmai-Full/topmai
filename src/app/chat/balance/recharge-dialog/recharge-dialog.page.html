@@ -1,0 +1,141 @@
+<ion-header [translucent]="true" class="color-header" style="position: relative">
+    <ion-icon (click)="dismiss()" style="position: absolute; top:12px; font-size: 25px; " name="chevron-back-outline"></ion-icon>
+    <div style="margin-left:40px; display: flex;justify-content: flex-start;align-items: center;height: 100%">
+        <div>
+            <b style="">Recargar</b>
+        </div>
+    </div>
+</ion-header>
+
+<ion-content scrollY="false">
+    <!-- <ion-grid style="color: white;">
+        <ion-row>
+            <ion-col size="7">
+                <div>Metodo de <br> recarga</div>
+            </ion-col>
+            <ion-col>
+                <div style="font-weight: bold">ICBE (5673)</div>
+                <div style="margin-top: 5px">Límite de transacción al día $ 500000.00</div>
+            </ion-col>
+            <ion-col size="1">
+                <ion-icon name="chevron-forward-outline"></ion-icon>
+            </ion-col>
+        </ion-row>
+    </ion-grid> -->
+
+    <!-- <ion-item lines="none" style="background-color: transparent !important;">
+        <ion-label>Genero</ion-label>
+        <ion-select value="F">
+            <ion-select-option value="M">Masculino</ion-select-option>
+            <ion-select-option value="F">Femenino</ion-select-option>
+        </ion-select>
+    </ion-item> -->
+
+    <div class="ion-padding">
+
+        <div style="font-size: 15px;display: flex; justify-content: space-between;align-items: center; font-weight: bold;">
+
+            <p style="display: block; width: 90%; margin-left: 20px; font-size: 20px; font-weight: normal;"> Metodo de recarga</p>
+
+            <!-- <ion-icon style="width: 10%;font-size:20px;display: block; color: white;" name="chevron-forward-outline"></ion-icon> -->
+            <ion-select>
+                <ion-select-option value="M">Credito</ion-select-option>
+                <ion-select-option value="F">Oxxo</ion-select-option>
+            </ion-select>
+        </div>
+        <div style="margin-top: 5px">Límite de transacción al día $500000.00</div>
+    </div>
+    <div class="ion-padding">
+
+        <div style="height: 120px; background-image: linear-gradient(to right,#02abc0, #84cddc); border-radius: 10px; color: white">
+            <div style="display: flex; justify-content: space-between; padding: 15px">
+                <div style="display: flex;">
+                    <div style="background: white; border-radius: 100%; width: 50px; height: 50px; display: flex; align-items: center;justify-content: center">
+                        <img style="max-width: 32px; display: block" src="assets/my-cards/master.png">
+                    </div>
+                    <div style="font-weight: bold; margin-left: 10px;display: flex; align-items: flex-start; margin-top: 10px">
+                        <div>MASTER</div>
+                    </div>
+                </div>
+                <div>
+                    <div style="font-weight: bold; text-align: right">
+                        **** 0017
+                    </div>
+                    <div style="margin-top: 5px">
+                        <div style="background: rgba(229,227,227,0.32); font-size: 10px; padding: 3px 5px; display: flex; align-items: center;justify-content: center; border-radius: 5px">
+                            <div>Nota tarjeta bancaria</div>
+                            <ion-icon style="display: block; margin-left: 3px" name="open-outline"></ion-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="middle-part" style="background: #FFFFFF; height: 50%;">
+        <div>Importe de transferencia</div>
+        <div style="margin-top: 10px; font-weight: bold; font-size: 30px;display: flex">
+            <div>$</div>
+            <div style="margin-left: 10px">
+                <input type="number" class="money-input" style="width: 200px" />
+            </div>
+        </div>
+    </div>
+</ion-content>
+
+<ion-footer class="color-footer">
+    <ion-grid style="padding: 0px; margin:0px;">
+        <ion-row style="padding: 0px; margin:0px;">
+            <ion-col class="btn-1">
+                <div>1</div>
+            </ion-col>
+            <ion-col class="btn-1">
+                <div>2</div>
+            </ion-col>
+            <ion-col class="btn-1">
+                <div>3</div>
+            </ion-col>
+            <ion-col size="3" class="btn-1">
+                <div>1</div>
+            </ion-col>
+        </ion-row>
+        <ion-row style="padding: 0px; margin:0px;">
+            <ion-col style="padding: 0px">
+                <ion-row>
+                    <ion-col class="btn-1">
+                        4
+                    </ion-col>
+                    <ion-col class="btn-1">
+                        5
+                    </ion-col>
+                    <ion-col class="btn-1">
+                        6
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col class="btn-1">
+                        7
+                    </ion-col>
+                    <ion-col class="btn-1">
+                        8
+                    </ion-col>
+                    <ion-col class="btn-1">
+                        9
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col class="btn-1">
+                        0
+                    </ion-col>
+                    <ion-col style="--width: 10px" class="btn-1">
+                        .
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col size="3" class="btn-rec">
+                <div>Recargar</div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-footer>

@@ -1,0 +1,37 @@
+<ion-header [translucent]="true" class="color-header" style="position: relative">
+  <ion-icon (click)="dismiss()" style="position: absolute; top:12px; font-size: 25px;" name="chevron-back-outline"></ion-icon>
+  <div style="display: flex;justify-content: center;align-items: center;height: 100%">
+    <div>
+      <b>Transferir a tarrjeta</b>
+    </div>
+  </div>
+  <ion-icon style="position: absolute; top:12px; font-size: 25px;  right: 15px" name="ellipsis-horizontal"></ion-icon>
+</ion-header>
+
+<ion-content>
+  <ion-grid style="background: #FFFFFF; margin: 10px; border-radius: 5px; padding: 10px 5px">
+    <ion-row>
+      <ion-col size="4">Nombre</ion-col>
+      <ion-col size="7"><input placeholder="Nombre"/></ion-col>
+      <ion-col size="1"><ion-icon style="color: #1ac26b" name="time-outline"></ion-icon></ion-col>
+    </ion-row>
+    <hr style="height: 1px; background: #ecebeb">
+    <ion-row>
+      <ion-col size="4">N.de tarjeta</ion-col>
+      <ion-col><input placeholder="N.de tarjeta"/></ion-col>
+    </ion-row>
+    <hr style="height: 1px; background: #eae9e9">
+    <ion-row>
+      <ion-col size="4">Banco</ion-col>
+      <ion-col><input placeholder="Banco"/></ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid style="background: #c7c6c6; margin: 30px 10px; border-radius: 5px; padding: 10px 5px">
+    <ion-row>
+      <ion-col style="text-align: center; color: gray; font-weight: bold">
+        Siguiente
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

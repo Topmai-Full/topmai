@@ -1,0 +1,56 @@
+ion-toolbar {
+    --background: white;
+    ion-title {
+        font-size: 2rem;
+    }
+}
+
+ion-content {
+    --background: white;
+    .top-holder {
+        background: white;
+        ion-avatar {
+            --border-radius: 0;
+            height: 5rem;
+            width: 5rem;
+        }
+    }
+    .menu-list {
+        margin-bottom: 20px;
+    }
+}
+
+.font-mai {
+    font-family: 'Arista';
+    font-size: 25px !important;
+}
+
+.cover-image {
+    width: 100%;
+    object-fit: cover;
+    height: 250px;
+}
+
+.img-perfil img {
+    width: 45%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid white;
+    position: absolute;
+    top: 95%;
+    right: 50%;
+    transform: translate(50%, -50%);
+}
+
+.text-perfil {
+    position: absolute;
+    top: 135%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    color: black;
+    // letter-spacing: 1.2px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+// style="position: absolute; bottom: -90px;left: 120px"

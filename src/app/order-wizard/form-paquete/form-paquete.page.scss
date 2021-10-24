@@ -1,0 +1,64 @@
+.form-input {
+    width: 100%;
+    height: 34px;
+    border-radius: 5px;
+    border: 1px solid #bdbcbc;
+    padding-left: 10px;
+    color: #444444;
+}
+
+.form-input:focus {
+    outline: none;
+    border: 1px solid #1b97f5;
+    box-shadow: 0 0 10px #9ecaed;
+}
+
+ion-row {
+    margin-bottom: 18px;
+}
+
+input[type=checkbox] {
+    transform: scale(1.2);
+    margin-right: 7px;
+    margin-top: 2px;
+}
+
+.checkbox-text {
+    font-size: 15px;
+    display: block;
+}
+
+button {
+    border-radius: 5px;
+    color: white;
+    background: #49ad3c;
+    height: 34px;
+    width: 100%
+}
+
+ion-menu-button {
+    color: var(--ion-color-primary);
+}
+
+ion-header {
+    background-image: linear-gradient(to right, #039be5 0%, #039be5 100%);
+}
+
+.topchat-title {
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.sc-ion-searchbar-md-h {
+    --border-radius: 20px !important;
+}
+
+.color-header {
+    // background-color: #2e77f1!important;
+    // background-image: #2e77f1 !important;
+    background-image: linear-gradient(to right, #fb0f3a 0%, #fb0f3a 100%);
+}
+
+.font-mai {
+    font-family: 'Arista';
+}

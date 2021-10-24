@@ -1,0 +1,18 @@
+input {
+  border: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+#checkButton {
+  margin-top: 15px;
+  border-radius: 5px;
+  background: #df2626;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  justify-content: center
+}

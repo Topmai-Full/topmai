@@ -1,0 +1,71 @@
+<ion-slides pager="false">
+    <ion-slide>
+        <ion-grid style="margin-top: 10px; text-align: center; color: #787878; font-size: 12px" class="grid-categories">
+            <ion-row class="ion-justify-content-around">
+                <ion-col size="2" *ngFor="let item of categoriesRow1;">
+                    <div>
+                        <img style="width: 50px; " [src]="item.icon" />
+                        <div style="margin-top:3px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                            {{item.title}}
+                        </div>
+                    </div>
+                </ion-col>
+                <ion-col size="2" *ngFor="let item of categoriesRow2;">
+                    <div>
+                        <img style="width: 50px;" [src]="item.icon" />
+                        <div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                            {{item.title}}
+                        </div>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        
+    </ion-slide>
+    <!-- <ion-slide>
+      <ion-grid style="margin-top: 10px; text-align: center; color: #787878; font-size: 12px" class="grid-categories">
+          <ion-row class="ion-justify-content-around">
+              <ion-col size="2" *ngFor="let item of categoriesRow3;">
+                  <div>
+                      <img style="width: 50px; " [src]="item.icon" />
+                      <div style="margin-top:3px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                          {{item.title}}
+                      </div>
+                  </div>
+              </ion-col>
+              <ion-col size="2" *ngFor="let item of categoriesRow4;">
+                  <div>
+                      <img style="width: 50px; " [src]="item.icon" />
+                      <div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                          {{item.title}}
+                      </div>
+                  </div>
+              </ion-col>
+          </ion-row>
+      </ion-grid>
+  </ion-slide> -->
+
+</ion-slides>
+
+<ion-grid style="padding: 0px">
+    <ion-row>
+        <ion-col (click)="gotoItem(item.id)" style="font-size: 12px" [class]="getClass(i)" *ngFor="let item of items;let i = index" size="6">
+            <img [src]="item.img" />
+            <ion-row>
+                <ion-col style="padding-bottom: 0px">
+                    <span style="font-size: 16px;">{{item.title}} </span> <br> <span style="color: rgb(13, 172, 13); font-size: 10px;">{{item.subTitle}} </span> <span style="color:#a5a5a5; font-size: 10px; margin-left: 5px;"> {{item.rembolso}}</span>
+                </ion-col>
+            </ion-row>
+            <ion-row style="display:flex;justify-content: space-between;padding-left: 5px; align-items: center">
+                <div style="color: #6A7586">
+                    <span style="color: #DF2E24; margin-right: 5px; font-size: 15px; font-weight: bold;">{{item.price}}</span>
+                    <span><s>{{item.priceNote}} </s></span>
+                    <span style="margin-left: 8px;"> {{item.ventas}}</span>
+                </div>
+                <div *ngIf="item.people">
+                    <img style="height: 20px" [src]="item.people" />
+                </div>
+            </ion-row>
+        </ion-col>
+    </ion-row>
+</ion-grid>

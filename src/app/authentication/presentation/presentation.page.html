@@ -1,0 +1,17 @@
+<ion-toolbar>
+  <ion-buttons slot="start" (click)="goBack()">
+    <ion-icon style="font-size: 30px; " name="chevron-back-outline"></ion-icon>
+  </ion-buttons>
+</ion-toolbar>
+<ion-content class="ion-padding ion-text-center">
+  <ion-slide>
+    <div class="slide">
+      <img src="../../../assets/topmai.svg" />
+      <h2>Bienvenido</h2>
+      <p>The <b>ionic conference app</b> is a practical preview of the ionic framework in action, and a demonstration of
+        proper code use.</p>
+      <ion-button style="--background: #35CA75;" expand='block' (click)="Login()">Ingresar</ion-button>
+      <ion-button style="--background: #35CA75;" expand='block' (click)="Register()">Registrarse</ion-button>
+    </div>
+  </ion-slide>
+</ion-content>

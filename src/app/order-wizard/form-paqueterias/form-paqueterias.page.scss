@@ -1,0 +1,31 @@
+ion-toolbar {
+    --background: #F3F3F3;
+}
+
+ion-content {
+    ion-item {
+        ion-checkbox {
+            --background-checked: #14CC9A;
+            --border-color-checked: #14CC9A;
+        }
+    }
+}
+
+.color-header {
+    // background-color: #2e77f1!important;
+    // background-image: #2e77f1 !important;
+    background-image: linear-gradient(to right, #fb0f3a 0%, #fb0f3a 100%);
+}
+
+.font-mai {
+    font-family: 'Arista';
+}
+
+button {
+    border-radius: 5px;
+    color: white;
+    background: #49ad3c;
+    height: 34px;
+    width: 100%;
+    margin-bottom: 2rem;
+}

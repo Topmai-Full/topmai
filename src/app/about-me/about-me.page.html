@@ -1,0 +1,242 @@
+<ion-content>
+  <ion-grid style="margin-top: 10px">
+    <ion-row>
+      <ion-col size="2" style="display: flex; align-items: center; justify-content: center">
+        <img style="display:block;border-radius: 50px; width: 70%;"
+          src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg">
+      </ion-col>
+      <ion-col size="5" style="display: flex; flex-direction:column;justify-content: center;">
+        <div id="userName">
+          <span *ngIf="user !== null">
+            {{user?.name}}
+          </span>
+          <span *ngIf="user === null">
+            Name
+          </span>
+        </div>
+        <div id="userEmail" >
+          <div style="margin-left: 0px; padding-bottom: 3px" >
+            <span *ngIf="user !== null">
+              {{user?.email}}
+            </span>
+            <span *ngIf="user === null">
+              Email
+            </span>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col size="3" style="display: flex; flex-direction: column; ">
+        <div style="color:#a5a4a4;align-items:center;text-align: right; display: flex; justify-content:flex-end; ">
+          <img src="assets/chat/wallet/settings.png" alt="" style="max-width: 30%;" (click)="openProfileModal()">
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-button *ngIf="user === null" (click)="gotoSesion()" style="--background: #35CA75;" expand='block'>INICIAR SESIÓN
+  </ion-button>
+  <ion-button *ngIf="user !== null" (click)="logout()" style="--background: #35CA75;" expand='block'>Se déconnecter
+  </ion-button>
+  <ion-grid style="padding: 10px">
+
+    <ion-row>
+      <ion-col size="2">
+        <div style="text-align: center">
+          <img style="width: 30px; height: 30px" src="assets/about-me/1x/pago_pendiente.png">
+        </div>
+        <div (click)="gotoEnvios()" style="font-size: 13px;text-align: center; color: #666666">
+          venta guìas
+        </div>
+      </ion-col>
+      <ion-col size="2">
+        <div style="text-align: center">
+          <img style="width: 30px; height: 30px" src="assets/about-me/1x/notificaciones.png">
+        </div>
+        <div style="font-size: 13px;text-align: center; color: #666666">
+          notificaciones
+        </div>
+      </ion-col>
+      <ion-col size="2" (click)="openOrderStateModal()">
+        <div style="text-align: center">
+          <img style="width: 30px; height: 30px" src="assets/about-me/1x/envio_pendiente.png">
+        </div>
+        <div style="font-size: 13px;text-align: center; color: #666666">
+          historial
+        </div>
+      </ion-col>
+      <ion-col size="2">
+        <div style="text-align: center">
+          <img style="width: 30px; height: 30px" src="assets/about-me/1x/gana_cupones.png">
+        </div>
+        <div style="font-size: 13px;text-align: center; color: #666666" (click)="goMyOrders()">
+          cupones
+        </div>
+      </ion-col>
+      <ion-col size="2">
+        <div style="text-align: center">
+
+          <img style="width: 30px; height: 30px" src="assets/about-me/1x/favoritos.png">
+
+        </div>
+        <div style="font-size: 13px;text-align: center; color: #666666">
+          favoritos
+        </div>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+
+  <div style="height: 10px;background: #efeeee"></div>
+  <ion-row>
+    <ion-col size="5" style="display: flex;align-items: center">
+      <div>
+        Mis pedidos
+      </div>
+    </ion-col>
+    <ion-col size="5"
+      style="color:#a5a4a4;align-items:center;text-align: right; display: flex; justify-content:flex-end">
+      <div>
+        Ver todos
+      </div>
+      <div>
+        <ion-icon style="font-size: 20px" name="chevron-forward-outline"></ion-icon>
+      </div>
+    </ion-col>
+  </ion-row>
+
+
+  <ion-grid style="padding: 10px">
+    <ion-row>
+      <ion-col size="2">
+        <div style="text-align: center">
+          <img style="width: 30px; height: 30px" src="assets/about-me/1x/pendiente_pago.png">
+        </div>
+        <div style="font-size: 13px;text-align: center; color: #666666">
+          pendiente de pago
+        </div>
+      </ion-col>
+      <ion-col size="2">
+        <div style="text-align: center">
+          <img style="width: 30px; height: 30px" src="assets/about-me/1x/productos_comprados_resientes.png">
+        </div>
+        <div (click)="goMyFavorites()" style="font-size: 13px;text-align: center; color: #666666">
+          pendiente de envio
+        </div>
+      </ion-col>
+      <ion-col size="2">
+        <div style="text-align: center">
+          <img style="width: 30px; height: 30px" src="assets/about-me/1x/e_nviado.png">
+        </div>
+        <div style="font-size: 13px;text-align: center; color: #666666">
+          enviado
+        </div>
+      </ion-col>
+      <ion-col size="2">
+        <div style="text-align: center">
+          <img style="width: 30px; height: 30px" src="assets/about-me/1x/pendiente_valoracion.png">
+        </div>
+        <div style="font-size: 13px;text-align: center; color: #666666">
+          pendiente de valoracion
+        </div>
+      </ion-col>
+      <ion-col size="2">
+        <div style="text-align: center">
+          <img style="width: 30px; height: 30px" src="assets/about-me/1x/monedero.png">
+        </div>
+        <div style="font-size: 13px;text-align: center; color: #666666">
+          monedero
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div style="height: 10px;background: #efeeee"></div>
+  <ion-row>
+    <ion-col size="5" style="display: flex;align-items: center">
+      <div>
+        servicios
+      </div>
+    </ion-col>
+    <ion-col size="5"
+      style="color:#a5a4a4;align-items:right;text-align: right; display: flex; justify-content:flex-end">
+      <div>
+        Ver todos
+      </div>
+      <div>
+        <ion-icon style="font-size: 20px" name="chevron-forward-outline"></ion-icon>
+      </div>
+    </ion-col>
+  </ion-row>
+
+
+  <ion-grid style="padding: 10px">
+    <ion-row>
+      <ion-col size="2">
+        <div style="text-align: center">
+          <img style="width: 30px; height: 30px" src="assets/about-me/1x/direccion_entrega.png">
+        </div>
+        <div style="font-size: 13px;text-align: center; color: #666666">
+          Direccion de entrega
+        </div>
+      </ion-col>
+      <ion-col size="2">
+        <div style="text-align: center">
+          <img style="width: 30px; height: 30px" src="assets/about-me/7.png">
+        </div>
+        <div (click)="goMyFavorites()" style="font-size: 13px;text-align: center; color: #666666">
+          monedero
+        </div>
+      </ion-col>
+
+      <ion-col size="2">
+        <div style="text-align: center">
+          <img style="width: 30px; height: 30px" src="assets/about-me/1x/centro_ayuda.png">
+        </div>
+        <div style="font-size: 13px;text-align: center; color: #666666">
+          centro de ayuda
+        </div>
+      </ion-col>
+      <ion-col size="2">
+        <div style="text-align: center">
+          <img style="width: 30px; height: 30px" src="assets/about-me/1x/preguntas.png">
+        </div>
+        <div style="font-size: 13px;text-align: center; color: #666666">
+          pregunta y respuesta
+        </div>
+      </ion-col>
+      <ion-col size="2">
+        <div style="text-align: center">
+          <img style="width: 30px; height: 30px" src="assets/about-me/1x/sujerencias.png">
+        </div>
+        <div style="font-size: 13px;text-align: center; color: #666666">
+          sujerencias
+        </div>
+      </ion-col>
+      <ion-col size="2" (click)="shippingModal()">
+        <div style="text-align: center">
+          <img style="width: 30px; height: 30px" src="assets/about-me/1x/centro_ayuda.png">
+        </div>
+        <div style="font-size: 13px;text-align: center; color: #666666">
+          Direccion de entregado
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div style="height: 10px;background: #efeeee"></div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col style="display: flex; align-items: center; justify-content: center">
+        <div>
+          <img style="width: 20px; height: 20px" src="assets/about-me/1x/destacado2.png">
+
+        </div>
+        <div style="margin-left: 8px; color: #9e0101">
+          Destacados
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <app-items-list></app-items-list>
+</ion-content>

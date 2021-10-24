@@ -1,0 +1,156 @@
+<ion-header [translucent]="true" class="color-header">
+    <ion-grid style="height: 50px">
+        <ion-row>
+            <ion-col size="1">
+                <ion-icon (click)="goBack()" style="font-size: 30px; color: white; margin: 0px 5px" name="chevron-back-outline"></ion-icon>
+            </ion-col>
+            <ion-col class="font-mai" style="color: #fff; margin-top: 7px; font-size: 1.5rem; margin-left: 10px;">
+                topmai envío
+            </ion-col>
+            <ion-col size="3">
+                <img src="assets/homePage/scanIcon.png" style="width: 25px" />
+                <ion-icon style="color: white;font-size: 25px;margin-left: 10px" name="ellipsis-vertical"></ion-icon>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-header>
+
+<ion-content>
+
+    <ion-grid style="background: #f5f4f4; margin:25px; padding: 20px 15px">
+        <ion-row style="font-weight: bold">
+            Copia y Pega
+        </ion-row>
+        <ion-item>
+            <ion-textarea rows="6" cols="20" placeholder="Pega la dirección completa de envío y distribuye la información"></ion-textarea>
+        </ion-item>
+    </ion-grid>
+
+    <ion-grid style="background: #f5f4f4; margin:25px; padding: 20px 15px">
+        <ion-row style="font-weight: bold">
+            Direccion de origen
+        </ion-row>
+        <ion-row>
+            <select class="form-input">
+          <option value="volvo">Buscar en libreta de direcciones</option>
+          <option value="saab">Mexica</option>
+          <option value="audi">Brazil</option>
+          <option value="fiat">Canada</option>
+        </select>
+        </ion-row>
+        <ion-row>
+            <input class="form-input" placeholder="Nombre de la persona" />
+        </ion-row>
+        <ion-row>
+            <input class="form-input" placeholder="Compania (Opcional)" />
+        </ion-row>
+        <ion-row>
+            <input class="form-input" placeholder="Correo electronico (Opcional)" />
+        </ion-row>
+        <ion-row>
+            <input class="form-input" placeholder="Telefono (10 digitos)" />
+        </ion-row>
+        <ion-row>
+            <select class="form-input">
+          <option value="volvo">Selecciona  un pais</option>
+          <option value="saab">Mexica</option>
+          <option value="audi">Brazil</option>
+          <option value="fiat">Canada</option>
+        </select>
+        </ion-row>
+        <ion-row>
+            <input class="form-input" placeholder="Codigo postal" />
+        </ion-row>
+        <ion-row>
+            <input class="form-input" placeholder="Direccion 1" />
+        </ion-row>
+        <ion-row>
+            <input class="form-input" placeholder="Direccion 2" />
+        </ion-row>
+        <ion-row>
+            <input class="form-input" placeholder="Ciudad" />
+        </ion-row>
+        <ion-row>
+            <select class="form-input">
+          <option value="volvo">Selecciona un estado</option>
+          <option value="saab">Mexica</option>
+          <option value="audi">Brazil</option>
+          <option value="fiat">Canada</option>
+        </select>
+        </ion-row>
+        <ion-row style="margin-bottom: 0px">
+            <input type="checkbox" id="form-one" name="form-one" placeholder="Estado" />
+            <label class="checkbox-text" for="form-one">Agregar a mi libreta de direcciones</label>
+        </ion-row>
+    </ion-grid>
+
+    <ion-grid style="background: #f5f4f4; margin:25px; padding: 20px 15px">
+        <ion-row style="font-weight: bold">
+            Direccion de destino
+        </ion-row>
+        <ion-row>
+            <input class="form-input" placeholder="Buscar en libreta de direcciones" />
+        </ion-row>
+        <ion-row>
+            <input class="form-input" placeholder="Nombre de la persona" />
+        </ion-row>
+        <ion-row>
+            <input class="form-input" placeholder="Compania (Opcional)" />
+        </ion-row>
+        <ion-row>
+            <input class="form-input" placeholder="Correo electronico (Opcional)" />
+        </ion-row>
+        <ion-row>
+            <input class="form-input" placeholder="Telefono (10 digitos)" />
+        </ion-row>
+        <ion-row>
+            <select class="form-input">
+          <option value="volvo">Selecciona  un pais</option>
+          <option value="saab">Saab</option>
+          <option value="fiat">Fiat</option>
+          <option value="audi">Audi</option>
+        </select>
+        </ion-row>
+        <ion-row>
+            <input class="form-input" placeholder="Codigo postal" />
+        </ion-row>
+        <ion-row>
+            <input class="form-input" placeholder="Calle y numero" />
+        </ion-row>
+        <ion-row>
+            <select class="form-input">
+          <option value="volvo">Selecciona un Colonia</option>
+          <option value="saab">Saab</option>
+          <option value="fiat">Fiat</option>
+          <option value="audi">Audi</option>
+        </select>
+        </ion-row>
+        <ion-row>
+            <input class="form-input" placeholder="Ciudad" />
+        </ion-row>
+        <ion-row>
+            <select class="form-input">
+          <option value="volvo">Selecciona un estado</option>
+          <option value="saab">Saab</option>
+          <option value="fiat">Fiat</option>
+          <option value="audi">Audi</option>
+        </select>
+        </ion-row>
+        <ion-row>
+            <input class="form-input" placeholder="Referencias" />
+        </ion-row>
+        <ion-row>
+            <input class="form-input" placeholder="Contenido del paquete (obligatorio)" />
+        </ion-row>
+        <ion-row>
+            <input type="checkbox" id="fill-form-one" name="form-one" placeholder="Estado" />
+            <label class="checkbox-text" for="fill-form-one">Agregar a mi libreta de direcciones</label>
+        </ion-row>
+        <ion-row style="margin-bottom: 0px">
+            <button (click)="gotoFormPaquete()">
+          Guardar y continuar
+        </button>
+
+        </ion-row>
+    </ion-grid>
+</ion-content>

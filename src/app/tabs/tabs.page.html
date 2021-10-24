@@ -1,0 +1,57 @@
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home">
+
+      <ion-icon style="font-size: 2rem;" src="assets/homee.svg"></ion-icon>
+      <ion-label>Marketplace</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="topmaivideo" style="margin-left: -20px;">
+      <ion-icon style="font-size: 2rem;" src="assets/play.svg"></ion-icon>
+      <ion-label>Video</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button (click)="gotoChat()">
+      <ion-icon style="font-size: 3rem;" src="assets/topmai.svg"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button (click)="gotoCarrito()" style="margin-right: -20px;">
+      <span id="cartItems" *ngIf="cartItems?.length > 0">{{cartItems?.length}}</span>
+      <ion-icon style="font-size: 2rem; " name="cart-outline"></ion-icon>
+      <ion-label>carrito</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="about-me">
+      <ion-icon style="font-size: 2rem;" src="assets/me.svg"></ion-icon>
+      <ion-label>Cuenta</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+<!-- <ion-tabs>
+    <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="home">
+            <ion-icon style="font-size: 1.8rem;" src="assets/homee.svg"></ion-icon>
+            <ion-label style="font-size: 9px;">Marcketplace</ion-label>
+
+        </ion-tab-button>
+
+        <ion-tab-button tab="speakers">
+            <ion-icon style="font-size: 1.8rem;" src="assets/play.svg"></ion-icon>
+            <ion-label style="font-size: 9px;">Video</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button (click)="gotoChat()">
+            <ion-icon style="font-size: 4rem; margin-right: 5px;" src="assets/topmai.svg"></ion-icon>
+
+        </ion-tab-button>
+
+        <ion-tab-button tab="order-wizard">
+            <ion-icon style="font-size: 1.8rem;" name="compass-outline"></ion-icon>
+            <ion-label style="font-size: 9px;">Envío</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="about-me">
+            <ion-icon style="font-size: 1.8rem;" src="assets/me.svg"></ion-icon>
+            <ion-label style="font-size: 9px;">Cuenta</ion-label>
+        </ion-tab-button>
+    </ion-tab-bar>
+</ion-tabs> -->

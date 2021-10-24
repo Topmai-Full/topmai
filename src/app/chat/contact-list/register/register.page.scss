@@ -1,0 +1,12 @@
+ion-toolbar {
+    --background: #F3F3F3;
+}
+
+ion-content {
+    ion-item {
+        ion-checkbox {
+            --background-checked: #14CC9A;
+            --border-color-checked: #14CC9A;
+        }
+    }
+}

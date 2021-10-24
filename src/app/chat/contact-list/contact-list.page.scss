@@ -1,0 +1,25 @@
+ion-menu-button {
+    color: var(--ion-color-primary);
+}
+
+ion-header {
+    background-image: linear-gradient(to right, #4cd080 0%, #4cd080 100%);
+}
+
+input {
+    padding-left: 50px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+}
+
+.sc-ion-searchbar-md-h {
+    --border-radius: 20px !important;
+}
+
+img {
+    object-fit: cover;
+}

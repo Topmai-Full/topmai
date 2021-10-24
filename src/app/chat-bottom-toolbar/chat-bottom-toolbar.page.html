@@ -1,0 +1,29 @@
+<ion-tabs>
+    <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="contact-list">
+            <ion-icon style="font-size: 2rem;" name="people-circle-outline"></ion-icon>
+            <ion-label>Contactos</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="chat-list">
+            <ion-icon style="position:relative;font-size: 1.5rem;" name="chatbubble-outline"></ion-icon>
+            <ion-badge style="position: absolute;top: 5px;font-size: 12px;width: 23px;border-radius: 9px" id="notifications-badge" color="danger">10</ion-badge>
+            <ion-label>Chats</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button (click)="presentModal()">
+            <ion-icon style="font-size: 2.2rem; color: rgb(14, 196, 14);" name="add-circle-outline"></ion-icon>
+            <ion-label>Súbelo</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button (click)="AlbumModal()">
+            <!-- <ion-icon (click)="gotoDiscover()" style="font-size: 2rem;" src="assets/descubrir.svg"></ion-icon> -->
+            <ion-icon style="font-size: 2rem;" src="assets/descubrir.svg"></ion-icon>
+            <ion-label>Album</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="wallet">
+            <ion-icon style="font-size: 2rem;" src="assets/bank.svg"></ion-icon>
+            <ion-label>Banco</ion-label>
+        </ion-tab-button>
+    </ion-tab-bar>
+</ion-tabs>

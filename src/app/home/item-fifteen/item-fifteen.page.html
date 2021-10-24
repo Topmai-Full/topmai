@@ -1,0 +1,59 @@
+<ion-slides pager="false">
+    <ion-slide>
+        <ion-grid style="margin-top: 10px; text-align: center; color: #787878; font-size: 12px" class="grid-categories">
+            <ion-row class="ion-justify-content-around">
+                <ion-col size="2" *ngFor="let item of categoriesRow1;">
+                    <div>
+                        <img style="width: 50px; " [src]="item.icon" />
+                        <div style="margin-top:3px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                            {{item.title}}
+                        </div>
+                    </div>
+                </ion-col>
+                <ion-col size="2" *ngFor="let item of categoriesRow2;">
+                    <div>
+                        <img style="width: 50px;" [src]="item.icon" />
+                        <div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                            {{item.title}}
+                        </div>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-slide>
+    <ion-slide>
+        <ion-grid style="margin-top: 10px; text-align: center; color: #787878; font-size: 12px" class="grid-categories">
+            <ion-row class="ion-justify-content-around">
+                <ion-col size="2" *ngFor="let item of categoriesRow3;">
+                    <div>
+                        <img style="width: 50px; " [src]="item.icon" />
+                        <div style="margin-top:3px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                            {{item.title}}
+                        </div>
+                    </div>
+                </ion-col>
+                <!-- <ion-col size="2" *ngFor="let item of categoriesRow4;">
+                    <div>
+                        <img style="width: 50px; " [src]="item.icon" />
+                        <div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                            {{item.title}}
+                        </div>
+                    </div>
+                </ion-col> -->
+            </ion-row>
+        </ion-grid>
+    </ion-slide>
+
+</ion-slides>
+
+
+
+<ion-header>
+    <ion-toolbar>
+        <ion-title>item-fifteen</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+</ion-content>

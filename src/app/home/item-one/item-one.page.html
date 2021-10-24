@@ -1,0 +1,109 @@
+<ion-slides pager="false">
+  <ion-slide>
+    <ion-grid style="margin-top: 10px; text-align: center; color: #787878; font-size: 12px">
+      <ion-row class="ion-justify-content-around">
+        <ion-col size="2" *ngFor="let item of categoriesRow1;">
+          <div (click)="goto(item?.to)">
+            <img style="width: 60px; " [src]="item?.icon" />
+            <div style="margin-top:3px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+              {{item?.title}}
+            </div>
+          </div>
+        </ion-col>
+        <!-- <ion-col size="2" *ngFor="let item of categories;">
+          <div (click)="goto(item?._id)">
+            <img id="catImage" src="{{baseUrl}}/{{item?.image}}" />
+            <div style="margin-top:3px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+              {{item?.name}}
+            </div>
+          </div>
+        </ion-col> -->
+        <ion-col size="2" *ngFor="let item of categoriesRow2;">
+          <div>
+            <img style="width: 60px;" [src]="item?.icon" />
+            <div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+              {{item?.title}}
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-slide>
+  <ion-slide>
+    <ion-grid style="margin-top: 10px; text-align: center; color: #787878; font-size: 12px">
+      <ion-row class="ion-justify-content-around">
+        <ion-col size="2" *ngFor="let item of categoriesRow3;">
+          <div>
+            <img style="width: 60px; " [src]="item?.icon" />
+            <div style="margin-top:3px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+              {{item?.title}}
+            </div>
+          </div>
+        </ion-col>
+        <ion-col size="2" *ngFor="let item of categoriesRow4;">
+          <div>
+            <img style="width: 60px; " [src]="item?.icon" />
+            <div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+              {{item?.title}}
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-slide>
+
+</ion-slides>
+
+<!-- <div style="text-align: center; width: 90%; display: block; margin: 0 auto;">
+    <img style="" src="assets/homePage/midBanner.png" />
+    <img style="" src="assets/homePage/banner.png" />
+</div> -->
+
+<div style="display: flex;justify-content: space-between;">
+  <div
+    style="padding-top:1px;border-left: 10px solid #ff0000; font-weight: bold; padding-left: 5px; font-size: 15px; display: flex; align-items: center">
+    <div>
+      Ofertas de la semana
+    </div>
+  </div>
+  <div style="color: #bb0000; display: flex; margin-right: 20px">
+    <!-- <div style="margin-right: 5px;display: flex; align-items: center">
+            <div>cuenta atrás</div>
+        </div> -->
+    <!-- <div class="count-down-digit-container">0</div>
+        <div class="count-down-digit-container">1</div>
+        <div class="count-down-dot-container">:</div>
+        <div class="count-down-digit-container">3</div>
+        <div class="count-down-digit-container">6</div>
+        <div class="count-down-dot-container">:</div>
+        <div class="count-down-digit-container">1</div>
+        <div class="count-down-digit-container">0</div> -->
+
+    <div class="count-down-digit-container">{{day}}</div>
+    <div class="count-down-dot-container">:</div>
+    <div class="count-down-digit-container">{{hours}}</div>
+    <div class="count-down-dot-container">:</div>
+    <div class="count-down-digit-container">{{minutes}}</div>
+    <div class="count-down-dot-container">:</div>
+    <div class="count-down-digit-container">{{seconds}}</div>
+
+  </div>
+
+</div>
+<app-item-slider [items]="items"></app-item-slider>
+<!-- <section>
+    <div class="coming-soon">
+        <div class="time-countdown">
+            <ul>
+                <li class="count-bg-one radius"><span id="days">{{day}}</span>Dias</li>
+                <li class="count-bg-two radius"><span id="hours">{{hours}}</span>Horas</li>
+                <li class="count-bg-three radius"><span id="minutes">{{minutes}}</span>Minutos</li>
+                <li class="count-bg-four radius"><span id="seconds">{{seconds}}</span>Segundos</li>
+            </ul>
+        </div>
+    </div>
+</section> -->
+<app-virtical-items></app-virtical-items>
+<app-horizontal-items></app-horizontal-items>
+<app-virtical-items></app-virtical-items>
+<app-horizontal-items></app-horizontal-items>

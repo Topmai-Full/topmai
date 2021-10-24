@@ -1,0 +1,82 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar color="red">
+        <ion-buttons slot="start" (click)="goBack()">
+            <ion-icon style="font-size: 30px; color: white;" name="chevron-back-outline"></ion-icon>
+        </ion-buttons>
+        <ion-buttons slot="end" (click)="goBack()">
+            <ion-icon style="color: white;font-size: 25px;margin-left: 10px" name="ellipsis-vertical"></ion-icon>
+        </ion-buttons>
+
+        <ion-title style="text-align: center; color: white;">Contactos</ion-title>
+    </ion-toolbar>
+
+    <ion-searchbar mode='ios' style="margin-top: 0;" color='light' placeholder='Buscar contacto...'></ion-searchbar>
+</ion-header>
+
+
+
+<ion-content>
+
+    <ion-grid>
+        <ion-row (click)="gotoNewContact()">
+            <ion-col size="2" style="display: flex; align-items: center">
+                <div>
+                    <img style="width: 40px; border-radius: 50px;" src="assets/chat/contacts/agregar.png">
+                </div>
+            </ion-col>
+            <ion-col style="display: flex; align-items: center; border-bottom: 1px solid rgba(217,215,215,0.38)">
+                <div>
+                    Agregar Contacto
+                </div>
+            </ion-col>
+        </ion-row>
+
+        <!-- <ion-row>
+            <ion-col size="2" style="display: flex; align-items: center">
+                <div>
+                    <img style="width: 40px;border-radius: 50px;" src="assets/chat/contacts/group.png">
+                </div>
+            </ion-col>
+            <ion-col style="display: flex; align-items: center; border-bottom: 1px solid rgba(217,215,215,0.38)">
+                <div>
+                    Grupos de chat
+                </div>
+            </ion-col>
+        </ion-row> -->
+
+        <ion-row>
+            <ion-col size="2" style="display: flex; align-items: center">
+                <div>
+                    <img style="width: 40px;border-radius: 50px;" src="assets/chat/contacts/etiqueta.png">
+                </div>
+            </ion-col>
+            <ion-col style="display: flex; align-items: center">
+                <div>
+                    Etiqueta
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+        <div *ngFor="let key of keys()">
+
+            <ion-row style="display: flex; align-items: center; background: #ececec; height: 30px">
+                <div style="color: #6d6d6d; margin-left: 10px">
+                    {{key}}
+                </div>
+            </ion-row>
+            <ion-row *ngFor="let item of contacts[key]">
+                <ion-col (click)="gotoProfile1()" size="2" style="display: flex; align-items: center">
+                    <img style="width: 40px; height: 40px; border-radius: 50px; display: block" [src]="item.icon">
+                </ion-col>
+                <ion-col style="display: flex; align-items: center;border-bottom: 1px solid rgba(217,215,215,0.38)">
+                    <div>
+                        {{item.name}}
+                    </div>
+                </ion-col>
+            </ion-row>
+        </div>
+    </ion-grid>
+
+</ion-content>

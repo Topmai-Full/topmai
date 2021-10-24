@@ -1,0 +1,125 @@
+<ion-content [scrollEvents]="true" (ionScroll)="onScroll($event)">
+    <div style="position: sticky;top:0px" *ngIf="showHeader" class="color-header">
+        <ion-grid>
+            <ion-row>
+                <ion-col style="margin-top: 3px" size="1">
+                    <ion-icon (click)="goBack()" style="font-size: 30px; color: #e4e6eb; margin: 0px 5px" name="arrow-back-outline"></ion-icon>
+                </ion-col>
+                <ion-col size="9" style="color: #fff; margin-top: 7px; font-size: 1.2rem; margin-left: 14px;">
+                    Momentos
+                </ion-col>
+                <ion-col size="1">
+                    <ion-icon style="color: #fff;font-size: 1.8rem;" name="camera"></ion-icon>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+
+    <div style="position: relative; margin-bottom: 9rem;">
+        <img class="cover-image" src="assets/chat/discover/cover.png">
+        <div style="position: absolute; top: 10px">
+            <ion-icon (click)="goBack()" style="font-size: 30px; color: #ffffff; margin: 0px 5px" name="arrow-back-outline"></ion-icon>
+        </div>
+        <div class="camara-portada">
+            <ion-icon name="camera"></ion-icon>
+        </div>
+        <div class="img-perfil">
+            <img src="assets/chat/contacts/1.png">
+        </div>
+        <div class="camara-perfil">
+            <ion-icon name="camera"></ion-icon>
+        </div>
+        <div class="text-perfil">
+            Dany Trejo
+        </div>
+    </div>
+
+    <ion-grid *ngFor="let item of items" style="border-bottom: 1px solid rgba(194,191,191,0.38); ">
+        <ion-row>
+            <ion-col size="2" style="display: flex; align-items: center">
+                <div>
+                    <img style="width: 45px; height: 45px; object-fit: cover; border-radius: 100%" [src]="item.profilePic">
+                </div>
+            </ion-col>
+            <ion-col style="display: flex; flex-direction: column; justify-content: center">
+                <!-- <div style="color: #000000; font-weight: bold; display: flex; flex-direction: row;">
+                    {{item.name}}
+
+
+                </div>
+                <div style="margin-top: 2px;">
+                    Sub title will be here
+                </div> -->
+
+                <div style="margin-top: 10px;display: flex; justify-content: space-between;align-items: center">
+
+                    <p style="display: block;color: #000000; font-weight: bold;"> {{item.name}}</p>
+
+                    <p style="display: block;">17/09/2021</p>
+
+                </div>
+                <div style="margin-top: 2px;">
+                    Sub title will be here
+                </div>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <!-- <ion-col size="2"></ion-col> -->
+            <ion-col>
+                <ion-row>
+                    <ion-col style="padding: 2px; border: 1px;" *ngFor="let i of item.images" size="4">
+                        <img style="width: 100%; height: auto; object-fit: cover;" [src]="i">
+                    </ion-col>
+
+                </ion-row>
+                <!-- <a style="text-decoration: none; font-size: 10px;">Eliminar</a> -->
+                <ion-grid>
+                    <ion-row>
+
+                        <ion-col style="color: #65676b;">
+                            <ion-icon name="heart-outline"></ion-icon> Me gusta
+                        </ion-col>
+
+                        <ion-col style="color: #65676b;">
+
+                            <ion-label>
+                                <ion-icon name="chatbox-outline"></ion-icon> Comentar
+                            </ion-label>
+                        </ion-col>
+
+                        <ion-col style="color: #65676b;">
+                            <ion-icon name="share-social-outline"></ion-icon> Compartir
+                        </ion-col>
+
+                    </ion-row>
+                    <ion-input id="coment" placeholder="Escribir comentario..." style="background-color: #ECF3FF; border-radius: 20px;"></ion-input>
+                </ion-grid>
+                <!-- <ion-item-divider>
+                    <ion-label>
+                        Información
+                    </ion-label>
+                </ion-item-divider> -->
+                <!-- <p style="color: rgba(128, 128, 128, 0.541);">-----------------------<span style="font-size: 15px;">Información</span>----------------------</p> -->
+                <!-- <ion-grid style="white-space: nowrap;">
+                    <ion-row>
+                        <ion-col> <span style="font-size: 10px;color: rgba(128, 128, 128, 0.541); padding: 0;"> Código de busqueda: 187620</span></ion-col>
+                        <ion-col style="display:grid; justify-content: right;">
+                            <ion-icon name="globe-outline" style="color: rgba(128, 128, 128, 0.541);font-size: 1.3rem;"></ion-icon>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid> -->
+
+                <!-- 
+                <ion-item>
+                 
+                    <ion-textarea placeholder="Comentar..."></ion-textarea>
+                </ion-item> -->
+                <!-- <div>
+                    <div style="margin:10px; padding:10px;text-align:center;cursor:pointer;color: white; background: #4cd080; border-radius: 30px">
+                        Comentar
+                    </div>
+                </div> -->
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

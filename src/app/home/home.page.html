@@ -1,0 +1,154 @@
+<ion-header [translucent]="true">
+  <div style="height:65px; display: flex; align-items: center; justify-content: space-around">
+    <div style="position:relative;margin-right: 10px;width: 80%; height: 35px; border-radius: 20px; border: 0px;">
+      <input placeholder="Buscar"
+        style="width: 100%; height: 35px; border-radius: 20px; border: 0px; margin-left: 10px !important;" />
+      <div style="position: absolute; left: 25px; top: 10px">
+        <img src="assets/homePage/searchIcon.png" style="width: 13px;" />
+      </div>
+      <div style="position: absolute; right: 10px;top: 10px">
+        <img src="assets/homePage/cameraIcon.png" style="width: 13px;" />
+      </div>
+    </div>
+
+    <div style="margin-right: 15px; margin-left: 10px;">
+      <a href=""> <img src="assets/homePage/scanIcon.png" href style="width: 30px" /></a>
+    </div>
+    <div style="margin-right: 15px">
+      <img src="assets/homePage/plusIcon.png" style="width: 30px;" />
+    </div>
+  </div>
+
+  <div class="gradient sticky">
+    <div class="top-item-slider">
+      <div *ngFor="let item of topSliderItems;let i = index" (click)="selectCategory(i,item?._id)"
+        [class]="selectedCategory===i? 'top-item top-item-selected':'top-item'">
+        {{item.name}}
+      </div>
+    </div>
+  </div>
+</ion-header>
+
+
+
+<ion-content>
+  <ion-grid *ngIf="selectedCategory===0">
+    <ion-row>
+      <ion-col>
+        <ion-slides pager="false">
+          <ion-slide>
+            <ion-grid style="margin-top: 10px; text-align: center; color: #787878; font-size: 12px">
+              <ion-row class="ion-justify-content-around">
+                <ion-col size="2" *ngFor="let item of categoriesRow1;">
+                  <div>
+                    <img style="width: 60px; " src="{{baseUrl}}/{{item?.image}}" />
+                    <div style="margin-top:3px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                      {{item?.name}}
+                    </div>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-slide>
+        </ion-slides>
+        <div style="display: flex;justify-content: space-between;">
+          <div
+            style="padding-top:1px;border-left: 10px solid #ff0000; font-weight: bold; padding-left: 5px; font-size: 15px; display: flex; align-items: center">
+            <div>
+              Ofertas de la semana
+            </div>
+          </div>
+          <div style="color: #bb0000; display: flex; margin-right: 20px">
+            <div class="count-down-digit-container">{{day}}</div>
+            <div class="count-down-dot-container">:</div>
+            <div class="count-down-digit-container">{{hours}}</div>
+            <div class="count-down-dot-container">:</div>
+            <div class="count-down-digit-container">{{minutes}}</div>
+            <div class="count-down-dot-container">:</div>
+            <div class="count-down-digit-container">{{seconds}}</div>
+          </div>
+
+        </div>
+        <app-item-slider [items]="items"></app-item-slider>
+        <app-virtical-items></app-virtical-items>
+        <app-horizontal-items></app-horizontal-items>
+        <app-virtical-items></app-virtical-items>
+        <app-horizontal-items></app-horizontal-items>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-slides pager="false" *ngIf="selectedCategory!==0">
+    <ion-slide>
+      <ion-grid style="margin-top: 10px; text-align: center; color: #787878; font-size: 12px" class="grid-categories">
+        <ion-row class="ion-justify-content-around">
+          <ion-col size="2" *ngFor="let item of categoriesRow1;">
+            <div>
+              <img style="width: 50px; " src="{{baseUrl}}/{{item?.image}}" />
+              <div style="margin-top:3px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                {{item.name}}
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+
+  </ion-slides>
+  <ion-row *ngIf="selectedCategory!==0">
+    <ion-col style="font-size: 12px" [class]="getClass(i)" *ngFor="let item of productsByMaincategory;let i = index"
+      (click)="gotoItem(item?._id)" size="6">
+      <img src="{{baseUrl}}/{{item?.image[0].image}}" />
+      <ion-row>
+        <ion-col size="12">
+          <span style="font-size: 15px;" *ngIf="item.title.length >= 35">
+            {{item.title.substr(0,35)}}...
+          </span>
+          <span style="font-size: 15px;" *ngIf="item.title.length <= 34">
+            {{item.title}}
+          </span>
+        </ion-col>
+      </ion-row>
+      <ion-row style="display:flex;justify-content: space-between;padding-left: 5px; align-items: center">
+        <div style="color: #6A7586">
+          <span style="color: #DF2E24; margin-right: 5px;font-size: 19px;">${{item.price}}</span>
+          <span class="pl-1" *ngIf="item.oldprice">${{item.oldprice}}</span>
+        </div>
+        <div *ngIf="item.people">
+          <img style="height: 20px" [src]="item.people" />
+        </div>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+
+
+
+<!-- <ion-content [fullscreen]="true">
+  <app-item-one *ngIf="selectedCategory===0"></app-item-one>
+  <app-item-two [cateId]="cateId" *ngIf="selectedCategory !== 0"></app-item-two>
+  <app-item-three *ngIf="selectedCategory===2"></app-item-three>
+  <app-item-four *ngIf="selectedCategory===3"></app-item-four>
+  <app-item-five *ngIf="selectedCategory===4"></app-item-five>
+  <app-item-six *ngIf="selectedCategory===5"></app-item-six>
+  <app-item-seven *ngIf="selectedCategory===6"></app-item-seven>
+  <app-item-eight *ngIf="selectedCategory===7"></app-item-eight>
+  <app-item-nine *ngIf="selectedCategory===8"></app-item-nine>
+  <app-item-ten *ngIf="selectedCategory===9"></app-item-ten>
+  <app-item-eleven *ngIf="selectedCategory===10"></app-item-eleven>
+  <app-item-twelve *ngIf="selectedCategory===11"></app-item-twelve>
+  <app-item-thirteen *ngIf="selectedCategory===12"></app-item-thirteen>
+  <app-item-fourteen *ngIf="selectedCategory===13"></app-item-fourteen>
+  <app-item-fifteen *ngIf="selectedCategory===14"></app-item-fifteen>
+  <app-item-sixteen *ngIf="selectedCategory===15"></app-item-sixteen>
+  <app-item-seventeen *ngIf="selectedCategory===16"></app-item-seventeen>
+  <app-item-eighteen *ngIf="selectedCategory===17"></app-item-eighteen>
+  <app-item-nighteen *ngIf="selectedCategory===18"></app-item-nighteen>
+  <app-item-twenty *ngIf="selectedCategory===19"></app-item-twenty>
+  <app-item-twenty-one *ngIf="selectedCategory===20"></app-item-twenty-one>
+  <app-servicios *ngIf="selectedCategory===21"></app-servicios>
+  <app-empleos *ngIf="selectedCategory===22"></app-empleos>
+  <app-mascotas *ngIf="selectedCategory===23"></app-mascotas>
+  <app-artesania *ngIf="selectedCategory===24"></app-artesania>
+</ion-content> -->

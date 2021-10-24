@@ -1,0 +1,71 @@
+// ion-header {
+//     background-image: linear-gradient(to right, #fb0f3a 0%, #fb0f3a 100%);
+// }
+ion-toolbar {
+    --background: transparent;
+}
+
+.imgmai {
+    height: 49px;
+    margin-left: -1px;
+    margin-top: -1px;
+    object-fit: cover;
+    width: 49px;
+}
+
+ion-content {
+    // --background: black !important;
+    --background: url('/assets/jirafa.jpg') no-repeat center/cover fixed;
+}
+
+.icon1 {
+    color: #000000;
+    font-size: 20px;
+    position: absolute;
+    top: 40%;
+    left: 77%;
+    transform: translate(50%, -50%);
+}
+
+.icon1 img {
+    border-radius: 50px;
+    // border: #65676b;
+    border: 1px solid #d3d5da;
+}
+
+.icon2 {
+    color: white;
+    font-size: 40px;
+    position: absolute;
+    top: 50%;
+    left: 79%;
+    transform: translate(50%, -50%);
+}
+
+.icon3 {
+    color: white;
+    font-size: 40px;
+    position: absolute;
+    top: 60%;
+    left: 79%;
+    transform: translate(50%, -50%);
+}
+
+.icon4 {
+    color: white;
+    font-size: 40px;
+    position: absolute;
+    top: 70%;
+    left: 79%;
+    transform: translate(50%, -50%);
+}
+
+ion-segment-button {
+    --background-checked: rgba(0, 0, 0, 0.089);
+    --color-checked: var(--ion-color-dark-contrast);
+    --border-radius: 15px;
+    // --background-checked: var(--ion-color-dark);
+    // --color-checked: var(--ion-color-dark-contrast);
+    --indicator-color: transparent;
+    --background: transparent
+}

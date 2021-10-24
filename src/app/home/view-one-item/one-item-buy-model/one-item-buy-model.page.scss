@@ -1,0 +1,36 @@
+#category {
+  float: right;
+  color: grey;
+  font-weight: 100;
+  margin: 0px 17px;
+}
+
+#productImage {
+  width: 80px;
+  border: 0;
+  object-fit: cover;
+  height: 75px;
+}
+
+#varients {
+  color: #484848;
+  background: #efefef;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 5px 17px;
+  height: 27px;
+  margin: 0px 10px;
+}
+
+#varientImage {
+  width: 40px;
+  height: 40px;
+  border-radius: 3px;
+  object-fit: cover;
+  margin: 0px 20px 0px 0px;
+}
+
+ion-list {
+  width: 100%;
+  margin: 0px 0px 30px 0px;
+}

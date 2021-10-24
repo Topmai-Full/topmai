@@ -1,0 +1,279 @@
+<ion-header [translucent]="true" class="color-header" style="position: relative">
+    <ion-icon (click)="goBack()" style="position: absolute; top:8px;left:8px; font-size: 25px;" name="chevron-back-outline"></ion-icon>
+    <div style="display: flex;justify-content: center;align-items: center;height: 100%">
+        <div>
+            Kasun Chandika
+        </div>
+    </div>
+    <ion-icon style="position: absolute; top:10px;right:10px; font-size: 20px;" name="ellipsis-horizontal"></ion-icon>
+</ion-header>
+
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col style="text-align: center;height: 70px" size="3">
+                <img style="width: 100%; height: 100%; object-fit: cover" src="assets/homePage/item-two/1.png">
+            </ion-col>
+            <ion-col style="display: flex;flex-direction: column; justify-content: space-between;">
+                <div style="font-size: 14px; color: #2d2d2d">Sea su desarrollador web full stack</div>
+                <div style="display: flex; justify-content: space-between">
+                    <div style="font-size: 8px; padding: 5px; background: #e1e9fa; color: #013e6c">
+                        EN PROCESO
+                    </div>
+                    <div style="font-weight: bold">MX$80</div>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <div style="height: 10px; background: #f3f3f3; border-top: 1px solid #e3e3e3; border-bottom: 1px solid #e3e3e3"></div>
+
+    <ion-grid style="font-size: 14px; margin-top: 5px">
+        <ion-row>
+            <ion-col size="1" style="display: flex; justify-content: flex-start; align-items: center; flex-direction: column">
+                <div>
+                    <ion-icon style="color: gray; font-size: 24px" name="document-attach-outline"></ion-icon>
+                </div>
+                <div style="background: #e7e7e7; height: 100%; width: 2px; margin-top: 3px">
+                </div>
+            </ion-col>
+            <ion-col>
+                <div style="display: flex; align-items: center; margin-top: 4px">
+                    <div style="font-weight: bold">
+                        Entrega esperada <span style="color: #606060">30 Agosto 2021</span>
+                    </div>
+                    <div style="font-weight: 500; position: absolute; right: 10px">
+                        <ion-icon *ngIf="itemInList(1)" (click)="toggleFromList(1)" style="font-size: 20px" name="chevron-up-outline"></ion-icon>
+                        <ion-icon *ngIf="!itemInList(1)" (click)="toggleFromList(1)" style="font-size: 20px" name="chevron-down-outline"></ion-icon>
+                    </div>
+                </div>
+                <div *ngIf="itemInList(1)">
+                    <div style="margin-top: 20px">
+                        <div style="padding:5px 5px; background: #ececec; border-radius: 30px; text-align: center; display: flex; align-items: center; justify-content: space-around">
+                            <div style="line-height: 1.5">
+                                <span style="font-weight: bold; font-size: 16px">1</span> <br>
+                                <span style="color: grey; font-size: 12px;">Dias</span>
+                            </div>
+                            <div style="line-height: 1.5">
+                                <span style="font-weight: bold; font-size: 16px">1</span> <br>
+                                <span style="color: grey; font-size: 12px;">Dias</span>
+                            </div>
+                            <div style="line-height: 1.5">
+                                <span style="font-weight: bold; font-size: 16px">1</span> <br>
+                                <span style="color: #b0b0b0; font-size: 12px;">Dias</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; align-items: center;margin-top: 20px">
+                        <div style="display: flex; align-items: center">
+                            <ion-icon style="font-size: 18px; display: block" name="notifications"></ion-icon>
+                            <div style="margin-left: 10px">Notificarme</div>
+                        </div>
+                        <div style="display: flex; align-items: center;margin-left: 30px">
+                            <ion-icon style="font-size: 18px; display: block" name="calendar-outline"></ion-icon>
+                            <div style="margin-left: 10px">Añadir calendario</div>
+                        </div>
+                    </div>
+                </div>
+                <hr style="border-top: 2px solid #efefef; margin-top: 15px">
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col size="1" style="display: flex; justify-content: flex-start; align-items: center; flex-direction: column">
+                <div>
+                    <ion-icon style="color: gray; font-size: 24px" name="star-outline"></ion-icon>
+                </div>
+                <div style="background: #e7e7e7; height: 100%; width: 2px; margin-top: 3px">
+                </div>
+            </ion-col>
+            <ion-col>
+                <div style="display: flex; align-items: center; margin-top: 4px">
+                    <div style="font-weight: bold">
+                        Mis reseñas
+                    </div>
+                    <div style="font-weight: 500; position: absolute; right: 10px">
+                        <ion-icon *ngIf="itemInList(2)" (click)="toggleFromList(2)" style="font-size: 20px" name="chevron-up-outline"></ion-icon>
+                        <ion-icon *ngIf="!itemInList(2)" (click)="toggleFromList(2)" style="font-size: 20px" name="chevron-down-outline"></ion-icon>
+                    </div>
+                </div>
+                <div *ngIf="itemInList(2)">
+                    <div style="margin-top: 15px; font-size: 13px">
+                        <div>Mejor cliente</div>
+                        <div style="margin-top: 10px">Experiencia general</div>
+                        <div style="color: gold; margin-top: 10px; letter-spacing: 30px">
+                            <ion-icon style="font-size: 25px" name="star"></ion-icon>
+                            <ion-icon style="margin-left: 5px; font-size: 25px" name="star"></ion-icon>
+                            <ion-icon style="margin-left: 5px; font-size: 25px" name="star"></ion-icon>
+                            <ion-icon style="margin-left: 5px; font-size: 25px" name="star-outline"></ion-icon>
+                            <ion-icon style="margin-left: 5px; font-size: 25px" name="star-outline"></ion-icon>
+                        </div>
+                    </div>
+                </div>
+                <hr style="border-top: 2px solid #efefef; margin-top: 15px">
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col size="1" style="display: flex; justify-content: flex-start; align-items: center; flex-direction: column">
+                <div>
+                    <ion-icon style="color: gray; font-size: 24px" name="star-outline"></ion-icon>
+                </div>
+                <div style="background: #e7e7e7; height: 100%; width: 2px; margin-top: 3px">
+                </div>
+            </ion-col>
+            <ion-col>
+                <div style="display: flex; align-items: center; margin-top: 4px">
+                    <div style="font-weight: bold">
+                        Revisión del comprador
+                    </div>
+                    <div style="font-weight: 500; position: absolute; right: 10px">
+                        <ion-icon *ngIf="itemInList(3)" (click)="toggleFromList(3)" style="font-size: 20px" name="chevron-up-outline"></ion-icon>
+                        <ion-icon *ngIf="!itemInList(3)" (click)="toggleFromList(3)" style="font-size: 20px" name="chevron-down-outline"></ion-icon>
+                    </div>
+                </div>
+                <div *ngIf="itemInList(3)">
+                    <div style="margin-top: 15px; font-size: 13px">
+                        <div>Entrega rápida y excelente trabajo!</div>
+                        <div style="margin-top: 15px">Comunicación del vendedor</div>
+                        <div style="color: gold; margin-top: 10px; letter-spacing: 30px">
+                            <ion-icon style="font-size: 25px" name="star"></ion-icon>
+                            <ion-icon style="margin-left: 5px; font-size: 25px" name="star"></ion-icon>
+                            <ion-icon style="margin-left: 5px; font-size: 25px" name="star"></ion-icon>
+                            <ion-icon style="margin-left: 5px; font-size: 25px" name="star-outline"></ion-icon>
+                            <ion-icon style="margin-left: 5px; font-size: 25px" name="star-outline"></ion-icon>
+                        </div>
+
+                        <div style="margin-top: 10px">Servicio como se describe</div>
+                        <div style="color: gold; margin-top: 10px; letter-spacing: 30px">
+                            <ion-icon style="font-size: 25px" name="star"></ion-icon>
+                            <ion-icon style="margin-left: 5px; font-size: 25px" name="star"></ion-icon>
+                            <ion-icon style="margin-left: 5px; font-size: 25px" name="star"></ion-icon>
+                            <ion-icon style="margin-left: 5px; font-size: 25px" name="star-outline"></ion-icon>
+                            <ion-icon style="margin-left: 5px; font-size: 25px" name="star-outline"></ion-icon>
+                        </div>
+
+                        <div style="margin-top: 10px">Recomendaría</div>
+                        <div style="color: gold; margin-top: 10px; letter-spacing: 30px">
+                            <ion-icon style="font-size: 25px" name="star"></ion-icon>
+                            <ion-icon style="margin-left: 5px; font-size: 25px" name="star"></ion-icon>
+                            <ion-icon style="margin-left: 5px; font-size: 25px" name="star"></ion-icon>
+                            <ion-icon style="margin-left: 5px; font-size: 25px" name="star-outline"></ion-icon>
+                            <ion-icon style="margin-left: 5px; font-size: 25px" name="star-outline"></ion-icon>
+                        </div>
+
+                    </div>
+                </div>
+                <hr style="border-top: 2px solid #efefef; margin-top: 15px">
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col size="1" style="display: flex; justify-content: flex-start; align-items: center; flex-direction: column">
+                <div>
+                    <ion-icon style="color: gray; font-size: 24px" name="document-text-outline"></ion-icon>
+                </div>
+                <div style="background: #e7e7e7; height: 100%; width: 2px; margin-top: 3px">
+                </div>
+            </ion-col>
+            <ion-col>
+                <div style="display: flex; align-items: center; margin-top: 4px">
+                    <div style="font-weight: bold">
+                        Pedido iniciado
+                    </div>
+                </div>
+                <hr style="border-top: 2px solid #efefef; margin-top: 15px">
+            </ion-col>
+        </ion-row>
+
+
+        <ion-row>
+            <ion-col size="1" style="display: flex; justify-content: flex-start; align-items: center; flex-direction: column">
+                <div>
+                    <ion-icon style="color: gray; font-size: 24px" name="book-outline"></ion-icon>
+                </div>
+                <div style="background: #e7e7e7; height: 100%; width: 2px; margin-top: 3px">
+                </div>
+            </ion-col>
+            <ion-col>
+                <div style="display: flex; align-items: center; margin-top: 4px">
+                    <div style="font-weight: bold">
+                        Requisitos de pedido enviados
+                    </div>
+                    <div style="font-weight: 500; position: absolute; right: 10px">
+                        <ion-icon *ngIf="itemInList(4)" (click)="toggleFromList(4)" style="font-size: 20px" name="chevron-up-outline"></ion-icon>
+                        <ion-icon *ngIf="!itemInList(4)" (click)="toggleFromList(4)" style="font-size: 20px" name="chevron-down-outline"></ion-icon>
+                    </div>
+                </div>
+                <div *ngIf="itemInList(4)">
+                    <div style="margin-top: 15px; font-size: 13px">
+                        <div>¿Me contactó antes de realizar el pedido?</div>
+                        <div style="color: grey; font-size: 12px; margin-top: 5px">Sí</div>
+                    </div>
+                </div>
+                <hr style="border-top: 2px solid #efefef; margin-top: 15px">
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col size="1" style="display: flex; justify-content: flex-start; align-items: center; flex-direction: column">
+                <div>
+                    <ion-icon style="color: gray; font-size: 24px" name="document-text-outline"></ion-icon>
+                </div>
+            </ion-col>
+            <ion-col>
+                <div style="display: flex; align-items: center; margin-top: 4px">
+                    <div style="font-weight: bold">
+                        Orden creada
+                    </div>
+                    <div style="font-weight: 500; position: absolute; right: 10px">
+                        <ion-icon *ngIf="itemInList(5)" (click)="toggleFromList(5)" style="font-size: 20px" name="chevron-up-outline"></ion-icon>
+                        <ion-icon *ngIf="!itemInList(5)" (click)="toggleFromList(5)" style="font-size: 20px" name="chevron-down-outline"></ion-icon>
+                    </div>
+                </div>
+                <div *ngIf="itemInList(5)">
+                    <div style="margin-top: 15px; font-size: 13px">
+                        <div>21 Agosto 2021 - Pedido #FO4CD1219C42</div>
+                        <hr style="border-top: 2px solid #efefef;">
+                        <div style="margin-top: 5px; display: flex; justify-content: space-between;align-items: center">
+                            <div style="display: flex; align-items: center">
+                                <ion-icon style="color: #1ac26b; font-size: 20px; margin-right: 10px;display: block" name="checkmark-outline"></ion-icon>
+                                <div>Sé tu desarrolladora de pila completa</div>
+                            </div>
+                            <div>
+                                <hr style="border-top: 2px solid #efefef; margin-top: 15px">
+                            </div>
+                            <div>
+                                MX$50
+                            </div>
+                        </div>
+                        <hr style="border-top: 2px solid #efefef;">
+                        <div style="margin-top: 5px; display: flex; justify-content: space-between;">
+                            <div>
+                                Total
+                            </div>
+                            <div>
+                                <hr style="border-top: 2px solid #efefef; margin-top: 15px">
+                            </div>
+                            <div>
+                                MX$50
+                            </div>
+                        </div>
+                        <div style="margin-top: 5px; display: flex; justify-content: space-between;">
+                            <div>
+                                Fecha de entrega
+                            </div>
+                            <div>
+                                <hr style="border-top: 2px solid #efefef; margin-top: 15px">
+                            </div>
+                            <div>
+                                21 Agosto 2021
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

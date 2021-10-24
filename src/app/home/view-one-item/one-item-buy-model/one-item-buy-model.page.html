@@ -1,0 +1,111 @@
+<ion-content>
+  <div style="background: black">
+    <img src="{{baseUrl}}/{{product?.image[0].image}}" style="opacity: 0.4;
+      object-fit: cover;
+      width: 100%;
+      height: 150px;
+      object-position: 0 0" />
+  </div>
+  <div style="text-align: center; position: relative; margin-top: 6px">
+    BUY THIS
+    <ion-icon style="position:absolute; right: 5px; top:0px; color: grey; font-size: 20px" (click)="dismiss()"
+      name="close-outline"></ion-icon>
+  </div>
+  <ion-row style="margin-top: 10px">
+    <ion-col size="1" style="padding:0px;display: flex; align-items: center; justify-content: center">
+      <ion-icon style="color: grey; display: block; font-size: 25px" name="location-outline"></ion-icon>
+    </ion-col>
+    <ion-col>
+      <div>
+        Logged In User Address
+      </div>
+    </ion-col>
+    <ion-col size="1" style="display: flex; align-items: center; justify-content: center">
+      <ion-icon style="color: grey; display: block; font-size: 20px" name="chevron-forward-outline"></ion-icon>
+    </ion-col>
+  </ion-row>
+
+  <div style="height: 5px;background: #efeeee"></div>
+
+  <ion-row>
+    <ion-col size="3">
+      <img src="{{baseUrl}}/{{product?.image[0].image}}" id="productImage" />
+    </ion-col>
+    <ion-col style="display:flex;flex-direction: column; justify-content: space-between">
+      <div style="line-height: 23px">
+        <div style="color: #DF2E24; font-weight: bold">
+          <span>
+            ${{product?.price}}
+          </span>
+          <span id="category">
+            {{product?.parentcategory?.name}} > {{product?.category?.name}}
+          </span>
+        </div>
+        <div style="font-size: 17px">
+          {{product?.title}}
+        </div>
+      </div>
+      <div style="display: flex">
+        <div (click)="minus()" style="padding: 2px 12px; background: #cbcaca">
+          -
+        </div>
+        <div style="text-align: center; display: flex; align-items: center;justify-content: center">
+          <div style="padding: 0px 15px; font-size: 14px">{{formOj.qty}}</div>
+        </div>
+        <div (click)="plus()" style="padding: 2px 12px; background: #cbcaca">
+          +
+        </div>
+      </div>
+    </ion-col>
+  </ion-row>
+
+
+  <ion-row *ngIf="productVarients?.length > 0">
+    <ion-list>
+      <ion-radio-group name="rd"  [(ngModel)]="formOj.pvov">
+        <ion-list-header>
+          <ion-label style="font-size: 19px;">
+            Product Varients
+          </ion-label>
+        </ion-list-header>
+
+        <ion-item *ngFor="let item of productVarients;index as i">
+          <img *ngIf="item?.picture !== ''" src="{{baseUrl}}/{{item?.picture}}" id="varientImage" alt="">
+          <img *ngIf="item?.picture === ''" src="{{dummyImage}}" alt="" id="varientImage">
+          <ion-label>{{item?.data}}</ion-label>
+          <p style="position: absolute;right: 70px;">Price: <span *ngIf="item?.price !== ''">{{item?.price}}</span><span *ngIf="item?.price === ''">{{product?.price}}</span></p>
+          <ion-radio name="{{item?.data}}+i"  value="{{extractNameFromJson(item?._id)}}"></ion-radio>
+        </ion-item>
+
+      </ion-radio-group>
+    </ion-list>
+  </ion-row>
+
+
+
+</ion-content>
+
+<ion-footer>
+  <ion-grid style="padding: 0">
+    <ion-row style="height: 27px;">
+      <ion-col style="display: flex; align-items: center; justify-content: center">
+        <div>
+          abc
+        </div>
+        <ion-icon style="color: #2fdf75; display: block; font-size: 20px; margin-left: 5px; margin-right: 5px"
+          name="checkmark-circle">
+        </ion-icon>
+        <div>
+          fdsfdsfdsaf, dsafdsf
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row (click)="presentModal()" style="height: 45px; background: #DF2E24; color: #FFFFFF">
+      <ion-col style="display: flex; align-items: center; justify-content: center">
+        <div>
+          BUY FOR ${{product?.price}}
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

@@ -1,0 +1,116 @@
+<ion-content>
+    <ion-toolbar>
+        <ion-buttons slot="start" (click)="goBack()">
+            <ion-icon style="font-size: 30px; " name="chevron-back-outline"></ion-icon>
+        </ion-buttons>
+
+        <ion-title>Monedero</ion-title>
+
+        <!-- <ion-title style="text-align: center;">Monedero</ion-title> -->
+
+    </ion-toolbar>
+    <!-- <ion-toolbar color="danger">
+        <ion-buttons slot="start" (click)="goBack()">
+            <ion-button>
+                <ion-icon style="font-size: 30px; " name="chevron-back-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-button>
+                <ion-icon slot="icon-only" ios="ellipsis-vertical" md="ellipsis-vertical"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+        <ion-title style="text-align: center;">Danger</ion-title>
+    </ion-toolbar> -->
+
+    <div style="margin: 10px">
+
+        <div (click)="gotoBalance()" style="font-size: 15px;margin-top: 10px;display: flex; justify-content: space-between;align-items: center; font-weight: bold;">
+            <ion-icon name="wallet-outline" style="font-size: 30px; color: rgb(14, 196, 14);"></ion-icon>
+            <p style="display: block; width: 90%; margin-left: 20px; font-size: 15px; font-weight: normal;"> Saldo</p>
+            $348.79
+            <ion-icon style="width: 10%;font-size:20px;display: block; color: #75767763;" name="chevron-forward-outline"></ion-icon>
+        </div>
+    </div>
+
+    <div style="margin: 10px">
+
+        <div (click)="gotoAddcard()" style="font-size: 12px;margin-top: 10px;display: flex; justify-content: space-between;align-items: center">
+            <ion-icon name="card-outline" style="font-size: 30px; color: rgb(14, 196, 14);"></ion-icon>
+            <p style="display: block; width: 90%; margin-left: 20px; font-size: 15px;"> Tarjetas</p>
+            <ion-icon style="width: 10%;font-size:20px;display: block; color: #75767763;" name="chevron-forward-outline"></ion-icon>
+        </div>
+    </div>
+
+
+    <hr style="border-top: 10px solid #f6f3f3;">
+
+
+    <!-- 
+    <div style="margin: 10px">
+
+        <div style="font-size: 12px;margin-top: 10px;display: flex; justify-content: space-between;align-items: center">
+            <ion-icon name="cash-outline" style="font-size: 30px; color: rgb(255, 255, 255); " alt=""></ion-icon>
+            <p style="display: block; width: 90%; margin-left: 20px; font-size: 15px;"> Recibir Dinero</p>
+            <ion-icon style="width: 10%;font-size:20px;display: block; color: #75767763;" name="chevron-forward-outline"></ion-icon>
+        </div>
+    </div>
+    <div style="margin: 10px">
+
+        <div style="font-size: 12px;margin-top: 10px;display: flex; justify-content: space-between;align-items: center">
+            <ion-icon name="card-outline" style="font-size: 30px; color: rgb(255, 255, 255);" alt=""></ion-icon>
+            <p style="display: block; width: 90%; margin-left: 20px; font-size: 15px;"> Enviar Dinero</p>
+            <ion-icon style="width: 10%;font-size:20px;display: block; color: #75767763;" name="chevron-forward-outline"></ion-icon>
+        </div>
+    </div>
+    <div style="margin: 10px">
+
+        <div style="font-size: 12px;margin-top: 10px;display: flex; justify-content: space-between;align-items: center">
+            <img src="assets/imgs/SVG/dinero.svg" style="font-size: 30px;" alt="">
+            <p style="display: block; width: 90%; margin-left: 20px; font-size: 15px;"> Transferir a tarjeta bancana/nro de movil</p>
+            <ion-icon style="width: 10%;font-size:20px;display: block; color: #75767763;" name="chevron-forward-outline"></ion-icon>
+        </div>
+    </div> -->
+    <div style="margin: 10px">
+
+        <div style="font-size: 12px;margin-top: 10px;display: flex; justify-content: space-between;align-items: center">
+            <ion-icon name="cash-outline" style="font-size: 30px; color: rgb(14, 196, 14);" alt=""></ion-icon>
+            <p style="display: block; width: 90%; margin-left: 20px; font-size: 15px;"> Recibir Dinero</p>
+            <ion-icon style="width: 10%;font-size:20px;display: block; color: #75767763;" name="chevron-forward-outline"></ion-icon>
+        </div>
+    </div>
+
+    <div style="margin: 10px">
+
+        <div style="font-size: 12px;margin-top: 10px;display: flex; justify-content: space-between;align-items: center">
+            <ion-icon name="card-outline" style="font-size: 30px; color:  rgb(14, 196, 14);" alt=""></ion-icon>
+            <p style="display: block; width: 90%; margin-left: 20px; font-size: 15px;"> Enviar Dinero</p>
+            <ion-icon style="width: 10%;font-size:20px;display: block; color: #75767763;" name="chevron-forward-outline"></ion-icon>
+        </div>
+    </div>
+
+    <div style="margin: 10px">
+
+        <div (click)="presentModal()" style="font-size: 12px;margin-top: 10px;display: flex; justify-content: space-between;align-items: center">
+
+            <ion-icon name="arrow-redo-outline" style="font-size: 30px; color: rgb(14, 196, 14);"></ion-icon>
+            <p style="display: block; width: 90%; margin-left: 20px; font-size: 15px;"> Transferir a tarjeta bancana/nro de movil</p>
+            <ion-icon style="width: 10%;font-size:20px;display: block; color: #75767763;" name="chevron-forward-outline"></ion-icon>
+        </div>
+    </div>
+
+    <div style="margin: 10px">
+
+        <div style="font-size: 12px;margin-top: 10px;display: flex; justify-content: space-between;align-items: center">
+            <ion-icon name="shield-checkmark-outline" style="font-size: 30px; color: rgb(14, 196, 14);"></ion-icon>
+            <p style="display: block; width: 90%; margin-left: 20px; font-size: 15px;"> Seguridad de pagos</p>
+            <ion-icon style="width: 10%;font-size:20px;display: block; color: #75767763;" name="chevron-forward-outline"></ion-icon>
+        </div>
+    </div>
+
+
+
+
+
+</ion-content>

@@ -1,0 +1,107 @@
+<ion-header [translucent]="true" class="color-header" style="position: relative">
+    <ion-icon (click)="goBack()" style="position: absolute; top:8px;left:8px; font-size: 25px;" name="chevron-back-outline"></ion-icon>
+    <div style="display: flex;justify-content: center;align-items: center;height: 100%">
+        <div>
+            Tarjetas bancarias
+        </div>
+    </div>
+</ion-header>
+
+<ion-content>
+    <ion-grid>
+        <ion-row style="margin-top: 10px">
+            <ion-col style="display:flex;align-items: center;justify-content: space-between">
+                <div style="font-weight: bold">
+                    Mi tarjeta <span style="color: grey; font-weight: normal">(4)</span>
+                </div>
+                <div style="font-size: 12px">
+                    <div (click)="goToPage('addcard')" style="background: #f3f3f3; border-radius: 20px; padding: 5px 10px">
+                        <span style="color: #0f7bcd">+</span> Agregar tarjeta bancaria
+                    </div>
+                </div>
+            </ion-col>
+        </ion-row>
+        <ion-row style="margin-top: 10px">
+            <ion-col>
+                <div style="height: 160px; background-image: linear-gradient(to right,#d3dbde, #a7aeb8); border-radius: 10px; color: white">
+                    <div style="display: flex; justify-content: space-between; padding: 15px">
+                        <div style="display: flex;">
+                        </div>
+                        <div>
+                            <div style="margin-top: 5px">
+                                <div style="background: rgba(229,227,227,0.32); font-size: 10px; padding: 3px 5px; display: flex; align-items: center;justify-content: center; border-radius: 5px">
+                                    <div>Nota tarjeta bancaria</div>
+                                    <ion-icon style="display: block; margin-left: 3px" name="open-outline"></ion-icon>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-left: 35px">
+                        <div><img style="max-width: 32px;" src="assets/my-cards/chip.png"></div>
+                        <div style="font-weight: bold;margin-top:15px; letter-spacing: 2px; font-size: 18px ">**** **** **** 0017</div>
+                    </div>
+                </div>
+                <img style="max-width: 60px; position: absolute; bottom: 20px; right: 20px" src="assets/my-cards/visa.png">
+            </ion-col>
+        </ion-row>
+
+        <ion-row style="margin-top: 10px">
+            <ion-col>
+                <div style="height: 150px; background-image: linear-gradient(to right,#02abc0, #84cddc); border-radius: 10px; color: white">
+                    <div style="display: flex; justify-content: space-between; padding: 15px">
+                        <div style="display: flex;">
+                            <div style="background: white; border-radius: 100%; width: 50px; height: 50px; display: flex; align-items: center;justify-content: center">
+                                <img style="max-width: 32px; display: block" src="assets/my-cards/master.png">
+                            </div>
+                            <div style="font-weight: bold; margin-left: 10px;display: flex; align-items: flex-start; margin-top: 10px">
+                                <div>MASTER</div>
+                            </div>
+                        </div>
+                        <div>
+                            <div style="font-weight: bold; text-align: right">
+                                **** 0017
+                            </div>
+                            <div style="margin-top: 5px">
+                                <div style="background: rgba(229,227,227,0.32); font-size: 10px; padding: 3px 5px; display: flex; align-items: center;justify-content: center; border-radius: 5px">
+                                    <div>Nota tarjeta bancaria</div>
+                                    <ion-icon style="display: block; margin-left: 3px" name="open-outline"></ion-icon>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ion-col>
+        </ion-row>
+
+        <ion-row style="margin-top: 10px">
+            <ion-col>
+                <div style="height: 150px; background-image: linear-gradient(to right,#ff7661, #fb5561); border-radius: 10px; color: white">
+                    <div style="display: flex; justify-content: space-between; padding: 15px">
+                        <div style="display: flex;">
+                            <div style="background: white; border-radius: 100%; width: 50px; height: 50px; display: flex; align-items: center;justify-content: center">
+                                <img style="max-width: 32px; display: block" src="assets/my-cards/visa.png">
+                            </div>
+                            <div style="margin-left: 10px; display: flex; flex-direction: column; justify-content: center">
+                                <div style="font-weight: bold;">ICBC Tarjeta de débito</div>
+                                <div style="margin-top: 3px; font-size: 12px">
+                                    Transferir, consultar facturas
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div style="font-weight: bold; text-align: right">
+                                **** 0017
+                            </div>
+                            <div style="margin-top: 5px">
+                                <div style="background: rgba(229,227,227,0.32); font-size: 10px; padding: 3px 5px; display: flex; align-items: center;justify-content: center; border-radius: 5px">
+                                    <div>Nota tarjeta bancaria</div>
+                                    <ion-icon style="display: block; margin-left: 3px" name="open-outline"></ion-icon>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

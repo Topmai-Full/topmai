@@ -1,0 +1,13 @@
+.color-header {
+  height: 40px;
+}
+ion-header{
+  border-bottom: 1px solid #ececec;
+}
+ion-header::after {
+  background-image: none;
+}
+.selected-title {
+  border-bottom: 3px solid #DF2B26FF;
+  padding-bottom: 5px;
+}

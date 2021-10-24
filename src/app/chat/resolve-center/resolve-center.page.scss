@@ -1,0 +1,8 @@
+.color-header {
+  height: 40px;
+  border-bottom: 1px solid #eae9e9;
+}
+
+ion-header::after {
+  background-image: none;
+}

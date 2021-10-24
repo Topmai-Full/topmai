@@ -1,0 +1,12 @@
+.color-header {
+  height: 40px;
+}
+
+ion-header::after {
+  background-image: none;
+}
+
+hr{
+  background: #e7e7e7;
+  height: 1px;
+}

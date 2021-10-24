@@ -1,0 +1,7 @@
+{
+  "name": "spanish-project",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

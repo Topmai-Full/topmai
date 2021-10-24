@@ -1,0 +1,64 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-buttons slot="start" (click)="goBack()">
+
+            <ion-icon style="font-size: 30px; color: white;" name="chevron-back-outline"></ion-icon>
+        </ion-buttons>
+        <ion-title class="font-mai">topmai pay</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <div class="card ion-padding ion-text-center">
+        <div class="img-holder">
+            <!-- <img src="assets/imgs/sheild.png" alt=""> -->
+            <ion-icon style="color: #2fdf75;font-size: 80px;" name="checkmark-circle"></ion-icon>
+        </div>
+        <p class="ion-text-wrap">
+            Esta caracteristica es solo para pagos a proveedores. Por seguridad, no comparta el codigo de pago con otras personas.
+        </p>
+
+        <div class="btns-holder ion-text-center">
+            <!--<ion-button expand="block" id="first">
+               
+            </ion-button>--->
+
+
+            <img src="assets/imgs/SVG/barras.png" style="width: 80%;" alt="">
+            <img src="assets/imgs/SVG/qr.svg" style="width: 75%;" alt="">
+
+            <!-- <ion-button expand="block" id="second">
+                Ver detalles
+            </ion-button> -->
+        </div>
+    </div>
+
+
+    <!-- 
+    <div class="next-card">
+        <ion-item lines="none">
+
+
+            <ion-icon name="cash-outline" style="font-size: 30px; color: rgb(255, 255, 255); " alt="">
+            </ion-icon>
+            <ion-label>Recibir Dinero</ion-label>
+        </ion-item>
+
+        <ion-item lines="none">
+
+
+
+
+            <ion-icon name="card-outline" style="font-size: 30px; color: rgb(255, 255, 255);" alt=""></ion-icon>
+
+            <ion-label>Enviar Dinero</ion-label>
+        </ion-item>
+
+
+
+        <ion-item (click)="presentModal()" lines="none">
+            <img src="assets/imgs/SVG/dinero.svg" style="font-size: 30px;" alt="">
+            <ion-label class="ion-text-wrap">Transferir a tarjeta bancana/nro de movil</ion-label>
+        </ion-item>
+    </div> -->
+</ion-content>

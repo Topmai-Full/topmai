@@ -1,0 +1,108 @@
+<ion-header [translucent]="true">
+    <div style="height:65px; display: flex; align-items: center; justify-content: space-around">
+
+        <div style="position:relative;margin-right: 10px;width: 80%; height: 35px; border-radius: 20px; border: 0px;">
+            <input placeholder="Buscar" style="width: 100%; height: 35px; border-radius: 20px; border: 0px; margin-left: 10px !important;" />
+            <div style="position: absolute; left: 25px; top: 10px">
+                <img src="assets/homePage/searchIcon.png" style="width: 13px;" />
+            </div>
+            <div style="position: absolute; right: 10px;top: 10px">
+
+                <img src="assets/homePage/cameraIcon.png" style="width: 13px;" />
+            </div>
+        </div>
+
+        <div style="margin-right: 15px; margin-left: 10px;">
+            <a href=""> <img src="assets/homePage/scanIcon.png" href style="width: 30px" /></a>
+        </div>
+        <div style="margin-right: 15px">
+            <img src="assets/homePage/plusIcon.png" style="width: 30px;" />
+        </div>
+    </div>
+
+    <div class="gradient sticky">
+        <div class="top-item-slider">
+            <div (click)="selectCategory(i)" [class]="selectedCategory===i? 'top-item top-item-selected':'top-item'" *ngFor="let item of topSliderItems;let i = index">
+                {{item.title}}
+            </div>
+        </div>
+    </div>
+
+</ion-header>
+
+<ion-content>
+    <ion-grid style="margin-top: 10px">
+        <ion-row>
+            <ion-col style="font-weight: bold">
+                Videos en Tendencia
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <div class="container">
+        <div *ngFor="let item of items;">
+            <div class="oneItem">
+                <div>
+                    <div style="text-align: center; display: flex; align-items: center; justify-content: center">
+                        <div class="img-container">
+                            <div style="position: relative">
+                                <ion-icon style="position: absolute; top: 42px; left: 35px; color: white; font-size: 30px" name="play"></ion-icon>
+                                <img class="slider-img" [src]='item.img' />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ion-grid style="margin-top: 10px">
+        <ion-row>
+            <ion-col style="font-weight: bold">
+                Video popular
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <div class="container">
+        <div *ngFor="let item of items;">
+            <div class="oneItem">
+                <div>
+                    <div style="text-align: center; display: flex; align-items: center; justify-content: center">
+                        <div class="img-container">
+                            <div style="position: relative">
+                                <ion-icon style="position: absolute; top: 42px; left: 35px; color: white; font-size: 30px" name="play"></ion-icon>
+                                <img class="slider-img" [src]='item.img' />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ion-grid style="margin-top: 10px">
+        <ion-row>
+            <ion-col style="font-weight: bold">
+                Video mejor calificado
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <div class="container">
+        <div *ngFor="let item of items;">
+            <div class="oneItem">
+                <div>
+                    <div style="text-align: center; display: flex; align-items: center; justify-content: center">
+                        <div class="img-container-two">
+                            <div style="position: relative">
+                                <ion-icon style="position: absolute; top: 55px; left: 95px; color: white; font-size: 30px" name="play"></ion-icon>
+                                <img class="slider-img-two" [src]='item.img' />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>

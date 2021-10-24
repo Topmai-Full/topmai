@@ -1,0 +1,86 @@
+<!-- <ion-header [translucent]="true" style="height:65px; display: flex; align-items: center; justify-content: space-around">
+    <ion-icon (click)="goBack()" style="font-size: 30px; color: white; margin: 0px 5px" name="chevron-back-outline"></ion-icon>
+
+    <div style="position:relative;margin-right: 10px;width: 80%; height: 35px; border-radius: 20px; border: 0px;">
+        <input placeholder="Buscar" style="width: 100%; height: 35px; border-radius: 20px; border: 0px" />
+        <div style="position: absolute; left: 15px; top: 6px">
+            <img src="assets/homePage/searchIcon.png" style="width: 23px;" />
+        </div>
+
+    </div>
+    <div>
+        <img src="assets/homePage/scanIcon.png" style="width: 30px" />
+
+    </div>
+
+    <div style="text-align: center">
+        <ion-icon style="color: white;font-size: 25px;margin-left: 10px" name="ellipsis-vertical"></ion-icon>
+    </div>
+
+</ion-header> -->
+
+
+<!-- <ion-header [translucent]="true" class="color-header">
+
+    <ion-grid>
+
+
+        <ion-row>
+            <ion-col size="1">
+                <ion-icon (click)="goBack()" style="font-size: 30px; color: white; margin: 0px 5px" name="chevron-back-outline"></ion-icon>
+
+            </ion-col>
+            <ion-col class="font-mai" style="color: #fff; margin-top: 9px; font-size: 1.5rem; margin-left: 3px;">
+                topmai
+            </ion-col>
+            <ion-col size="3">
+                <img src="assets/homePage/scanIcon.png" style="width: 25px" />
+                <ion-icon style="color: white;font-size: 25px;margin-left: 10px" name="ellipsis-vertical"></ion-icon>
+            </ion-col>
+        </ion-row>
+        <ion-searchbar class="searchs"></ion-searchbar>
+    </ion-grid>
+</ion-header> -->
+<ion-header class="ion-no-border">
+    <ion-toolbar color="red">
+        <ion-buttons slot="start" (click)="goBack()">
+            <ion-icon style="font-size: 30px; color: white;" name="chevron-back-outline"></ion-icon>
+        </ion-buttons>
+        <ion-buttons slot="end" (click)="goBack()">
+            <img src="assets/homePage/scanIcon.png" style="width: 25px" />
+            <ion-icon style="color: white;font-size: 25px;margin-left: 10px" name="ellipsis-vertical"></ion-icon>
+        </ion-buttons>
+
+        <ion-title class="font-mai" style="text-align: center; color: white;font-size: 1.5rem;">topmai</ion-title>
+    </ion-toolbar>
+
+    <ion-searchbar mode='ios' style="margin-top: 0;" color='light' placeholder='Buscar...'></ion-searchbar>
+</ion-header>
+
+
+<ion-content>
+    <div *ngFor="let item of chatsList">
+        <div (click)="goChat()" style="margin:10px;display: flex;align-items: stretch;justify-content: space-between">
+            <img class="profilePic" [src]="item.profilePic">
+            <div style="width: 60%; margin-left: 10px;display: flex;align-items: center">
+                <div style="width: 100%">
+                    <div style="font-size: 18px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                        {{item.name}}
+                    </div>
+                    <div style="margin-top:5px;color: gray;font-size: 14px;width:70%;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                        {{item.lastMsg}}
+                    </div>
+                </div>
+            </div>
+            <div style="display:flex; flex-direction:column; justify-content:space-between;color: gray;width: 20%; text-align: right;font-size: 14px">
+                <div>
+                    {{item.date}}
+                </div>
+                <div>
+                    <ion-icon *ngIf="item.mute===true" name="volume-mute-outline"></ion-icon>
+                </div>
+            </div>
+        </div>
+        <hr align="right">
+    </div>
+</ion-content>

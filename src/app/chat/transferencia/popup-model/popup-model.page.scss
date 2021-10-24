@@ -1,0 +1,17 @@
+.color-header {
+  height: 50px;
+  background: #e8e7e7;
+}
+
+ion-header::after {
+  background-image: none;
+}
+ion-content{
+  --background: #e8e7e7;
+}
+input{
+  border: none;
+}
+input:focus{
+  outline: none;
+}

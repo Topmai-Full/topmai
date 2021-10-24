@@ -1,0 +1,16 @@
+ion-content{
+  --background: black;
+}
+.card{
+  border-radius: 10px;
+  margin: 10px;
+  background: #FFFFFF;
+  padding: 10px 0px;
+}
+.header{
+  position: fixed;
+  top:0px;
+  height: 45px;
+  color: #FFFFFF;
+  background: rgba(0, 0, 0,1);
+}

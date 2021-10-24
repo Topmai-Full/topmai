@@ -1,0 +1,36 @@
+<ion-grid>
+    <ion-row *ngFor="let item of itemsVirticale;">
+        <ion-col size="4" style="text-align: center">
+            <img [src]="item.img" />
+        </ion-col>
+        <ion-col style="margin:5px;display: flex;justify-content: space-between;flex-direction: column">
+            <div>
+                {{item.title}}
+            </div>
+            <div>
+                <!-- <div style="color:#a5a5a5; font-size: 10px;">
+                  {{item.envio}}
+              </div> -->
+                <div style="color:#a5a5a5; font-size: 10px;">
+                    {{item.ventas}}
+                </div>
+
+                <div style="display: flex;justify-content: space-between">
+                    <div>
+                        <span style="color:#a5a5a5; font-size: 10px;margin-right: 5px; color: rgb(13, 172, 13);">{{item.envio}} </span> <span style="color:#a5a5a5; font-size: 10px;"> {{item.upPriceTag}}</span>
+                    </div>
+
+                </div>
+                <div style="display: flex;justify-content: space-between">
+                    <div>
+                        <span style="color: #e02e24; font-weight: bold">{{item.price}} </span> <s style="color:#a5a5a5; font-size: 10px;"> {{item.priceTag}}</s>
+                    </div>
+                    <div>
+                         <img (click)="openSellerProfileModel()" style="height: 20px" [src]="item.profile" />
+                      <!--<img style="height: 20px" [src]="item.profile" />-->
+                  </div>
+              </div>
+          </div>
+      </ion-col>
+  </ion-row>
+</ion-grid>

@@ -1,0 +1,11 @@
+.color-header {
+    height: 40px;
+}
+
+ion-header::after {
+    background-image: none;
+}
+
+ion-col {
+    padding: 10px 5px;
+}

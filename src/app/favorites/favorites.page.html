@@ -1,0 +1,112 @@
+<ion-content>
+  <ion-header [translucent]="true" class="color-header" style="position: relative">
+    <ion-icon (click)="goBack()" style="position: absolute; top:12px; font-size: 25px;" name="chevron-back-outline">
+    </ion-icon>
+    <span id="cartItems" *ngIf="cartItems?.length > 0">{{cartItems?.length}}</span>
+    <div style="display: flex;justify-content: flex-start;align-items: center;height: 100%">
+      <div style="margin-left: 40px; font-weight: bold; font-size: 18px">
+        Order Summary
+      </div>
+    </div>
+    <ion-icon style="position: absolute; top:12px;right: 15px; font-size: 25px;" name="cart-outline">12</ion-icon>
+  </ion-header>
+  <hr>
+
+  <ion-grid *ngIf="cartItems?.length > 0">
+    <ion-row *ngFor="let item of cartItems;index as i">
+      <ion-col size="4" style="display: flex;justify-content: center;align-items: center">
+        <img src="{{baseUrl}}/{{item?.product?.image[0]?.image}}" style="height: 100px; width: 100px; display: block" />
+      </ion-col>
+      <ion-col size="8">
+        <span id="title" *ngIf="item?.product?.title?.length > 25">{{item?.product?.title.substr(0,25)}}
+          ..</span>
+        <span id="title" *ngIf="item?.product?.title?.length < 25">{{item?.product?.title}}</span>
+        <span id="subtitle">{{item?.product?.subtitle}}</span>
+        <div style="justify-content: space-between; margin-top: 8px">
+          <div style="width: 50%;display: contents;">
+            US ${{item?.product?.price * item?.qty}}
+          </div>
+          <div style="width: 50%;float: right;">
+            Qty: {{item?.qty}}
+          </div>
+          <ion-row>
+            <ion-col size="6">
+              <div id="qtySection">
+                <div (click)="minus(i)" id="qtyButton">
+                  -
+                </div>
+                <div style="text-align: center; display: flex; align-items: center;justify-content: center">
+                  <div style="padding: 0px 15px; font-size: 14px">{{item?.qty}}</div>
+                </div>
+                <div (click)="plus(i)" id="qtyButton">
+                  +
+                </div>
+              </div>
+            </ion-col>
+            <ion-col size="6">
+              <div id="qtySection">
+                <span id="varient" *ngIf="item?.pvov">{{item?.pvov?.data}}</span>
+              </div>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12" class="mb-1">
+        <span id="subtotal">Sub Total</span>
+        <span id="totalAmount">${{totalAmount}}</span>
+      </ion-col>
+      <ion-col size="12" class="mb-1">
+        <span id="subtotal">Shipping Charges</span>
+        <span id="totalAmount">${{shippingCharges}}</span>
+      </ion-col>
+      <ion-col size="12" class="mb-1">
+        <span id="subtotal">Total</span>
+        <span id="totalAmount">${{totalAmount+shippingCharges}}</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid *ngIf="cartItems?.length < 1">
+    <ion-row>
+      <ion-col size="12">
+        <p id="cartEmpty">Your Cart is Empty!</p>
+      </ion-col>
+      <ion-col size="12">
+        <img src="../../assets/imgs/emptyCart.png" alt="">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-row *ngIf="shippings?.length > 0 && cartItems?.length > 0">
+    <ion-list style="width: 100%;">
+      <ion-radio-group name="rd" [(ngModel)]="formOj.shipping">
+        <ion-list-header>
+          <ion-label style="font-size: 19px;">
+            Addresses
+          </ion-label>
+        </ion-list-header>
+
+        <ion-item *ngFor="let item of shippings;index as i">
+          <!-- <p>{{item?.name}} | </p> -->
+          <ion-label>{{item?.address}}</ion-label>
+          <ion-radio name="{{item?.data}}+i" value="{{item?._id}}"></ion-radio>
+        </ion-item>
+
+      </ion-radio-group>
+    </ion-list>
+  </ion-row>
+
+</ion-content>
+
+<ion-footer *ngIf="cartItems?.length > 0">
+  <ion-grid style="padding: 0">
+    <ion-row style="height: 50px; background-color: white;" class="new-grid">
+      <ion-col class="itm-col" size="12">
+        <ion-button style="--background: #35CA75;margin: 0px ;" (click)="Order()" expand='block'>Create Order</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

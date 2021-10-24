@@ -1,0 +1,66 @@
+ion-menu-button {
+  color: var(--ion-color-primary);
+}
+
+ion-header {
+  // background-image: linear-gradient(to right, #4c49de 0%, #8766ea 100%);
+}
+
+ion-menu-button {
+  color: #FFF;
+}
+
+ion-header::after {
+  background-image: none;
+}
+
+ion-buttons::after {
+  background-image: none;
+}
+
+.sub-slider {
+  width: 50px;
+  object-fit: cover;
+  margin: 10px 5px 5px 5px;
+}
+
+.itm-col {
+  padding: 0px;
+  text-align: center;
+  font-size: 13px;
+  color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.new-grid {
+  --ion-grid-columns: 25;
+}
+
+ion-toolbar {
+  --background: transparent;
+  position: absolute;
+  position: fixed;
+  top: 0;
+}
+
+.slide img {
+  height: 330px;
+}
+
+#subtitle {
+  margin: 0px;
+  color: #adadad;
+  font-size: 13px;
+}
+
+#productDescription {
+  color: #9b9b9b;
+  font-size: 14px;
+  margin: 0px;
+}
+
+h5 {
+  margin: 0px;
+}

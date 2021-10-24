@@ -1,0 +1,67 @@
+.color-header {
+    height: 50px;
+    background: #e8e7e7;
+}
+
+ion-header::after {
+    background-image: none;
+}
+
+ion-content {
+    --background: #e8e7e7;
+}
+
+ion-footer::before {
+    background-image: none;
+}
+
+.middle-part {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 30px;
+    margin-top: 15px;
+}
+
+.money-input:focus {
+    outline: none;
+}
+
+.money-input {
+    border: none;
+    font-size: 35px;
+    caret-color: #17c169;
+}
+
+.color-footer {
+    background: #e8e7e7;
+    height: 195px;
+    padding-top: 5px;
+}
+
+.btn-1 {
+    background: #FFFFFF;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    padding: 0px;
+    margin: 3px;
+    height: 40px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-rec {
+    background: #17c169;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+    padding: 0px;
+    margin: 3px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,103 @@
+<ion-header>
+    <ion-toolbar>
+        <div style="padding-left: '10px';padding-right: '10px';display: flex; align-items: center; justify-content: space-between">
+            <div style="display: flex; align-items: center; justify-content: space-between">
+                <ion-icon (click)="goBack()" style="font-size:30px" name="chevron-back-outline"></ion-icon>
+                <!-- <p style="padding-left: 20px; font-weight: 800;">topmai pay</p> -->
+                <!-- <img style="width: 40px;display: block;margin-left: 10px" src="assets/chat/wallet/icon.png"/> -->
+            </div>
+            <img (click)="gotoSettings()" style="width: 30px;display: block" src="assets/chat/wallet/settings.png" />
+        </div>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <div class="green-card">
+        <div class="right-border" (click)="gotoTransferencia()" style="margin-top: 10px;margin-bottom: 10px;width: 33%;">
+            <div>
+                <img style="width: 25px;" src="assets/chat/wallet/transfer.png" />
+            </div>
+            <span style="margin-top: 5px;display: inline-block">Pagos</span>
+        </div>
+
+        <div (click)="gotoMonedero()" class="right-border" style="margin-top: 10px;margin-bottom: 10px;width: 33%">
+            <div style="margin-top: 21px">
+                <img style="width: 25px;" src="assets/chat/wallet/card.png" />
+            </div>
+            <span style="margin-top: 5px;display: block">Monedero</span>
+            <span style="color:rgba(255,255,255,0.74);font-size:15px;margin-top: 3px;display: inline-block">$30</span>
+        </div>
+        <div>
+
+        </div>
+        <div (click)="gotoHistory()" style="margin-top: 10px;margin-bottom: 10px;width: 33%">
+            <div>
+                <img style="width: 25px;" src="assets/chat/wallet/time.png" />
+            </div>
+            <span style="margin-top: 5px;display: inline-block">Historial</span>
+        </div>
+    </div>
+
+    <div style="padding-left: 10px;padding-right: 10px; margin-top: 20px; font-weight: bold">
+        Lista de pagos
+    </div>
+
+    <div style="color:#808080; font-size:15px; display: flex; justify-content: space-around; padding-left: 10px;padding-right: 10px; margin-top: 20px;text-align: center">
+        <div style="width: 25%">
+            <img class="img-card" src="assets/chat/wallet/icons/1.png" />
+            <div>Electricidad</div>
+        </div>
+        <div style="width: 25%">
+            <img class="img-card" src="assets/chat/wallet/icons/2.png" />
+            <div>Internet</div>
+        </div>
+        <div style="width: 25%">
+            <img class="img-card" src="assets/chat/wallet/icons/3.png" />
+            <div>Vales</div>
+        </div>
+        <div style="width: 25%">
+            <img class="img-card" src="assets/chat/wallet/icons/4.png" />
+            <div>Seguros</div>
+        </div>
+    </div>
+
+    <div style="color:#808080; font-size:15px; display: flex; justify-content: space-around; padding-left: 10px;padding-right: 10px; margin-top: 20px;text-align: center">
+        <div style="width: 25%">
+            <img class="img-card" src="assets/chat/wallet/icons/5.png" />
+            <div>Compras</div>
+        </div>
+        <div style="width: 25%">
+            <img class="img-card" src="assets/chat/wallet/icons/6.png" />
+            <div>Recargas</div>
+        </div>
+        <div style="width: 25%">
+            <img class="img-card" src="assets/chat/wallet/icons/7.png" />
+            <div>Factura</div>
+        </div>
+        <div style="width: 25%">
+            <img class="img-card" src="assets/chat/wallet/icons/8.png" />
+            <div>Más</div>
+        </div>
+    </div>
+
+    <div style="padding-left: 10px;padding-right: 10px; margin-top: 20px; font-weight: bold;justify-content: space-between; display: flex">
+        <div>Promociones & descuentos</div>
+        <div style="color: #274b35">Ver más</div>
+    </div>
+
+    <ion-slides pager="true">
+        <ion-slide *ngFor="let item of slidesItems">
+            <ion-grid style="margin-top: 10px; text-align: center; color: #787878; font-size: 12px">
+                <ion-row class="ion-justify-content-around">
+                    <ion-col>
+                        <div>
+                            <img style="width: 95%; margin-bottom: 20px " [src]="item" />
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-slide>
+    </ion-slides>
+
+</ion-content>

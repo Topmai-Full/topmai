@@ -1,0 +1,59 @@
+<ion-header [translucent]="true" class="color-header" style="position: relative">
+  <ion-icon (click)="dismiss()" style="position: absolute; top:4px; font-size: 30px;" name="chevron-back-outline">
+  </ion-icon>
+  <div style="display: flex;justify-content: center;align-items: center;height: 100%;font-size: 20px;">
+    <div>
+      Shipping address
+    </div>
+  </div>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid *ngIf="shippings?.length > 0">
+    <ion-row style="background: #FFFFFF; font-size: 15px; margin: 10px 0px;" *ngFor="let item of shippings;index as i">
+      <ion-col>
+        <div id="name">
+          {{item?.name}}
+          <span>
+            <ion-icon class="actionIcon" (click)="delete(item?._id)" name="trash-outline"></ion-icon>
+            <ion-icon class="actionIcon" (click)="presentModal(item?._id)" name="create-outline"></ion-icon>
+          </span>
+        </div>
+        <div id="address">
+          {{item?.address}}
+        </div>
+        <div style="color: grey;display: flex; justify-content: space-between; margin-top: 15px">
+          <div style="display: flex; align-items: center">
+            <ion-icon style="display: block; margin-right: 5px" name="ellipse-outline"></ion-icon>
+            Zip Code
+          </div>
+          <div style="display: flex">
+            <div style="margin-right: 10px">
+              {{item?.zip}}
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid *ngIf="shippings?.length < 1">
+    <ion-row>
+      <ion-col size="12">
+        <p id="EmptyShipping">Your Shipping is Empty!</p>
+      </ion-col>
+      <ion-col>
+        <img src="../../../assets/shipping.png" alt="">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div style="margin-top: 15px; padding: 10px">
+    <div (click)="presentModal('new')"
+      style="border-radius:5px; background: #df2b26; color: #FFFFFF; display: flex; align-items: center; height :40px; justify-content: center">
+      <ion-icon style="display: block; margin-right: 5px" name="add-circle"></ion-icon>
+      CLICK THIS
+    </div>
+  </div>
+</ion-content>

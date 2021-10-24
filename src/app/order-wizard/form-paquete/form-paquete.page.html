@@ -1,0 +1,67 @@
+<ion-header [translucent]="true" class="color-header">
+    <ion-grid style="height: 50px">
+        <ion-row>
+            <ion-col size="1">
+                <ion-icon (click)="goBack()" style="font-size: 30px; color: white; margin: 0px 5px" name="chevron-back-outline"></ion-icon>
+            </ion-col>
+            <ion-col class="font-mai" style="color: #fff; margin-top: 7px; font-size: 1.5rem; margin-left: 10px;">
+                topmai envío
+            </ion-col>
+            <ion-col size="3">
+                <img src="assets/homePage/scanIcon.png" style="width: 25px" />
+                <ion-icon style="color: white;font-size: 25px;margin-left: 10px" name="ellipsis-vertical"></ion-icon>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-header>
+
+<ion-content>
+
+    <!-- <ion-grid style="background: #f5f4f4; margin:25px; padding: 20px 15px">
+        <ion-row style="font-weight: bold">
+            Copia y Pega
+        </ion-row>
+        <ion-item>
+            <ion-textarea rows="6" cols="20" placeholder="Pega la dirección completa de envío y distribuye la información"></ion-textarea>
+        </ion-item>
+    </ion-grid> -->
+
+
+
+    <ion-grid style="background: #f5f4f4; margin:25px; padding: 20px 15px">
+        <ion-row style="font-weight: bold">
+            Dimensiones del paquete
+        </ion-row>
+        <ion-row>
+            <input class="form-input" placeholder="Personalizado" />
+        </ion-row>
+        <ion-row>
+            <input class="form-input" placeholder="Largo(CM)" />
+        </ion-row>
+        <ion-row>
+            <input class="form-input" placeholder="Ancho(CM)" />
+        </ion-row>
+        <ion-row>
+            <input class="form-input" placeholder="Alto(CM)" />
+        </ion-row>
+        <ion-row>
+            <input class="form-input" placeholder="Peso(KG)" />
+        </ion-row>
+        <ion-row style="font-weight: bold">
+            Cantidad de paquetes
+        </ion-row>
+        <ion-row>
+            <input class="form-input" placeholder="Cantidad" />
+        </ion-row>
+        <ion-row>
+
+            <label class="checkbox-text" for="fill-form-one">AI continuar confirmo que conozco y acepto los Terminos y Politicas</label>
+        </ion-row>
+        <ion-row style="margin-bottom: 0px" (click)="gotoFormPaqueterias()">
+            <button>
+        Guardar y continuar
+      </button>
+
+        </ion-row>
+    </ion-grid>
+</ion-content>

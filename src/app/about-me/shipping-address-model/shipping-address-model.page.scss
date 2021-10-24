@@ -1,0 +1,34 @@
+.color-header {
+  height: 40px;
+}
+
+ion-content {
+  --ion-background-color: #efeeee;
+}
+
+div {
+  line-height: 22px;
+}
+
+#EmptyShipping {
+  margin: 40px auto;
+  display: block;
+  text-align: center;
+  font-size: 25px;
+}
+
+#name {
+  font-size: 20px;
+  padding: 5px 10px;
+}
+
+#address {
+  font-size: 16px;
+  color: #818181;
+  padding: 5px 10px;
+}
+
+.actionIcon {
+  float: right;
+  padding: 0px 5px;
+}

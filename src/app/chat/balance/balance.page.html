@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" (click)="goBack()">
+            <ion-icon style="font-size: 30px; " name="chevron-back-outline"></ion-icon>
+        </ion-buttons>
+
+        <ion-title>Saldo</ion-title>
+
+
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-text-center ion-padding">
+
+
+    <ion-avatar style="display: block; margin: 0 auto; margin-top:25%;" class="ion-margin-start ">
+        <img src="../../../assets/moneda.png">
+        <!-- <p>Mi saldo</p>
+        <p>$123123123</p> -->
+    </ion-avatar>
+    <div>
+        <p style="font-size: 20px;">Mi saldo</p>
+        <p style="font-weight: bold; font-size: 30px;"><span>$</span> 3437.93</p>
+    </div>
+    <div style="margin-top: 20%;">
+        <ion-button (click)="recharges()" mode='ios' style="--background: #35CA75;" expand="block">Recargar</ion-button>
+        <ion-button (click)="withdrawals()" mode='ios' expand="block"> Retirar </ion-button>
+
+
+    </div>
+    <div></div>
+</ion-content>
+
+<ion-footer class="ion-no-border ion-text-center">
+    <ion-toolbar>
+        <ion-title style="font-size: 11px; color: grey;">Proporcionado por Topmai</ion-title>
+    </ion-toolbar>
+</ion-footer>

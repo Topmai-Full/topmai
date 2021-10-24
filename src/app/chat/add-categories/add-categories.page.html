@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon slot="start" (click)="goBack()" style="font-size: 30px;" name="chevron-back-outline"></ion-icon>
+    <ion-title style="font-size:15px;font-weight: bold;text-align: center">Selecciona una categoria</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid (click)="gotoSubmitStage()" style="color: #666666">
+    <ion-row style="height: 50px;display: flex;align-items: center; border-bottom: 1px solid rgba(187,187,187,0.26)" *ngFor="let item of items">
+      <ion-col size="2" style="text-align: center">
+        <img style="object-fit: cover; height: 28px" [src]="item.icon">
+      </ion-col>
+      <ion-col>
+        {{item.title}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

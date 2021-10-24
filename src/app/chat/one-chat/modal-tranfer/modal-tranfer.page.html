@@ -1,0 +1,58 @@
+<ion-header translucent>
+    <ion-toolbar>
+        <!-- <ion-buttons slot="start">
+
+            <ion-icon style="font-size: 25px" name="refresh-outline"></ion-icon>
+
+        </ion-buttons> -->
+        <ion-buttons slot="end">
+
+            <ion-icon style="font-size: 25px" (click)="close()" name="close-outline"></ion-icon>
+
+        </ion-buttons>
+
+        <ion-title style="text-align: center;">Transferencia</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-list>
+        <!-- <ion-list-header style="font-size: 1rem;">
+            Pago en efectivo
+            <ion-icon name="information-circle-outline" style="font-size: 20px; margin-left: 5px; color: green;"></ion-icon>
+            Pago en efectivo
+            <ion-icon name="information-circle-outline" style="font-size: 20px; margin-left: 5px; color: green;"></ion-icon>
+        </ion-list-header> -->
+        <!-- <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <ion-input style=" border: 2px solid rgba(128, 128, 128, 0.267); border-radius: 5px;" placeholder="Mínimo"></ion-input>
+                </ion-col>
+                <ion-col>
+                    <ion-input style=" border: 2px solid rgba(128, 128, 128, 0.267); border-radius: 5px;" placeholder="Máximo"></ion-input>
+                </ion-col>
+            </ion-row>
+        </ion-grid> -->
+        <ion-item (click)="presentModal()">
+            <ion-label>Pago en efectivo</ion-label>
+            <ion-icon name="information-circle-outline" style="font-size: 20px; margin-left: 5px; color: green;"></ion-icon>
+        </ion-item>
+        <ion-item (click)="presentModal()">
+            <ion-label>Pago Online</ion-label>
+            <ion-icon name="information-circle-outline" style="font-size: 20px; margin-left: 5px; color: green;"></ion-icon>
+        </ion-item>
+        <ion-item (click)="presentModal()">
+            <ion-label>Pago Dropshipping Avión</ion-label>
+            <ion-icon name="information-circle-outline" style="font-size: 20px; margin-left: 5px; color: green;"></ion-icon>
+        </ion-item>
+        <ion-item (click)="presentModal()">
+            <ion-label>Pago Dropshipping Barco</ion-label>
+            <ion-icon name="information-circle-outline" style="font-size: 20px; margin-left: 5px; color: green;"></ion-icon>
+        </ion-item>
+        <ion-item (click)="presentModal()">
+            <ion-label>Pago de Servicios</ion-label>
+            <ion-icon name="information-circle-outline" style="font-size: 20px; margin-left: 5px; color: green;"></ion-icon>
+        </ion-item>
+    </ion-list>
+</ion-content>
