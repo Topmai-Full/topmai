@@ -58,9 +58,11 @@ export class FavoritesPage implements OnInit {
     });
 
     const user = JSON.parse(localStorage.getItem('user'));
-    this.shiipingSrv.getAllByuser(user._id).subscribe((resp: any) => {
-      this.shippings = resp.data;
-    });
+    if (user != null) {
+      this.shiipingSrv.getAllByuser(user._id).subscribe((resp: any) => {
+        this.shippings = resp.data;
+      });
+    }
   }
 
   async presentToast(title) {
