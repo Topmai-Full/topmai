@@ -65,6 +65,8 @@ export class FavoritesPage implements OnInit {
     }
   }
 
+
+
   async presentToast(title) {
     const toast = await this.toastController.create({
       message: title,

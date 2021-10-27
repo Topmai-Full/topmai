@@ -14,9 +14,6 @@ import { UserService } from './services/user.service';
 import { ShippingService } from './services/shipping.service';
 import { OrderService } from './services/order.service';
 
-
-
-
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
