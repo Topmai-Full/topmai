@@ -1,7 +1,8 @@
 {
   "name": "spanish-project",
   "integrations": {
-    "cordova": {}
+    "cordova": {},
+    "capacitor": {}
   },
   "type": "angular"
 }

@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.topmai.app',
-  appName: 'topmai',
+  appId: 'io.ionic.starter',
+  appName: 'spanish-project',
   webDir: 'www',
   bundledWebRuntime: false,
   cordova: {

@@ -1,8 +1,8 @@
 {
-    "name": "spanish-project",
-    "version": "0.0.1",
-    "author": "Ionic Framework",
-    "homepage": "https://ionicframework.com/",
+    "name": "topmai",
+    "version": "1.0.0",
+    "author": "topmai",
+    "homepage": "topmai.com.mx@gmail.com",
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
@@ -21,7 +21,7 @@
         "@angular/router": "~12.0.1",
         "@capacitor/android": "^3.1.1",
         "@capacitor/app": "1.0.2",
-        "@capacitor/core": "3.2.0",
+        "@capacitor/core": "3.3.1",
         "@capacitor/haptics": "1.0.2",
         "@capacitor/keyboard": "1.0.2",
         "@capacitor/status-bar": "1.0.2",
@@ -29,6 +29,8 @@
         "@ionic-native/status-bar": "^5.35.0",
         "@ionic/angular": "^5.5.2",
         "angular-responsive-carousel": "^2.1.1",
+        "cordova": "^10.0.0",
+        "ionic-rating-component": "^1.2.1",
         "rxjs": "~6.6.0",
         "tslib": "^2.0.0",
         "zone.js": "~0.11.4"
@@ -43,7 +45,7 @@
         "@angular/compiler": "~12.0.1",
         "@angular/compiler-cli": "~12.0.1",
         "@angular/language-service": "~12.0.1",
-        "@capacitor/cli": "3.2.0",
+        "@capacitor/cli": "3.3.1",
         "@ionic/angular-toolkit": "^4.0.0",
         "@ionic/lab": "3.2.10",
         "@types/jasmine": "~3.6.0",
@@ -54,6 +56,7 @@
         "cordova-android": "^9.1.0",
         "cordova-base64-to-gallery": "^4.1.3",
         "cordova-plugin-device": "^2.0.2",
+        "cordova-plugin-inappbrowser": "^5.0.0",
         "cordova-plugin-ionic-keyboard": "^2.2.0",
         "cordova-plugin-ionic-webview": "^4.2.1",
         "cordova-plugin-splashscreen": "^5.0.2",
@@ -89,7 +92,8 @@
             "phonegap-plugin-barcodescanner": {
                 "ANDROID_SUPPORT_V4_VERSION": "27.+"
             },
-            "cordova-base64-to-gallery": {}
+            "cordova-base64-to-gallery": {},
+            "cordova-plugin-inappbrowser": {}
         },
         "platforms": [
             "android"
