@@ -20,7 +20,7 @@ export class HomePage implements OnInit {
   cateId: any;
   mainCategories: Array<any>;
   productsByMaincategory: Array<any>;
-  categoriesRow1: Array<any>;
+  categoriesRow1: any;
   source = timer(0, 1000);
   baseUrl = environment.baseUrl;
   _second = 1000;

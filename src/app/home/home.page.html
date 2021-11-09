@@ -29,8 +29,6 @@
   </div>
 </ion-header>
 
-
-
 <ion-content>
   <ion-grid *ngIf="selectedCategory===0">
     <ion-row>
@@ -93,7 +91,6 @@
         </ion-row>
       </ion-grid>
     </ion-slide>
-
   </ion-slides>
   <ion-row *ngIf="selectedCategory!==0">
     <ion-col style="font-size: 12px" [class]="getClass(i)" *ngFor="let item of productsByMaincategory;let i = index"
@@ -121,34 +118,3 @@
     </ion-col>
   </ion-row>
 </ion-content>
-
-
-
-
-<!-- <ion-content [fullscreen]="true">
-  <app-item-one *ngIf="selectedCategory===0"></app-item-one>
-  <app-item-two [cateId]="cateId" *ngIf="selectedCategory !== 0"></app-item-two>
-  <app-item-three *ngIf="selectedCategory===2"></app-item-three>
-  <app-item-four *ngIf="selectedCategory===3"></app-item-four>
-  <app-item-five *ngIf="selectedCategory===4"></app-item-five>
-  <app-item-six *ngIf="selectedCategory===5"></app-item-six>
-  <app-item-seven *ngIf="selectedCategory===6"></app-item-seven>
-  <app-item-eight *ngIf="selectedCategory===7"></app-item-eight>
-  <app-item-nine *ngIf="selectedCategory===8"></app-item-nine>
-  <app-item-ten *ngIf="selectedCategory===9"></app-item-ten>
-  <app-item-eleven *ngIf="selectedCategory===10"></app-item-eleven>
-  <app-item-twelve *ngIf="selectedCategory===11"></app-item-twelve>
-  <app-item-thirteen *ngIf="selectedCategory===12"></app-item-thirteen>
-  <app-item-fourteen *ngIf="selectedCategory===13"></app-item-fourteen>
-  <app-item-fifteen *ngIf="selectedCategory===14"></app-item-fifteen>
-  <app-item-sixteen *ngIf="selectedCategory===15"></app-item-sixteen>
-  <app-item-seventeen *ngIf="selectedCategory===16"></app-item-seventeen>
-  <app-item-eighteen *ngIf="selectedCategory===17"></app-item-eighteen>
-  <app-item-nighteen *ngIf="selectedCategory===18"></app-item-nighteen>
-  <app-item-twenty *ngIf="selectedCategory===19"></app-item-twenty>
-  <app-item-twenty-one *ngIf="selectedCategory===20"></app-item-twenty-one>
-  <app-servicios *ngIf="selectedCategory===21"></app-servicios>
-  <app-empleos *ngIf="selectedCategory===22"></app-empleos>
-  <app-mascotas *ngIf="selectedCategory===23"></app-mascotas>
-  <app-artesania *ngIf="selectedCategory===24"></app-artesania>
-</ion-content> -->

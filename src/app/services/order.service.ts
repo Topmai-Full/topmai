@@ -15,7 +15,6 @@ export class OrderService {
   getAll(userid) {
     return this.http.get(this.baseUrl + 'getAllByuser/' + userid);
   }
-
   create(date) {
     return this.http.post(this.baseUrl + 'create', date);
   }
