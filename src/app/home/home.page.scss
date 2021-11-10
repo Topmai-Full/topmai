@@ -105,3 +105,9 @@ ion-grid {
 .grid-categories {
   --ion-grid-columns: 10;
 }
+
+#productImage {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}

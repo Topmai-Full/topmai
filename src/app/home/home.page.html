@@ -95,7 +95,7 @@
   <ion-row *ngIf="selectedCategory!==0">
     <ion-col style="font-size: 12px" [class]="getClass(i)" *ngFor="let item of productsByMaincategory;let i = index"
       (click)="gotoItem(item?._id)" size="6">
-      <img src="{{baseUrl}}/{{item?.image[0].image}}" />
+      <img src="{{baseUrl}}/{{item?.image[0].image}}" id="productImage"/>
       <ion-row>
         <ion-col size="12">
           <span style="font-size: 15px;" *ngIf="item.title.length >= 35">
