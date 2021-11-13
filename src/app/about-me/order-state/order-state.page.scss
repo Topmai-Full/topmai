@@ -1,3 +1,28 @@
 .color-header {
   height: 45px;
 }
+
+#hr {
+  display: block;
+  color: #20af3b;
+  font-size: 30px
+}
+
+#ion-icon {
+  display: block;
+  color: #20af3b;
+  font-size: 30px
+}
+
+#productImage {
+  border-radius: 5px;
+  height: 65px;
+  width: 65px;
+  object-fit: cover;
+}
+
+#order-grid {
+  margin: 0px 0px 20px 0px;
+  box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+  border: 1px solid #e1e1e1;
+}

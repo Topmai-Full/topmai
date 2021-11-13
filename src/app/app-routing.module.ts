@@ -84,7 +84,6 @@ const routes: Routes = [
    loadChildren: () => import('./authentication/sign-in/sign-in.module').then( m => m.SignInPageModule)
  },
   {
-
     path: 'order-wizard',
     loadChildren: () => import('./order-wizard/order-wizard.module').then( m => m.OrderWizardPageModule)
   },

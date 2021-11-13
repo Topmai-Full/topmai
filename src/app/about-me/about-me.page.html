@@ -5,13 +5,10 @@
         <img style="display:block;border-radius: 50px; width: 70%;"
           src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg">
       </ion-col>
-      <ion-col size="5" style="display: flex; flex-direction:column;justify-content: center;">
+      <ion-col size="6" *ngIf="user !== null" style="display: flex; flex-direction:column;justify-content: center;">
         <div id="userName">
           <span *ngIf="user !== null">
             {{user?.name}}
-          </span>
-          <span *ngIf="user === null">
-            Name
           </span>
         </div>
         <div id="userEmail" >
@@ -19,15 +16,26 @@
             <span *ngIf="user !== null">
               {{user?.email}}
             </span>
-            <span *ngIf="user === null">
-              Email
+          </div>
+        </div>
+      </ion-col>
+      <ion-col size="6" *ngIf="user === null" style="display: flex; flex-direction:column;justify-content: center;">
+        <div id="userName">
+          <span>
+            example Name
+          </span>
+        </div>
+        <div id="userEmail">
+          <div style="margin-left: 0px; padding-bottom: 3px">
+            <span>
+              example@mail.com
             </span>
           </div>
         </div>
       </ion-col>
-      <ion-col size="3" style="display: flex; flex-direction: column; ">
+      <ion-col size="2" style="display: flex; flex-direction: column; ">
         <div style="color:#a5a4a4;align-items:center;text-align: right; display: flex; justify-content:flex-end; ">
-          <img src="assets/chat/wallet/settings.png" alt="" style="max-width: 30%;" (click)="openProfileModal()">
+          <img src="assets/chat/wallet/settings.png" alt="" style="width: 50%;" (click)="openProfileModal()">
         </div>
       </ion-col>
     </ion-row>
@@ -119,7 +127,7 @@
         <div style="text-align: center">
           <img style="width: 30px; height: 30px" src="assets/about-me/1x/productos_comprados_resientes.png">
         </div>
-        <div (click)="goMyFavorites()" style="font-size: 13px;text-align: center; color: #666666">
+        <div style="font-size: 13px;text-align: center; color: #666666">
           pendiente de envio
         </div>
       </ion-col>

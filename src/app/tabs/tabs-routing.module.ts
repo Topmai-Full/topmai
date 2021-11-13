@@ -9,7 +9,7 @@ const routes: Routes = [
     children: [
       {
         path: 'home',
-        loadChildren: () => import('../home/home.module').then( m => m.HomePageModule)
+        loadChildren: () => import('../home/home.module').then(m => m.HomePageModule)
       },
       {
         path: '',
@@ -18,15 +18,19 @@ const routes: Routes = [
       },
       {
         path: 'about-me',
-        loadChildren: () => import('../about-me/about-me.module').then( m => m.AboutMePageModule)
+        loadChildren: () => import('../about-me/about-me.module').then(m => m.AboutMePageModule)
       },
       {
         path: 'nextautos',
-        loadChildren: () => import('../home/item-twelve/nextautos/nextautos.module').then( m => m.NextautosPageModule)
+        loadChildren: () => import('../home/item-twelve/nextautos/nextautos.module').then(m => m.NextautosPageModule)
       },
       {
         path: 'topmaivideo',
-        loadChildren: () => import('../topmaivideo/topmaivideo.module').then( m => m.TopmaivideoPageModule)
+        loadChildren: () => import('../topmaivideo/topmaivideo.module').then(m => m.TopmaivideoPageModule)
+      },
+      {
+        path: 'order-wizard',
+        loadChildren: () => import('../order-wizard/order-wizard.module').then(m => m.OrderWizardPageModule)
       },
     ]
   }
@@ -36,4 +40,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class TabsPageRoutingModule {}
+export class TabsPageRoutingModule { }

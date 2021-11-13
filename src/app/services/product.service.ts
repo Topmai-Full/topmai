@@ -23,6 +23,11 @@ export class ProductService {
     return this.http.get(this.baseUrl + 'getAllBy_parentcategory/'+id);
   }
 
+  getAllBychildcategory(id) {
+    return this.http.get(this.baseUrl + 'getAllBy_childcategory/' + id);
+  }
+
+
   findCartProducts(data) {
     return this.http.post(this.baseUrl + 'findCart_products', data);
   }

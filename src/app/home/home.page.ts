@@ -127,6 +127,14 @@ export class HomePage implements OnInit {
     });
   }
 
+  childcategory(item){
+    console.log(item._id);
+    this.prodSrv.getAllBychildcategory(item._id).subscribe((resp: any) => {
+      console.log(resp);
+      this.productsByMaincategory = resp.data;
+    });
+  }
+
   showDate() {
     const distance = this.end - this.now;
     this.day = Math.floor(distance / this._day);
