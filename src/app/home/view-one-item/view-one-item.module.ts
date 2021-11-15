@@ -7,10 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { ViewOneItemPageRoutingModule } from './view-one-item-routing.module';
 
 import { ViewOneItemPage } from './view-one-item.page';
-import {IvyCarouselModule} from 'angular-responsive-carousel';
 @NgModule({
   imports: [
-    IvyCarouselModule,
     CommonModule,
     FormsModule,
     IonicModule,

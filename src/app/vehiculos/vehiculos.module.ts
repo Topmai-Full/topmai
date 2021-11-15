@@ -7,10 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { VehiculosPageRoutingModule } from './vehiculos-routing.module';
 
 import { VehiculosPage } from './vehiculos.page';
-import {IvyCarouselModule} from 'angular-responsive-carousel';
 @NgModule({
   imports: [
-    IvyCarouselModule,
     CommonModule,
     FormsModule,
     IonicModule,
