@@ -16,7 +16,7 @@
         <div>NAME</div>
       </ion-col>
       <ion-col>
-        <input type="text" name="name" [(ngModel)]="formObj.name" placeholder="NAME" style="width: 100%" />
+        <input type="text" name="name" [(ngModel)]="formObj.name" placeholder="Name" style="width: 100%" />
       </ion-col>
     </ion-row>
 
@@ -25,7 +25,16 @@
         <div>ADDRE</div>
       </ion-col>
       <ion-col>
-        <input type="text" name="address" [(ngModel)]="formObj.address" placeholder="ADDRESS" style="width: 100%" />
+        <input type="text" name="address" [(ngModel)]="formObj.address" placeholder="Address" style="width: 100%" />
+      </ion-col>
+    </ion-row>
+
+    <ion-row style="margin-top: 10px">
+      <ion-col size="3" style="display: flex;align-items: center">
+        <div>Phone #</div>
+      </ion-col>
+      <ion-col>
+        <input type="number" name="Phone" [(ngModel)]="formObj.phone" placeholder="Phone Number" style="width: 100%" />
       </ion-col>
     </ion-row>
 
@@ -34,7 +43,7 @@
         <div>ZIP</div>
       </ion-col>
       <ion-col>
-        <input type="number" name="zip" [(ngModel)]="formObj.zip" placeholder="ZIP CODE" style="width: 100%" />
+        <input type="number" name="zip" [(ngModel)]="formObj.zip" placeholder="Zip Code" style="width: 100%" />
       </ion-col>
     </ion-row>
 

@@ -1,4 +1,4 @@
-<ion-header [translucent]="true" class="color-header" style="position: relative">
+<ion-header [translucent]="true" class="color-header" style="position: relative" *ngIf="!loader">
   <ion-icon (click)="dismiss()" style="position: absolute; top:4px; font-size: 30px;" name="chevron-back-outline">
   </ion-icon>
   <div style="display: flex;justify-content: center;align-items: center;height: 100%;font-size: 20px;">
@@ -8,7 +8,7 @@
   </div>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="!loader">
 
   <ion-grid *ngIf="shippings?.length > 0">
     <ion-row style="background: #FFFFFF; font-size: 15px; margin: 10px 0px;" *ngFor="let item of shippings;index as i">
@@ -31,6 +31,18 @@
           <div style="display: flex">
             <div style="margin-right: 10px">
               {{item?.zip}}
+            </div>
+          </div>
+        </div>
+
+        <div style="color: grey;display: flex; justify-content: space-between; margin-top: 15px">
+          <div style="display: flex; align-items: center">
+            <ion-icon style="display: block; margin-right: 5px" name="ellipse-outline"></ion-icon>
+            Phone Number
+          </div>
+          <div style="display: flex">
+            <div style="margin-right: 10px">
+              {{item?.phone}}
             </div>
           </div>
         </div>

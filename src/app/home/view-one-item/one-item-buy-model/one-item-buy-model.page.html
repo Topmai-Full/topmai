@@ -1,4 +1,4 @@
-<ion-content>
+<ion-content *ngIf="!loader">
   <div style="background: black">
     <img src="{{baseUrl}}/{{product?.image[0].image}}" style="opacity: 0.4;
       object-fit: cover;
@@ -85,7 +85,7 @@
 
 </ion-content>
 
-<ion-footer>
+<ion-footer *ngIf="!loader">
   <ion-grid style="padding: 0">
     <ion-row style="height: 27px;">
       <ion-col style="display: flex; align-items: center; justify-content: center">

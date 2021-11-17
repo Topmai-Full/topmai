@@ -76,7 +76,8 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <ion-slides pager="false" *ngIf="selectedCategory!==0">
+  <p *ngIf="selectedCategory!==0 && categoriesRow1?.length < 0"> No categories founds </p>
+  <ion-slides pager="false" *ngIf="selectedCategory!==0 && !loader">
     <ion-slide>
       <ion-grid style="margin-top: 10px; text-align: center; color: #787878; font-size: 12px" class="grid-categories">
         <ion-row class="ion-justify-content-around">
@@ -92,7 +93,8 @@
       </ion-grid>
     </ion-slide>
   </ion-slides>
-  <ion-row *ngIf="selectedCategory!==0">
+  <!-- <p *ngIf="selectedCategory!==0 && productsByMaincategory?.length < 0"> No Products founds </p> -->
+  <ion-row *ngIf="selectedCategory!==0 && !loader">
     <ion-col style="font-size: 12px" [class]="getClass(i)" *ngFor="let item of productsByMaincategory;let i = index"
       (click)="gotoItem(item?._id)" size="6">
       <img src="{{baseUrl}}/{{item?.image[0].image}}" id="productImage"/>

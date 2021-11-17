@@ -7,6 +7,7 @@ import { CategoryService } from '../services/category.service';
 import { timer } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { ProductService } from '../services/product.service';
+import { ModalController, LoadingController } from '@ionic/angular';
 
 
 @Component({
@@ -34,6 +35,7 @@ export class HomePage implements OnInit {
   minutes: any;
   seconds: any;
   clock: any;
+  loader = false;
   items = [{
     id: 1,
     title: 'Refrigerador Qianku',
@@ -98,7 +100,8 @@ export class HomePage implements OnInit {
   constructor(
     private cateSrv: CategoryService,
     private prodSrv: ProductService,
-    private router: Router
+    private router: Router,
+    private loadingController: LoadingController
   ) {
     this.cateSrv.getAll().subscribe((resp: any) => {
       this.topSliderItems = resp.data;
@@ -118,16 +121,27 @@ export class HomePage implements OnInit {
   }
 
   selectCategory(index, id) {
-    this.selectedCategory = index;
-    this.cateSrv.getAllSub(id).subscribe((resp: any) => {
-      this.categoriesRow1 = resp.data;
-      this.prodSrv.getAllByParentcategory(id).subscribe((resp: any) => {
-        this.productsByMaincategory = resp.data;
+    this.loader = true;
+    this.loadingController.create({
+      message: 'Loading...'
+    }).then((response) => {
+      response.present();
+      this.selectedCategory = index;
+      this.cateSrv.getAllSub(id).subscribe((resp: any) => {
+        this.categoriesRow1 = resp.data;
+        this.prodSrv.getAllByParentcategory(id).subscribe((resp: any) => {
+          this.productsByMaincategory = resp.data;
+          this.loader = false;
+          response.dismiss();
+        });
       });
     });
+
+
+
   }
 
-  childcategory(item){
+  childcategory(item) {
     console.log(item._id);
     this.prodSrv.getAllBychildcategory(item._id).subscribe((resp: any) => {
       console.log(resp);

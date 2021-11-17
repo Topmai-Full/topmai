@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductService } from '../services/product.service';
 import { environment } from '../../environments/environment';
-import { ToastController } from '@ionic/angular';
+import { LoadingController, ToastController } from '@ionic/angular';
 import { ShippingService } from '../services/shipping.service';
 import { OrderService } from '../services/order.service';
 
@@ -36,6 +36,7 @@ export class FavoritesPage implements OnInit {
     public toastController: ToastController,
     private shiipingSrv: ShippingService,
     private orderSrv: OrderService,
+    private loadingController: LoadingController
   ) { }
 
   ionViewWillEnter() {
@@ -47,22 +48,32 @@ export class FavoritesPage implements OnInit {
   }
 
   get() {
-    this.totalAmount = 0;
-    const ar = JSON.parse(localStorage.getItem('products'));
-    this.prodSrv.findCartProducts(ar).subscribe((resp: any) => {
-      this.loader = true;
-      this.cartItems = resp.data;
-      for (let i = 0; i < this.cartItems.length; i++) {
-        this.totalAmount += this.cartItems[i].product.price * this.cartItems[i].qty;
+
+    this.loader = true;
+    this.loadingController.create({
+      message: 'Loading...'
+    }).then((response) => {
+      response.present();
+
+
+      this.totalAmount = 0;
+      const ar = JSON.parse(localStorage.getItem('products'));
+      this.prodSrv.findCartProducts(ar).subscribe((resp: any) => {
+        this.cartItems = resp.data;
+        for (let i = 0; i < this.cartItems.length; i++) {
+          this.totalAmount += this.cartItems[i].product.price * this.cartItems[i].qty;
+        }
+      });
+
+      const user = JSON.parse(localStorage.getItem('user'));
+      if (user != null) {
+        this.shiipingSrv.getAllByuser(user._id).subscribe((resp: any) => {
+          this.shippings = resp.data;
+          this.loader = false;
+          response.dismiss();
+        });
       }
     });
-
-    const user = JSON.parse(localStorage.getItem('user'));
-    if (user != null) {
-      this.shiipingSrv.getAllByuser(user._id).subscribe((resp: any) => {
-        this.shippings = resp.data;
-      });
-    }
   }
 
 

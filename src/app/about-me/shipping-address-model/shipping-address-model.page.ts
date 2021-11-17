@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 import { ShippingService } from './../../services/shipping.service';
 import { Component, OnInit } from '@angular/core';
-import { ModalController, AlertController, ToastController } from '@ionic/angular';
+import { ModalController, AlertController, ToastController, LoadingController } from '@ionic/angular';
 import { ConfirmationPopoverPage } from '../confirmation-popover/confirmation-popover.page';
 
 @Component({
@@ -13,11 +13,13 @@ export class ShippingAddressModelPage implements OnInit {
 
   shippings: any;
   user: any;
+  loader = false;
   constructor(
     public modalController: ModalController,
     private shiipingSrv: ShippingService,
     private alertCtrl: AlertController,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private loadingController: LoadingController
   ) { }
 
   ngOnInit() {
@@ -25,9 +27,18 @@ export class ShippingAddressModelPage implements OnInit {
   }
 
   getAll() {
-    this.user = JSON.parse(localStorage.getItem('user'));
-    this.shiipingSrv.getAllByuser(this.user._id).subscribe((resp: any) => {
-      this.shippings = resp.data;
+    this.loader = true;
+    this.loadingController.create({
+      message: 'Loading...'
+    }).then((response) => {
+      response.present();
+
+      this.user = JSON.parse(localStorage.getItem('user'));
+      this.shiipingSrv.getAllByuser(this.user._id).subscribe((resp: any) => {
+        this.shippings = resp.data;
+        this.loader = false;
+        response.dismiss();
+      });
     });
   }
 

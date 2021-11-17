@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/prefer-for-of */
 /* eslint-disable max-len */
 import { Component, OnInit } from '@angular/core';
-import { AlertController, ModalController, ToastController } from '@ionic/angular';
+import { AlertController, LoadingController, ModalController, ToastController } from '@ionic/angular';
 import { ReciptConfirmationModelPage } from '../recipt-confirmation-model/recipt-confirmation-model.page';
 import { ProductService } from '../../../services/product.service';
 import { environment } from '../../../../environments/environment.prod';
@@ -12,6 +12,7 @@ import { environment } from '../../../../environments/environment.prod';
   styleUrls: ['./one-item-buy-model.page.scss'],
 })
 export class OneItemBuyModelPage implements OnInit {
+  loader = false;
   modelId: any;
   product: any;
   baseUrl = environment.baseUrl;
@@ -29,17 +30,28 @@ export class OneItemBuyModelPage implements OnInit {
     public modalController: ModalController,
     private prodSrv: ProductService,
     private alertCtrl: AlertController,
-    public toastController: ToastController
+    public toastController: ToastController,
+    private loadingController: LoadingController
   ) {
   }
 
   ngOnInit() {
-    this.products = JSON.parse(localStorage.getItem('products'));
-    this.modelId = localStorage.getItem('selectedProduct');
-    this.formOj.productId = this.modelId;
-    this.prodSrv.getById(this.modelId).subscribe((resp: any) => {
-      this.product = resp.product;
-      this.productVarients = resp.pvov;
+
+    this.loader = true;
+    this.loadingController.create({
+      message: 'Loading...'
+    }).then((response) => {
+      response.present();
+
+      this.products = JSON.parse(localStorage.getItem('products'));
+      this.modelId = localStorage.getItem('selectedProduct');
+      this.formOj.productId = this.modelId;
+      this.prodSrv.getById(this.modelId).subscribe((resp: any) => {
+        this.product = resp.product;
+        this.productVarients = resp.pvov;
+        this.loader = false;
+        response.dismiss();
+      });
     });
 
   }
@@ -96,6 +108,7 @@ export class OneItemBuyModelPage implements OnInit {
               this.products.push(this.formOj);
               this.presentToast('Successfully Added');
               localStorage.setItem('products', JSON.stringify(this.products));
+              this.dismiss();
             }
           }
         }
@@ -113,42 +126,9 @@ export class OneItemBuyModelPage implements OnInit {
         this.products.push(this.formOj);
         this.presentToast('Successfully Added');
         localStorage.setItem('products', JSON.stringify(this.products));
+        this.dismiss();
       }
     }
-    // const modal = await this.modalController.create({
-    //   component: ReciptConfirmationModelPage,
-    // });
-    // return await modal.present();
-
-    // localStorage.setItem('products', JSON.stringify(this.products));
-    // const modal = await this.modalController.create({
-    //   component: ReciptConfirmationModelPage,
-    // });
-    // return await modal.present();
-
-    // const alert = await this.alertCtrl.create({
-    //   header: 'Are you sure',
-    //   message: 'You want to Buy this Product?',
-    //   buttons: [
-    //     {
-    //       text: 'Cancel',
-    //       role: 'cancel',
-    //       cssClass: 'secondary',
-    //       handler: (blah) => {
-    //         console.log('Cancel');
-    //       }
-    //     }, {
-    //       text: 'Okay',
-    //       handler: async () => {
-    //         console.log(this.products);
-    //         if (this.products === null) {
-    //           this.products = [];
-    //         }
-    //       }
-    //     }
-    //   ]
-    // });
-    // await alert.present();
   }
 
   extractNameFromJson(obj) {

@@ -26,6 +26,7 @@ export class ConfirmationPopoverPage implements OnInit {
     address: '',
     zip: '',
     user: '',
+    phone: '',
     id: ''
   };
 
@@ -47,6 +48,7 @@ export class ConfirmationPopoverPage implements OnInit {
         console.log(resp);
         this.formObj.address = resp.data.address;
         this.formObj.name = resp.data.name;
+        this.formObj.phone = resp.data.phone;
         this.formObj.zip = resp.data.zip;
         this.formObj.id = resp.data._id;
       });

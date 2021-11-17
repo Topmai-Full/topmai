@@ -1,4 +1,4 @@
-<ion-content fullscreen>
+<ion-content fullscreen *ngIf="!loader">
   <ion-toolbar>
     <ion-buttons slot="start" (click)="goBack()">
       <ion-icon style="font-size: 30px; color: white; background-color: rgba(0, 0, 0, 0.425); border-radius: 15px;"
@@ -161,7 +161,7 @@
 
 </ion-content>
 
-<ion-footer>
+<ion-footer *ngIf="!loader">
   <ion-grid style="padding: 0">
     <ion-row style="height: 50px; background-color: white;" class="new-grid">
       <ion-col class="itm-col" size="4">

@@ -1,4 +1,4 @@
-<ion-content>
+<ion-content *ngIf="!loader">
   <ion-header [translucent]="true" class="color-header" style="position: relative">
     <ion-icon (click)="goBack()" style="position: absolute; top:12px; font-size: 25px;" name="chevron-back-outline">
     </ion-icon>
@@ -103,7 +103,7 @@
 
 </ion-content>
 
-<ion-footer *ngIf="cartItems?.length > 0">
+<ion-footer *ngIf="cartItems?.length > 0 && !loader">
   <ion-grid style="padding: 0">
     <ion-row style="height: 50px; background-color: white;" class="new-grid">
       <ion-col class="itm-col" size="12">

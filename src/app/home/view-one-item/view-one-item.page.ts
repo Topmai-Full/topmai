@@ -6,7 +6,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { OneItemBuyModelPage } from './one-item-buy-model/one-item-buy-model.page';
-import { IonInfiniteScroll, ModalController } from '@ionic/angular';
+import { IonInfiniteScroll, LoadingController, ModalController } from '@ionic/angular';
 import { IonSlides } from '@ionic/angular';
 import { ProductService } from 'src/app/services/product.service';
 import { environment } from '../../../environments/environment.prod';
@@ -19,6 +19,7 @@ import { environment } from '../../../environments/environment.prod';
 export class ViewOneItemPage implements OnInit {
   @ViewChild('mySlider') slides: IonSlides;
   id;
+  loader = false;
   imageSet; innerWidth; selectedImagesSet; subSliderImages;
   ImageArray: any = [];
   product: any;
@@ -32,6 +33,7 @@ export class ViewOneItemPage implements OnInit {
     public modalController: ModalController,
     private prodSrv: ProductService,
     private _route: ActivatedRoute,
+    private loadingController: LoadingController
   ) {
     this.id = this.route.snapshot.paramMap.get('id');
     this.subSliderImages = [
@@ -59,13 +61,23 @@ export class ViewOneItemPage implements OnInit {
   }
 
   ngOnInit() {
-    this.innerWidth = window.innerWidth;
-    this.routeId = this._route.snapshot.params['id'];
-    this.prodSrv.getById(this.routeId).subscribe((resp: any) => {
-      console.log(resp);
-      this.product = resp.product;
-      this.productImages = resp.product.image;
+
+    this.loader = true;
+    this.loadingController.create({
+      message: 'Loading...'
+    }).then((response) => {
+      response.present();
+
+      this.innerWidth = window.innerWidth;
+      this.routeId = this._route.snapshot.params['id'];
+      this.prodSrv.getById(this.routeId).subscribe((resp: any) => {
+        this.product = resp.product;
+        this.productImages = resp.product.image;
+        this.loader = false;
+        response.dismiss();
+      });
     });
+
   }
 
   goBack() {
