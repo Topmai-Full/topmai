@@ -81,7 +81,7 @@
     <ion-slide>
       <ion-grid style="margin-top: 10px; text-align: center; color: #787878; font-size: 12px" class="grid-categories">
         <ion-row class="ion-justify-content-around">
-          <ion-col size="2" *ngFor="let item of categoriesRow1;" (click)="childcategory(item)">
+          <ion-col size="2" *ngFor="let item of categoriesRow1" (click)="childcategory(item)">
             <div>
               <img style="width: 50px; " src="{{baseUrl}}/{{item?.image}}" />
               <div style="margin-top:3px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">

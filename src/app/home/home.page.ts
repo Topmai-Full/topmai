@@ -106,7 +106,7 @@ export class HomePage implements OnInit {
     this.cateSrv.getAll().subscribe((resp: any) => {
       this.topSliderItems = resp.data;
       this.cateSrv.getAllSub(resp.data[0]._id).subscribe((resp: any) => {
-        this.categoriesRow1 = resp.data;
+        this.categoriesRow1 = resp.data.slice(0,10);
       });
     });
   }
@@ -130,7 +130,7 @@ export class HomePage implements OnInit {
       this.cateSrv.getAllSub(id).subscribe((resp: any) => {
         this.categoriesRow1 = resp.data;
         this.prodSrv.getAllByParentcategory(id).subscribe((resp: any) => {
-          this.productsByMaincategory = resp.data;
+          this.productsByMaincategory = resp.data.slice(0,10);
           this.loader = false;
           response.dismiss();
         });

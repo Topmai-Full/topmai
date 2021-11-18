@@ -257,6 +257,7 @@ let ConfirmationPopoverPage = class ConfirmationPopoverPage {
             address: '',
             zip: '',
             user: '',
+            phone: '',
             id: ''
         };
     }
@@ -276,6 +277,7 @@ let ConfirmationPopoverPage = class ConfirmationPopoverPage {
                 console.log(resp);
                 this.formObj.address = resp.data.address;
                 this.formObj.name = resp.data.name;
+                this.formObj.phone = resp.data.phone;
                 this.formObj.zip = resp.data.zip;
                 this.formObj.id = resp.data._id;
             }));
@@ -637,19 +639,29 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ShippingAddressModelPage = class ShippingAddressModelPage {
-    constructor(modalController, shiipingSrv, alertCtrl, toastController) {
+    constructor(modalController, shiipingSrv, alertCtrl, toastController, loadingController) {
         this.modalController = modalController;
         this.shiipingSrv = shiipingSrv;
         this.alertCtrl = alertCtrl;
         this.toastController = toastController;
+        this.loadingController = loadingController;
+        this.loader = false;
     }
     ngOnInit() {
         this.getAll();
     }
     getAll() {
-        this.user = JSON.parse(localStorage.getItem('user'));
-        this.shiipingSrv.getAllByuser(this.user._id).subscribe((resp) => {
-            this.shippings = resp.data;
+        this.loader = true;
+        this.loadingController.create({
+            message: 'Loading...'
+        }).then((response) => {
+            response.present();
+            this.user = JSON.parse(localStorage.getItem('user'));
+            this.shiipingSrv.getAllByuser(this.user._id).subscribe((resp) => {
+                this.shippings = resp.data;
+                this.loader = false;
+                response.dismiss();
+            });
         });
     }
     presentToast(title) {
@@ -716,7 +728,8 @@ ShippingAddressModelPage.ctorParameters = () => [
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__.ModalController },
     { type: _services_shipping_service__WEBPACK_IMPORTED_MODULE_2__.ShippingService },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__.AlertController },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__.ToastController }
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__.ToastController },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__.LoadingController }
 ];
 ShippingAddressModelPage = (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__decorate)([
     (0,_angular_core__WEBPACK_IMPORTED_MODULE_6__.Component)({
@@ -846,7 +859,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-content style=\"position: relative\">\r\n  <div (click)=\"dismiss()\" style=\"position: fixed; top: 10px; right: 5px; z-index: 4\">\r\n    <ion-icon style=\"font-size:30px; color: #c6c5c5\" name=\"close-circle\"></ion-icon>\r\n  </div>\r\n\r\n  <div style=\"padding: 20px 10px;\">\r\n    <div style=\"text-align: center;\" *ngIf=\"!action\">\r\n      Add shipping\r\n    </div>\r\n    <div style=\"text-align: center;\" *ngIf=\"action\">\r\n      Update shipping\r\n    </div>\r\n\r\n    <ion-row style=\"margin-top: 20px\">\r\n      <ion-col size=\"3\" style=\"display: flex;align-items: center\">\r\n        <div>NAME</div>\r\n      </ion-col>\r\n      <ion-col>\r\n        <input type=\"text\" name=\"name\" [(ngModel)]=\"formObj.name\" placeholder=\"NAME\" style=\"width: 100%\" />\r\n      </ion-col>\r\n    </ion-row>\r\n\r\n    <ion-row style=\"margin-top: 10px\">\r\n      <ion-col size=\"3\" style=\"display: flex;align-items: center\">\r\n        <div>ADDRE</div>\r\n      </ion-col>\r\n      <ion-col>\r\n        <input type=\"text\" name=\"address\" [(ngModel)]=\"formObj.address\" placeholder=\"ADDRESS\" style=\"width: 100%\" />\r\n      </ion-col>\r\n    </ion-row>\r\n\r\n    <ion-row style=\"margin-top: 10px\">\r\n      <ion-col size=\"3\" style=\"display: flex;align-items: center\">\r\n        <div>ZIP</div>\r\n      </ion-col>\r\n      <ion-col>\r\n        <input type=\"number\" name=\"zip\" [(ngModel)]=\"formObj.zip\" placeholder=\"ZIP CODE\" style=\"width: 100%\" />\r\n      </ion-col>\r\n    </ion-row>\r\n\r\n    <div id=\"checkButton\" *ngIf=\"!action\" (click)=\"create()\">\r\n      CREATE\r\n    </div>\r\n\r\n    <div id=\"checkButton\" *ngIf=\"action\" (click)=\"update()\">\r\n      UPDATE\r\n    </div>\r\n\r\n  </div>\r\n</ion-content>\r\n");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-content style=\"position: relative\">\r\n  <div (click)=\"dismiss()\" style=\"position: fixed; top: 10px; right: 5px; z-index: 4\">\r\n    <ion-icon style=\"font-size:30px; color: #c6c5c5\" name=\"close-circle\"></ion-icon>\r\n  </div>\r\n\r\n  <div style=\"padding: 20px 10px;\">\r\n    <div style=\"text-align: center;\" *ngIf=\"!action\">\r\n      Add shipping\r\n    </div>\r\n    <div style=\"text-align: center;\" *ngIf=\"action\">\r\n      Update shipping\r\n    </div>\r\n\r\n    <ion-row style=\"margin-top: 20px\">\r\n      <ion-col size=\"3\" style=\"display: flex;align-items: center\">\r\n        <div>NAME</div>\r\n      </ion-col>\r\n      <ion-col>\r\n        <input type=\"text\" name=\"name\" [(ngModel)]=\"formObj.name\" placeholder=\"Name\" style=\"width: 100%\" />\r\n      </ion-col>\r\n    </ion-row>\r\n\r\n    <ion-row style=\"margin-top: 10px\">\r\n      <ion-col size=\"3\" style=\"display: flex;align-items: center\">\r\n        <div>ADDRE</div>\r\n      </ion-col>\r\n      <ion-col>\r\n        <input type=\"text\" name=\"address\" [(ngModel)]=\"formObj.address\" placeholder=\"Address\" style=\"width: 100%\" />\r\n      </ion-col>\r\n    </ion-row>\r\n\r\n    <ion-row style=\"margin-top: 10px\">\r\n      <ion-col size=\"3\" style=\"display: flex;align-items: center\">\r\n        <div>Phone #</div>\r\n      </ion-col>\r\n      <ion-col>\r\n        <input type=\"number\" name=\"Phone\" [(ngModel)]=\"formObj.phone\" placeholder=\"Phone Number\" style=\"width: 100%\" />\r\n      </ion-col>\r\n    </ion-row>\r\n\r\n    <ion-row style=\"margin-top: 10px\">\r\n      <ion-col size=\"3\" style=\"display: flex;align-items: center\">\r\n        <div>ZIP</div>\r\n      </ion-col>\r\n      <ion-col>\r\n        <input type=\"number\" name=\"zip\" [(ngModel)]=\"formObj.zip\" placeholder=\"Zip Code\" style=\"width: 100%\" />\r\n      </ion-col>\r\n    </ion-row>\r\n\r\n    <div id=\"checkButton\" *ngIf=\"!action\" (click)=\"create()\">\r\n      CREATE\r\n    </div>\r\n\r\n    <div id=\"checkButton\" *ngIf=\"action\" (click)=\"update()\">\r\n      UPDATE\r\n    </div>\r\n\r\n  </div>\r\n</ion-content>\r\n");
 
 /***/ }),
 
@@ -906,7 +919,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-header [translucent]=\"true\" class=\"color-header\" style=\"position: relative\">\r\n  <ion-icon (click)=\"dismiss()\" style=\"position: absolute; top:4px; font-size: 30px;\" name=\"chevron-back-outline\">\r\n  </ion-icon>\r\n  <div style=\"display: flex;justify-content: center;align-items: center;height: 100%;font-size: 20px;\">\r\n    <div>\r\n      Shipping address\r\n    </div>\r\n  </div>\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n  <ion-grid *ngIf=\"shippings?.length > 0\">\r\n    <ion-row style=\"background: #FFFFFF; font-size: 15px; margin: 10px 0px;\" *ngFor=\"let item of shippings;index as i\">\r\n      <ion-col>\r\n        <div id=\"name\">\r\n          {{item?.name}}\r\n          <span>\r\n            <ion-icon class=\"actionIcon\" (click)=\"delete(item?._id)\" name=\"trash-outline\"></ion-icon>\r\n            <ion-icon class=\"actionIcon\" (click)=\"presentModal(item?._id)\" name=\"create-outline\"></ion-icon>\r\n          </span>\r\n        </div>\r\n        <div id=\"address\">\r\n          {{item?.address}}\r\n        </div>\r\n        <div style=\"color: grey;display: flex; justify-content: space-between; margin-top: 15px\">\r\n          <div style=\"display: flex; align-items: center\">\r\n            <ion-icon style=\"display: block; margin-right: 5px\" name=\"ellipse-outline\"></ion-icon>\r\n            Zip Code\r\n          </div>\r\n          <div style=\"display: flex\">\r\n            <div style=\"margin-right: 10px\">\r\n              {{item?.zip}}\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n\r\n  <ion-grid *ngIf=\"shippings?.length < 1\">\r\n    <ion-row>\r\n      <ion-col size=\"12\">\r\n        <p id=\"EmptyShipping\">Your Shipping is Empty!</p>\r\n      </ion-col>\r\n      <ion-col>\r\n        <img src=\"../../../assets/shipping.png\" alt=\"\">\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n\r\n  <div style=\"margin-top: 15px; padding: 10px\">\r\n    <div (click)=\"presentModal('new')\"\r\n      style=\"border-radius:5px; background: #df2b26; color: #FFFFFF; display: flex; align-items: center; height :40px; justify-content: center\">\r\n      <ion-icon style=\"display: block; margin-right: 5px\" name=\"add-circle\"></ion-icon>\r\n      CLICK THIS\r\n    </div>\r\n  </div>\r\n</ion-content>\r\n");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-header [translucent]=\"true\" class=\"color-header\" style=\"position: relative\" *ngIf=\"!loader\">\r\n  <ion-icon (click)=\"dismiss()\" style=\"position: absolute; top:4px; font-size: 30px;\" name=\"chevron-back-outline\">\r\n  </ion-icon>\r\n  <div style=\"display: flex;justify-content: center;align-items: center;height: 100%;font-size: 20px;\">\r\n    <div>\r\n      Shipping address\r\n    </div>\r\n  </div>\r\n</ion-header>\r\n\r\n<ion-content *ngIf=\"!loader\">\r\n\r\n  <ion-grid *ngIf=\"shippings?.length > 0\">\r\n    <ion-row style=\"background: #FFFFFF; font-size: 15px; margin: 10px 0px;\" *ngFor=\"let item of shippings;index as i\">\r\n      <ion-col>\r\n        <div id=\"name\">\r\n          {{item?.name}}\r\n          <span>\r\n            <ion-icon class=\"actionIcon\" (click)=\"delete(item?._id)\" name=\"trash-outline\"></ion-icon>\r\n            <ion-icon class=\"actionIcon\" (click)=\"presentModal(item?._id)\" name=\"create-outline\"></ion-icon>\r\n          </span>\r\n        </div>\r\n        <div id=\"address\">\r\n          {{item?.address}}\r\n        </div>\r\n        <div style=\"color: grey;display: flex; justify-content: space-between; margin-top: 15px\">\r\n          <div style=\"display: flex; align-items: center\">\r\n            <ion-icon style=\"display: block; margin-right: 5px\" name=\"ellipse-outline\"></ion-icon>\r\n            Zip Code\r\n          </div>\r\n          <div style=\"display: flex\">\r\n            <div style=\"margin-right: 10px\">\r\n              {{item?.zip}}\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div style=\"color: grey;display: flex; justify-content: space-between; margin-top: 15px\">\r\n          <div style=\"display: flex; align-items: center\">\r\n            <ion-icon style=\"display: block; margin-right: 5px\" name=\"ellipse-outline\"></ion-icon>\r\n            Phone Number\r\n          </div>\r\n          <div style=\"display: flex\">\r\n            <div style=\"margin-right: 10px\">\r\n              {{item?.phone}}\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n\r\n  <ion-grid *ngIf=\"shippings?.length < 1\">\r\n    <ion-row>\r\n      <ion-col size=\"12\">\r\n        <p id=\"EmptyShipping\">Your Shipping is Empty!</p>\r\n      </ion-col>\r\n      <ion-col>\r\n        <img src=\"../../../assets/shipping.png\" alt=\"\">\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n\r\n  <div style=\"margin-top: 15px; padding: 10px\">\r\n    <div (click)=\"presentModal('new')\"\r\n      style=\"border-radius:5px; background: #df2b26; color: #FFFFFF; display: flex; align-items: center; height :40px; justify-content: center\">\r\n      <ion-icon style=\"display: block; margin-right: 5px\" name=\"add-circle\"></ion-icon>\r\n      CLICK THIS\r\n    </div>\r\n  </div>\r\n</ion-content>\r\n");
 
 /***/ })
 

@@ -116,12 +116,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let FavoritesPage = class FavoritesPage {
-    constructor(router, prodSrv, toastController, shiipingSrv, orderSrv) {
+    constructor(router, prodSrv, toastController, shiipingSrv, orderSrv, loadingController) {
         this.router = router;
         this.prodSrv = prodSrv;
         this.toastController = toastController;
         this.shiipingSrv = shiipingSrv;
         this.orderSrv = orderSrv;
+        this.loadingController = loadingController;
         this.baseUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_3__.environment.baseUrl;
         this.user = JSON.parse(localStorage.getItem('user'));
         this.totalAmount = 0;
@@ -142,21 +143,28 @@ let FavoritesPage = class FavoritesPage {
         this.get();
     }
     get() {
-        this.totalAmount = 0;
-        const ar = JSON.parse(localStorage.getItem('products'));
-        this.prodSrv.findCartProducts(ar).subscribe((resp) => {
-            this.loader = true;
-            this.cartItems = resp.data;
-            for (let i = 0; i < this.cartItems.length; i++) {
-                this.totalAmount += this.cartItems[i].product.price * this.cartItems[i].qty;
+        this.loader = true;
+        this.loadingController.create({
+            message: 'Loading...'
+        }).then((response) => {
+            response.present();
+            this.totalAmount = 0;
+            const ar = JSON.parse(localStorage.getItem('products'));
+            this.prodSrv.findCartProducts(ar).subscribe((resp) => {
+                this.cartItems = resp.data;
+                for (let i = 0; i < this.cartItems.length; i++) {
+                    this.totalAmount += this.cartItems[i].product.price * this.cartItems[i].qty;
+                }
+            });
+            const user = JSON.parse(localStorage.getItem('user'));
+            if (user != null) {
+                this.shiipingSrv.getAllByuser(user._id).subscribe((resp) => {
+                    this.shippings = resp.data;
+                    this.loader = false;
+                    response.dismiss();
+                });
             }
         });
-        const user = JSON.parse(localStorage.getItem('user'));
-        if (user != null) {
-            this.shiipingSrv.getAllByuser(user._id).subscribe((resp) => {
-                this.shippings = resp.data;
-            });
-        }
     }
     presentToast(title) {
         return (0,tslib__WEBPACK_IMPORTED_MODULE_6__.__awaiter)(this, void 0, void 0, function* () {
@@ -216,7 +224,8 @@ FavoritesPage.ctorParameters = () => [
     { type: _services_product_service__WEBPACK_IMPORTED_MODULE_2__.ProductService },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__.ToastController },
     { type: _services_shipping_service__WEBPACK_IMPORTED_MODULE_4__.ShippingService },
-    { type: _services_order_service__WEBPACK_IMPORTED_MODULE_5__.OrderService }
+    { type: _services_order_service__WEBPACK_IMPORTED_MODULE_5__.OrderService },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__.LoadingController }
 ];
 FavoritesPage = (0,tslib__WEBPACK_IMPORTED_MODULE_6__.__decorate)([
     (0,_angular_core__WEBPACK_IMPORTED_MODULE_9__.Component)({
@@ -256,7 +265,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-content>\r\n  <ion-header [translucent]=\"true\" class=\"color-header\" style=\"position: relative\">\r\n    <ion-icon (click)=\"goBack()\" style=\"position: absolute; top:12px; font-size: 25px;\" name=\"chevron-back-outline\">\r\n    </ion-icon>\r\n    <span id=\"cartItems\" *ngIf=\"cartItems?.length > 0\">{{cartItems?.length}}</span>\r\n    <div style=\"display: flex;justify-content: flex-start;align-items: center;height: 100%\">\r\n      <div style=\"margin-left: 40px; font-weight: bold; font-size: 18px\">\r\n        Order Summary\r\n      </div>\r\n    </div>\r\n    <ion-icon style=\"position: absolute; top:12px;right: 15px; font-size: 25px;\" name=\"cart-outline\">12</ion-icon>\r\n  </ion-header>\r\n  <hr>\r\n\r\n  <ion-grid *ngIf=\"cartItems?.length > 0\">\r\n    <ion-row *ngFor=\"let item of cartItems;index as i\">\r\n      <ion-col size=\"4\" style=\"display: flex;justify-content: center;align-items: center\">\r\n        <img src=\"{{baseUrl}}/{{item?.product?.image[0]?.image}}\" style=\"height: 100px; width: 100px; display: block\" />\r\n      </ion-col>\r\n      <ion-col size=\"8\">\r\n        <span id=\"title\" *ngIf=\"item?.product?.title?.length > 25\">{{item?.product?.title.substr(0,25)}}\r\n          ..</span>\r\n        <span id=\"title\" *ngIf=\"item?.product?.title?.length < 25\">{{item?.product?.title}}</span>\r\n        <span id=\"subtitle\">{{item?.product?.subtitle}}</span>\r\n        <div style=\"justify-content: space-between; margin-top: 8px\">\r\n          <div style=\"width: 50%;display: contents;\">\r\n            US ${{item?.product?.price * item?.qty}}\r\n          </div>\r\n          <div style=\"width: 50%;float: right;\">\r\n            Qty: {{item?.qty}}\r\n          </div>\r\n          <ion-row>\r\n            <ion-col size=\"6\">\r\n              <div id=\"qtySection\">\r\n                <div (click)=\"minus(i)\" id=\"qtyButton\">\r\n                  -\r\n                </div>\r\n                <div style=\"text-align: center; display: flex; align-items: center;justify-content: center\">\r\n                  <div style=\"padding: 0px 15px; font-size: 14px\">{{item?.qty}}</div>\r\n                </div>\r\n                <div (click)=\"plus(i)\" id=\"qtyButton\">\r\n                  +\r\n                </div>\r\n              </div>\r\n            </ion-col>\r\n            <ion-col size=\"6\">\r\n              <div id=\"qtySection\">\r\n                <span id=\"varient\" *ngIf=\"item?.pvov\">{{item?.pvov?.data}}</span>\r\n              </div>\r\n            </ion-col>\r\n          </ion-row>\r\n        </div>\r\n      </ion-col>\r\n    </ion-row>\r\n\r\n    <ion-row>\r\n      <ion-col size=\"12\" class=\"mb-1\">\r\n        <span id=\"subtotal\">Sub Total</span>\r\n        <span id=\"totalAmount\">${{totalAmount}}</span>\r\n      </ion-col>\r\n      <ion-col size=\"12\" class=\"mb-1\">\r\n        <span id=\"subtotal\">Shipping Charges</span>\r\n        <span id=\"totalAmount\">${{shippingCharges}}</span>\r\n      </ion-col>\r\n      <ion-col size=\"12\" class=\"mb-1\">\r\n        <span id=\"subtotal\">Total</span>\r\n        <span id=\"totalAmount\">${{totalAmount+shippingCharges}}</span>\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n\r\n  <ion-grid *ngIf=\"cartItems?.length < 1\">\r\n    <ion-row>\r\n      <ion-col size=\"12\">\r\n        <p id=\"cartEmpty\">Your Cart is Empty!</p>\r\n      </ion-col>\r\n      <ion-col size=\"12\">\r\n        <img src=\"../../assets/imgs/emptyCart.png\" alt=\"\">\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n\r\n  <ion-row *ngIf=\"shippings?.length > 0 && cartItems?.length > 0\">\r\n    <ion-list style=\"width: 100%;\">\r\n      <ion-radio-group name=\"rd\" [(ngModel)]=\"formOj.shipping\">\r\n        <ion-list-header>\r\n          <ion-label style=\"font-size: 19px;\">\r\n            Addresses\r\n          </ion-label>\r\n        </ion-list-header>\r\n\r\n        <ion-item *ngFor=\"let item of shippings;index as i\">\r\n          <!-- <p>{{item?.name}} | </p> -->\r\n          <ion-label>{{item?.address}}</ion-label>\r\n          <ion-radio name=\"{{item?.data}}+i\" value=\"{{item?._id}}\"></ion-radio>\r\n        </ion-item>\r\n\r\n      </ion-radio-group>\r\n    </ion-list>\r\n  </ion-row>\r\n\r\n\r\n\r\n</ion-content>\r\n\r\n<ion-footer *ngIf=\"cartItems?.length > 0\">\r\n  <ion-grid style=\"padding: 0\">\r\n    <ion-row style=\"height: 50px; background-color: white;\" class=\"new-grid\">\r\n      <ion-col class=\"itm-col\" size=\"12\">\r\n        <ion-button style=\"--background: #35CA75;margin: 0px ;\" (click)=\"Order()\" expand='block'>Create Order</ion-button>\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n</ion-footer>\r\n");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-content *ngIf=\"!loader\">\r\n  <ion-header [translucent]=\"true\" class=\"color-header\" style=\"position: relative\">\r\n    <ion-icon (click)=\"goBack()\" style=\"position: absolute; top:12px; font-size: 25px;\" name=\"chevron-back-outline\">\r\n    </ion-icon>\r\n    <span id=\"cartItems\" *ngIf=\"cartItems?.length > 0\">{{cartItems?.length}}</span>\r\n    <div style=\"display: flex;justify-content: flex-start;align-items: center;height: 100%\">\r\n      <div style=\"margin-left: 40px; font-weight: bold; font-size: 18px\">\r\n        Order Summary\r\n      </div>\r\n    </div>\r\n    <ion-icon style=\"position: absolute; top:12px;right: 15px; font-size: 25px;\" name=\"cart-outline\">12</ion-icon>\r\n  </ion-header>\r\n  <hr>\r\n\r\n  <ion-grid *ngIf=\"cartItems?.length > 0\">\r\n    <ion-row *ngFor=\"let item of cartItems;index as i\">\r\n      <ion-col size=\"4\" style=\"display: flex;justify-content: center;align-items: center\">\r\n        <img src=\"{{baseUrl}}/{{item?.product?.image[0]?.image}}\" style=\"height: 100px; width: 100px; display: block\" />\r\n      </ion-col>\r\n      <ion-col size=\"8\">\r\n        <span id=\"title\" *ngIf=\"item?.product?.title?.length > 25\">{{item?.product?.title.substr(0,25)}}\r\n          ..</span>\r\n        <span id=\"title\" *ngIf=\"item?.product?.title?.length < 25\">{{item?.product?.title}}</span>\r\n        <span id=\"subtitle\">{{item?.product?.subtitle}}</span>\r\n        <div style=\"justify-content: space-between; margin-top: 8px\">\r\n          <div style=\"width: 50%;display: contents;\">\r\n            US ${{item?.product?.price * item?.qty}}\r\n          </div>\r\n          <div style=\"width: 50%;float: right;\">\r\n            Qty: {{item?.qty}}\r\n          </div>\r\n          <ion-row>\r\n            <ion-col size=\"6\">\r\n              <div id=\"qtySection\">\r\n                <div (click)=\"minus(i)\" id=\"qtyButton\">\r\n                  -\r\n                </div>\r\n                <div style=\"text-align: center; display: flex; align-items: center;justify-content: center\">\r\n                  <div style=\"padding: 0px 15px; font-size: 14px\">{{item?.qty}}</div>\r\n                </div>\r\n                <div (click)=\"plus(i)\" id=\"qtyButton\">\r\n                  +\r\n                </div>\r\n              </div>\r\n            </ion-col>\r\n            <ion-col size=\"6\">\r\n              <div id=\"qtySection\">\r\n                <span id=\"varient\" *ngIf=\"item?.pvov\">{{item?.pvov?.data}}</span>\r\n              </div>\r\n            </ion-col>\r\n          </ion-row>\r\n        </div>\r\n      </ion-col>\r\n    </ion-row>\r\n\r\n    <ion-row>\r\n      <ion-col size=\"12\" class=\"mb-1\">\r\n        <span id=\"subtotal\">Sub Total</span>\r\n        <span id=\"totalAmount\">${{totalAmount}}</span>\r\n      </ion-col>\r\n      <ion-col size=\"12\" class=\"mb-1\">\r\n        <span id=\"subtotal\">Shipping Charges</span>\r\n        <span id=\"totalAmount\">${{shippingCharges}}</span>\r\n      </ion-col>\r\n      <ion-col size=\"12\" class=\"mb-1\">\r\n        <span id=\"subtotal\">Total</span>\r\n        <span id=\"totalAmount\">${{totalAmount+shippingCharges}}</span>\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n\r\n  <ion-grid *ngIf=\"cartItems?.length < 1\">\r\n    <ion-row>\r\n      <ion-col size=\"12\">\r\n        <p id=\"cartEmpty\">Your Cart is Empty!</p>\r\n      </ion-col>\r\n      <ion-col size=\"12\">\r\n        <img src=\"../../assets/imgs/emptyCart.png\" alt=\"\">\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n\r\n  <ion-row *ngIf=\"shippings?.length > 0 && cartItems?.length > 0\">\r\n    <ion-list style=\"width: 100%;\">\r\n      <ion-radio-group name=\"rd\" [(ngModel)]=\"formOj.shipping\">\r\n        <ion-list-header>\r\n          <ion-label style=\"font-size: 19px;\">\r\n            Addresses\r\n          </ion-label>\r\n        </ion-list-header>\r\n\r\n        <ion-item *ngFor=\"let item of shippings;index as i\">\r\n          <!-- <p>{{item?.name}} | </p> -->\r\n          <ion-label>{{item?.address}}</ion-label>\r\n          <ion-radio name=\"{{item?.data}}+i\" value=\"{{item?._id}}\"></ion-radio>\r\n        </ion-item>\r\n\r\n      </ion-radio-group>\r\n    </ion-list>\r\n  </ion-row>\r\n\r\n\r\n\r\n</ion-content>\r\n\r\n<ion-footer *ngIf=\"cartItems?.length > 0 && !loader\">\r\n  <ion-grid style=\"padding: 0\">\r\n    <ion-row style=\"height: 50px; background-color: white;\" class=\"new-grid\">\r\n      <ion-col class=\"itm-col\" size=\"12\">\r\n        <ion-button style=\"--background: #35CA75;margin: 0px ;\" (click)=\"Order()\" expand='block'>Create Order</ion-button>\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n</ion-footer>\r\n");
 
 /***/ })
 

@@ -1048,15 +1048,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "HomePage": () => (/* binding */ HomePage)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! tslib */ 64762);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! tslib */ 64762);
 /* harmony import */ var _raw_loader_home_page_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !raw-loader!./home.page.html */ 49764);
 /* harmony import */ var _home_page_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./home.page.scss */ 2610);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ 39895);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/core */ 37716);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/core */ 37716);
 /* harmony import */ var _services_category_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/category.service */ 54655);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ 46797);
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../environments/environment */ 92340);
 /* harmony import */ var _services_product_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/product.service */ 66082);
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic/angular */ 80476);
 
 
 
@@ -1068,17 +1069,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 let HomePage = class HomePage {
-    constructor(cateSrv, prodSrv, router) {
+    constructor(cateSrv, prodSrv, router, loadingController) {
         this.cateSrv = cateSrv;
         this.prodSrv = prodSrv;
         this.router = router;
+        this.loadingController = loadingController;
         this.source = (0,rxjs__WEBPACK_IMPORTED_MODULE_5__.timer)(0, 1000);
         this.baseUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_3__.environment.baseUrl;
         this._second = 1000;
         this._minute = this._second * 60;
         this._hour = this._minute * 60;
         this._day = this._hour * 24;
+        this.loader = false;
         this.items = [{
                 id: 1,
                 title: 'Refrigerador Qianku',
@@ -1156,11 +1160,19 @@ let HomePage = class HomePage {
         });
     }
     selectCategory(index, id) {
-        this.selectedCategory = index;
-        this.cateSrv.getAllSub(id).subscribe((resp) => {
-            this.categoriesRow1 = resp.data;
-            this.prodSrv.getAllByParentcategory(id).subscribe((resp) => {
-                this.productsByMaincategory = resp.data;
+        this.loader = true;
+        this.loadingController.create({
+            message: 'Loading...'
+        }).then((response) => {
+            response.present();
+            this.selectedCategory = index;
+            this.cateSrv.getAllSub(id).subscribe((resp) => {
+                this.categoriesRow1 = resp.data;
+                this.prodSrv.getAllByParentcategory(id).subscribe((resp) => {
+                    this.productsByMaincategory = resp.data;
+                    this.loader = false;
+                    response.dismiss();
+                });
             });
         });
     }
@@ -1203,10 +1215,11 @@ let HomePage = class HomePage {
 HomePage.ctorParameters = () => [
     { type: _services_category_service__WEBPACK_IMPORTED_MODULE_2__.CategoryService },
     { type: _services_product_service__WEBPACK_IMPORTED_MODULE_4__.ProductService },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__.Router }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__.Router },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_7__.LoadingController }
 ];
-HomePage = (0,tslib__WEBPACK_IMPORTED_MODULE_7__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_8__.Component)({
+HomePage = (0,tslib__WEBPACK_IMPORTED_MODULE_8__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_9__.Component)({
         selector: 'app-home',
         template: _raw_loader_home_page_html__WEBPACK_IMPORTED_MODULE_0__.default,
         styles: [_home_page_scss__WEBPACK_IMPORTED_MODULE_1__.default]
@@ -6616,7 +6629,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-header [translucent]=\"true\">\r\n  <div style=\"height:65px; display: flex; align-items: center; justify-content: space-around\">\r\n    <div style=\"position:relative;margin-right: 10px;width: 80%; height: 35px; border-radius: 20px; border: 0px;\">\r\n      <input placeholder=\"Buscar\"\r\n        style=\"width: 100%; height: 35px; border-radius: 20px; border: 0px; margin-left: 10px !important;\" />\r\n      <div style=\"position: absolute; left: 25px; top: 10px\">\r\n        <img src=\"assets/homePage/searchIcon.png\" style=\"width: 13px;\" />\r\n      </div>\r\n      <div style=\"position: absolute; right: 10px;top: 10px\">\r\n        <img src=\"assets/homePage/cameraIcon.png\" style=\"width: 13px;\" />\r\n      </div>\r\n    </div>\r\n\r\n    <div style=\"margin-right: 15px; margin-left: 10px;\">\r\n      <a href=\"\"> <img src=\"assets/homePage/scanIcon.png\" href style=\"width: 30px\" /></a>\r\n    </div>\r\n    <div style=\"margin-right: 15px\">\r\n      <img src=\"assets/homePage/plusIcon.png\" style=\"width: 30px;\" />\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"gradient sticky\" style=\"overflow-y: hidden;\">\r\n    <div class=\"top-item-slider\">\r\n      <div *ngFor=\"let item of topSliderItems;let i = index\" (click)=\"selectCategory(i,item?._id)\"\r\n        [class]=\"selectedCategory===i? 'top-item top-item-selected':'top-item'\">\r\n        {{item.name}}\r\n      </div>\r\n    </div>\r\n  </div>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-grid *ngIf=\"selectedCategory===0\">\r\n    <ion-row>\r\n      <ion-col>\r\n        <ion-slides pager=\"false\">\r\n          <ion-slide>\r\n            <ion-grid style=\"margin-top: 10px; text-align: center; color: #787878; font-size: 12px\">\r\n              <ion-row class=\"ion-justify-content-around\">\r\n                <ion-col size=\"2\" *ngFor=\"let item of categoriesRow1;\" (click)=\"childcategory(item)\">\r\n                  <div>\r\n                    <img style=\"width: 60px; \" src=\"{{baseUrl}}/{{item?.image}}\" />\r\n                    <div style=\"margin-top:3px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;\">\r\n                      {{item?.name}}\r\n                    </div>\r\n                  </div>\r\n                </ion-col>\r\n              </ion-row>\r\n            </ion-grid>\r\n          </ion-slide>\r\n        </ion-slides>\r\n        <div style=\"display: flex;justify-content: space-between;\">\r\n          <div\r\n            style=\"padding-top:1px;border-left: 10px solid #ff0000; font-weight: bold; padding-left: 5px; font-size: 15px; display: flex; align-items: center\">\r\n            <div>\r\n              Ofertas de la semana\r\n            </div>\r\n          </div>\r\n          <div style=\"color: #bb0000; display: flex; margin-right: 20px\">\r\n            <div class=\"count-down-digit-container\">{{day}}</div>\r\n            <div class=\"count-down-dot-container\">:</div>\r\n            <div class=\"count-down-digit-container\">{{hours}}</div>\r\n            <div class=\"count-down-dot-container\">:</div>\r\n            <div class=\"count-down-digit-container\">{{minutes}}</div>\r\n            <div class=\"count-down-dot-container\">:</div>\r\n            <div class=\"count-down-digit-container\">{{seconds}}</div>\r\n          </div>\r\n\r\n        </div>\r\n        <app-item-slider [items]=\"items\"></app-item-slider>\r\n        <app-virtical-items></app-virtical-items>\r\n        <app-horizontal-items></app-horizontal-items>\r\n        <app-virtical-items></app-virtical-items>\r\n        <app-horizontal-items></app-horizontal-items>\r\n\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n  <ion-slides pager=\"false\" *ngIf=\"selectedCategory!==0\">\r\n    <ion-slide>\r\n      <ion-grid style=\"margin-top: 10px; text-align: center; color: #787878; font-size: 12px\" class=\"grid-categories\">\r\n        <ion-row class=\"ion-justify-content-around\">\r\n          <ion-col size=\"2\" *ngFor=\"let item of categoriesRow1;\" (click)=\"childcategory(item)\">\r\n            <div>\r\n              <img style=\"width: 50px; \" src=\"{{baseUrl}}/{{item?.image}}\" />\r\n              <div style=\"margin-top:3px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;\">\r\n                {{item.name}}\r\n              </div>\r\n            </div>\r\n          </ion-col>\r\n        </ion-row>\r\n      </ion-grid>\r\n    </ion-slide>\r\n  </ion-slides>\r\n  <ion-row *ngIf=\"selectedCategory!==0\">\r\n    <ion-col style=\"font-size: 12px\" [class]=\"getClass(i)\" *ngFor=\"let item of productsByMaincategory;let i = index\"\r\n      (click)=\"gotoItem(item?._id)\" size=\"6\">\r\n      <img src=\"{{baseUrl}}/{{item?.image[0].image}}\" id=\"productImage\"/>\r\n      <ion-row>\r\n        <ion-col size=\"12\">\r\n          <span style=\"font-size: 15px;\" *ngIf=\"item.title.length >= 35\">\r\n            {{item.title.substr(0,35)}}...\r\n          </span>\r\n          <span style=\"font-size: 15px;\" *ngIf=\"item.title.length <= 34\">\r\n            {{item.title}}\r\n          </span>\r\n        </ion-col>\r\n      </ion-row>\r\n      <ion-row style=\"display:flex;justify-content: space-between;padding-left: 5px; align-items: center\">\r\n        <div style=\"color: #6A7586\">\r\n          <span style=\"color: #DF2E24; margin-right: 5px;font-size: 19px;\">${{item.price}}</span>\r\n          <span class=\"pl-1\" *ngIf=\"item.oldprice\">${{item.oldprice}}</span>\r\n        </div>\r\n        <div *ngIf=\"item.people\">\r\n          <img style=\"height: 20px\" [src]=\"item.people\" />\r\n        </div>\r\n      </ion-row>\r\n    </ion-col>\r\n  </ion-row>\r\n</ion-content>\r\n");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-header [translucent]=\"true\">\r\n  <div style=\"height:65px; display: flex; align-items: center; justify-content: space-around\">\r\n    <div style=\"position:relative;margin-right: 10px;width: 80%; height: 35px; border-radius: 20px; border: 0px;\">\r\n      <input placeholder=\"Buscar\"\r\n        style=\"width: 100%; height: 35px; border-radius: 20px; border: 0px; margin-left: 10px !important;\" />\r\n      <div style=\"position: absolute; left: 25px; top: 10px\">\r\n        <img src=\"assets/homePage/searchIcon.png\" style=\"width: 13px;\" />\r\n      </div>\r\n      <div style=\"position: absolute; right: 10px;top: 10px\">\r\n        <img src=\"assets/homePage/cameraIcon.png\" style=\"width: 13px;\" />\r\n      </div>\r\n    </div>\r\n\r\n    <div style=\"margin-right: 15px; margin-left: 10px;\">\r\n      <a href=\"\"> <img src=\"assets/homePage/scanIcon.png\" href style=\"width: 30px\" /></a>\r\n    </div>\r\n    <div style=\"margin-right: 15px\">\r\n      <img src=\"assets/homePage/plusIcon.png\" style=\"width: 30px;\" />\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"gradient sticky\" style=\"overflow-y: hidden;\">\r\n    <div class=\"top-item-slider\">\r\n      <div *ngFor=\"let item of topSliderItems;let i = index\" (click)=\"selectCategory(i,item?._id)\"\r\n        [class]=\"selectedCategory===i? 'top-item top-item-selected':'top-item'\">\r\n        {{item.name}}\r\n      </div>\r\n    </div>\r\n  </div>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-grid *ngIf=\"selectedCategory===0\">\r\n    <ion-row>\r\n      <ion-col>\r\n        <ion-slides pager=\"false\">\r\n          <ion-slide>\r\n            <ion-grid style=\"margin-top: 10px; text-align: center; color: #787878; font-size: 12px\">\r\n              <ion-row class=\"ion-justify-content-around\">\r\n                <ion-col size=\"2\" *ngFor=\"let item of categoriesRow1;\" (click)=\"childcategory(item)\">\r\n                  <div>\r\n                    <img style=\"width: 60px; \" src=\"{{baseUrl}}/{{item?.image}}\" />\r\n                    <div style=\"margin-top:3px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;\">\r\n                      {{item?.name}}\r\n                    </div>\r\n                  </div>\r\n                </ion-col>\r\n              </ion-row>\r\n            </ion-grid>\r\n          </ion-slide>\r\n        </ion-slides>\r\n        <div style=\"display: flex;justify-content: space-between;\">\r\n          <div\r\n            style=\"padding-top:1px;border-left: 10px solid #ff0000; font-weight: bold; padding-left: 5px; font-size: 15px; display: flex; align-items: center\">\r\n            <div>\r\n              Ofertas de la semana\r\n            </div>\r\n          </div>\r\n          <div style=\"color: #bb0000; display: flex; margin-right: 20px\">\r\n            <div class=\"count-down-digit-container\">{{day}}</div>\r\n            <div class=\"count-down-dot-container\">:</div>\r\n            <div class=\"count-down-digit-container\">{{hours}}</div>\r\n            <div class=\"count-down-dot-container\">:</div>\r\n            <div class=\"count-down-digit-container\">{{minutes}}</div>\r\n            <div class=\"count-down-dot-container\">:</div>\r\n            <div class=\"count-down-digit-container\">{{seconds}}</div>\r\n          </div>\r\n\r\n        </div>\r\n        <app-item-slider [items]=\"items\"></app-item-slider>\r\n        <app-virtical-items></app-virtical-items>\r\n        <app-horizontal-items></app-horizontal-items>\r\n        <app-virtical-items></app-virtical-items>\r\n        <app-horizontal-items></app-horizontal-items>\r\n\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n  <p *ngIf=\"selectedCategory!==0 && categoriesRow1?.length < 0\"> No categories founds </p>\r\n  <ion-slides pager=\"false\" *ngIf=\"selectedCategory!==0 && !loader\">\r\n    <ion-slide>\r\n      <ion-grid style=\"margin-top: 10px; text-align: center; color: #787878; font-size: 12px\" class=\"grid-categories\">\r\n        <ion-row class=\"ion-justify-content-around\">\r\n          <ion-col size=\"2\" *ngFor=\"let item of categoriesRow1;\" (click)=\"childcategory(item)\">\r\n            <div>\r\n              <img style=\"width: 50px; \" src=\"{{baseUrl}}/{{item?.image}}\" />\r\n              <div style=\"margin-top:3px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;\">\r\n                {{item.name}}\r\n              </div>\r\n            </div>\r\n          </ion-col>\r\n        </ion-row>\r\n      </ion-grid>\r\n    </ion-slide>\r\n  </ion-slides>\r\n  <!-- <p *ngIf=\"selectedCategory!==0 && productsByMaincategory?.length < 0\"> No Products founds </p> -->\r\n  <ion-row *ngIf=\"selectedCategory!==0 && !loader\">\r\n    <ion-col style=\"font-size: 12px\" [class]=\"getClass(i)\" *ngFor=\"let item of productsByMaincategory;let i = index\"\r\n      (click)=\"gotoItem(item?._id)\" size=\"6\">\r\n      <img src=\"{{baseUrl}}/{{item?.image[0].image}}\" id=\"productImage\"/>\r\n      <ion-row>\r\n        <ion-col size=\"12\">\r\n          <span style=\"font-size: 15px;\" *ngIf=\"item.title.length >= 35\">\r\n            {{item.title.substr(0,35)}}...\r\n          </span>\r\n          <span style=\"font-size: 15px;\" *ngIf=\"item.title.length <= 34\">\r\n            {{item.title}}\r\n          </span>\r\n        </ion-col>\r\n      </ion-row>\r\n      <ion-row style=\"display:flex;justify-content: space-between;padding-left: 5px; align-items: center\">\r\n        <div style=\"color: #6A7586\">\r\n          <span style=\"color: #DF2E24; margin-right: 5px;font-size: 19px;\">${{item.price}}</span>\r\n          <span class=\"pl-1\" *ngIf=\"item.oldprice\">${{item.oldprice}}</span>\r\n        </div>\r\n        <div *ngIf=\"item.people\">\r\n          <img style=\"height: 20px\" [src]=\"item.people\" />\r\n        </div>\r\n      </ion-row>\r\n    </ion-col>\r\n  </ion-row>\r\n</ion-content>\r\n");
 
 /***/ }),
 
